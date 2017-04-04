@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+  <class name="OrderItem" table="`Order Details`">
+    <composite-id>
+      <key-many-to-one name="Order" column="OrderId" lazy="proxy" />
+      <key-many-to-one name="Product" column="ProductId" lazy="proxy" />
+    </composite-id>
+    <property name ="UnitPrice"/>
+    <property name ="Quantity" />
+    <property name ="Discount" />
+  </class>
+</hibernate-mapping>

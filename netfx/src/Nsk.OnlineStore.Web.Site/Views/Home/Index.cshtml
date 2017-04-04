@@ -1,0 +1,52 @@
+﻿@model Nsk.OnlineStore.Web.Site.Models.Home.IndexViewModel
+@{
+    ViewBag.Title = "Online Store - Northwind Starter Kit";
+}
+<div class="row" style="padding-top: 50px">
+
+        <h1>Northwind Starter Kit</h1>
+
+</div>
+
+<div class="row">
+    <h3>Categories</h3>
+    <ul class="list-inline">
+        @foreach (var category in Model.Categories)
+        {
+            <li class="col-md-3">
+                <a href="@UrlBuilder.BuildProductsByCategoryPageUrl(category.Id, category.Name)">
+                    <img src="@UrlBuilder.BuildProductThumbnailUrl(category.Id)" style="border: 0" alt="@string.Format("{0}", category.Name)" /><br />
+                    <span>@category.Name</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+<div class="row">
+    <h3>Best selling</h3>
+    <ul class="list-inline">
+        @foreach (var product in Model.BestSellingProducts)
+        {
+            <li itemscope itemtype="http://schema.org/Product" class="col-md-3">
+                <a itemprop="url" href="@UrlBuilder.BuildProductPageUrl(product.Id, product.Name)">
+                    <img src="@UrlBuilder.BuildProductThumbnailUrl(product.Id)" style="border: 0" alt="@string.Format("{0}", product.Name)" /><br />
+                    <span itemprop="name" style="font-weight: bold;">@product.Name</span>
+                </a><br />
+                by <span itemprop="seller">@product.SupplierName</span><br />
+                <span itemprop="price">@product.UnitPrice.Value.ToString("0.00")</span>
+            </li>
+        }
+    </ul>
+</div>
+@section head
+{
+    <style>
+        ul[class="list-inline"] li {
+            text-align: center;
+        }
+    </style>
+}
+@section scripts
+{
+ 
+}

@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="/css/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div>
+        <div id="header" style="width: 100%">
+            <div id="logo">
+                <a href="/">NSK</a>
+            </div>
+            <div id="SearchBox">
+                <span>Search</span><br />
+                <form method="post">
+                <input type="text" name="query" style="width: 90%" /><input type="image" alt="Search" title="Go" src="" />
+                </form>
+            </div>
+        </div>
+        <div id="main" style="text-align: center; width: 100%">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div id="footer" style="width: 100%">
+            Conditions of use | Privacy Notice<br />
+            <span style="font-size: small"><a href="http://www.manageddesigns.it">Managed Designs</a></span>
+        </div>
+    </div>
+</body>
+</html>

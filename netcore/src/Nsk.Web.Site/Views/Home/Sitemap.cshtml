@@ -1,0 +1,26 @@
+﻿@model Nsk.Web.Site.Models.Home.SiteMapViewModel
+@{
+    Layout = null;
+
+    //Response.ContentType = "text/xml";
+    //Response.Write("<?xml version='1.0' encoding='UTF-8' ?>");
+}
+<?xml version='1.0' encoding='UTF-8' ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+@foreach (var category in Model.Categories)
+{
+    <url>
+        <loc>@string.Format("http://localhost:8002{0}", UrlBuilder.BuildProductsByCategoryPageUrl(category.Id, category.Name))</loc>
+        @*<lastmod>@tip.DateOfLastModification.ToString("yyyy-MM-dd")</lastmod>*@
+        <changefreq>daily</changefreq>
+    </url>
+}
+@foreach (var product in Model.Products)
+{
+    <url>
+        <loc>@string.Format("http://localhost:8002{0}", UrlBuilder.BuildProductPageUrl(product.Id, product.Name))</loc>
+        @*<lastmod>@tip.DateOfLastModification.ToString("yyyy-MM-dd")</lastmod>*@
+        <changefreq>weekly</changefreq>
+    </url>
+}
+</urlset>

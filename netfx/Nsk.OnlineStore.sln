@@ -1,0 +1,106 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.OnlineStore.Data", "src\Nsk.OnlineStore.Data\Nsk.OnlineStore.Data.csproj", "{59565BFF-A544-4470-8065-184736D14B8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.OnlineStore.Web.Site", "src\Nsk.OnlineStore.Web.Site\Nsk.OnlineStore.Web.Site.csproj", "{1453E33E-795D-413F-B623-04CC8741A9D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.OnlineStore.Web.Site.Tests", "src\Nsk.OnlineStore.Web.Site.Tests\Nsk.OnlineStore.Web.Site.Tests.csproj", "{9B701354-5A79-43F0-9E1F-6A4F141FE3D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.OnlineStore.Web.Services", "src\Nsk.OnlineStore.Web.Services\Nsk.OnlineStore.Web.Services.csproj", "{D321CE24-9222-4132-82DA-730EAE5A9022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.OnlineStore.Commands", "src\Nsk.OnlineStore.Commands\Nsk.OnlineStore.Commands.csproj", "{9E5A2287-6065-4F24-A799-68F2BE87AE19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.OnlineStore.Commands.Tests", "src\Nsk.OnlineStore.Commands.Tests\Nsk.OnlineStore.Commands.Tests.csproj", "{9A6055A0-9353-464B-B591-0ED5C2E9466C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.OnlineStore.Web.Services.Tests", "src\Nsk.OnlineStore.Web.Services.Tests\Nsk.OnlineStore.Web.Services.Tests.csproj", "{6E067979-25AD-468E-A829-A9C7C093882C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8235A7E8-F584-44F9-9101-850558D43808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.OnlineStore.Data.Tests", "src\Nsk.OnlineStore.Data.Tests\Nsk.OnlineStore.Data.Tests.csproj", "{52D1E0F2-E66C-4E8D-8E8A-C4CB1FDA1A80}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs01
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = src\\Nsk.OnlineStore.Data\\Nsk.OnlineStore.Data.csproj
+		SccProjectName1 = src/Nsk.OnlineStore.Data
+		SccLocalPath1 = src\\Nsk.OnlineStore.Data
+		SccProjectUniqueName2 = src\\Nsk.OnlineStore.Web.Site.Tests\\Nsk.OnlineStore.Web.Site.Tests.csproj
+		SccProjectTopLevelParentUniqueName2 = Nsk.OnlineStore.sln
+		SccProjectName2 = src/Nsk.OnlineStore.Web.Site.Tests
+		SccLocalPath2 = src\\Nsk.OnlineStore.Web.Site.Tests
+		SccProjectUniqueName3 = src\\Nsk.OnlineStore.Web.Site\\Nsk.OnlineStore.Web.Site.csproj
+		SccProjectName3 = src/Nsk.OnlineStore.Web.Site
+		SccLocalPath3 = src\\Nsk.OnlineStore.Web.Site
+		SccProjectUniqueName4 = src\\Nsk.OnlineStore.Web.Services\\Nsk.OnlineStore.Web.Services.csproj
+		SccProjectName4 = src/Nsk.OnlineStore.Web.Services
+		SccLocalPath4 = src\\Nsk.OnlineStore.Web.Services
+		SccProjectUniqueName5 = src\\Nsk.OnlineStore.Commands\\Nsk.OnlineStore.Commands.csproj
+		SccProjectName5 = src/Nsk.OnlineStore.Commands
+		SccLocalPath5 = src\\Nsk.OnlineStore.Commands
+		SccProjectUniqueName6 = src\\Nsk.OnlineStore.Commands.Tests\\Nsk.OnlineStore.Commands.Tests.csproj
+		SccProjectTopLevelParentUniqueName6 = Nsk.OnlineStore.sln
+		SccProjectName6 = src/Nsk.OnlineStore.Commands.Tests
+		SccLocalPath6 = src\\Nsk.OnlineStore.Commands.Tests
+		SccProjectUniqueName7 = src\\Nsk.OnlineStore.Web.Services.Tests\\Nsk.OnlineStore.Web.Services.Tests.csproj
+		SccProjectTopLevelParentUniqueName7 = Nsk.OnlineStore.sln
+		SccProjectName7 = src/Nsk.OnlineStore.Web.Services.Tests
+		SccLocalPath7 = src\\Nsk.OnlineStore.Web.Services.Tests
+		SccProjectUniqueName8 = src\\Nsk.OnlineStore.Data.Tests\\Nsk.OnlineStore.Data.Tests.csproj
+		SccProjectTopLevelParentUniqueName8 = Nsk.OnlineStore.sln
+		SccProjectName8 = src/Nsk.OnlineStore.Data.Tests
+		SccLocalPath8 = src\\Nsk.OnlineStore.Data.Tests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59565BFF-A544-4470-8065-184736D14B8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59565BFF-A544-4470-8065-184736D14B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59565BFF-A544-4470-8065-184736D14B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59565BFF-A544-4470-8065-184736D14B8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1453E33E-795D-413F-B623-04CC8741A9D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1453E33E-795D-413F-B623-04CC8741A9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1453E33E-795D-413F-B623-04CC8741A9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1453E33E-795D-413F-B623-04CC8741A9D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B701354-5A79-43F0-9E1F-6A4F141FE3D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B701354-5A79-43F0-9E1F-6A4F141FE3D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B701354-5A79-43F0-9E1F-6A4F141FE3D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B701354-5A79-43F0-9E1F-6A4F141FE3D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D321CE24-9222-4132-82DA-730EAE5A9022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D321CE24-9222-4132-82DA-730EAE5A9022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D321CE24-9222-4132-82DA-730EAE5A9022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D321CE24-9222-4132-82DA-730EAE5A9022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E5A2287-6065-4F24-A799-68F2BE87AE19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E5A2287-6065-4F24-A799-68F2BE87AE19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E5A2287-6065-4F24-A799-68F2BE87AE19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E5A2287-6065-4F24-A799-68F2BE87AE19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A6055A0-9353-464B-B591-0ED5C2E9466C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A6055A0-9353-464B-B591-0ED5C2E9466C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A6055A0-9353-464B-B591-0ED5C2E9466C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A6055A0-9353-464B-B591-0ED5C2E9466C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E067979-25AD-468E-A829-A9C7C093882C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E067979-25AD-468E-A829-A9C7C093882C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E067979-25AD-468E-A829-A9C7C093882C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E067979-25AD-468E-A829-A9C7C093882C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52D1E0F2-E66C-4E8D-8E8A-C4CB1FDA1A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D1E0F2-E66C-4E8D-8E8A-C4CB1FDA1A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D1E0F2-E66C-4E8D-8E8A-C4CB1FDA1A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D1E0F2-E66C-4E8D-8E8A-C4CB1FDA1A80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B701354-5A79-43F0-9E1F-6A4F141FE3D6} = {8235A7E8-F584-44F9-9101-850558D43808}
+		{9A6055A0-9353-464B-B591-0ED5C2E9466C} = {8235A7E8-F584-44F9-9101-850558D43808}
+		{6E067979-25AD-468E-A829-A9C7C093882C} = {8235A7E8-F584-44F9-9101-850558D43808}
+		{52D1E0F2-E66C-4E8D-8E8A-C4CB1FDA1A80} = {8235A7E8-F584-44F9-9101-850558D43808}
+	EndGlobalSection
+EndGlobal

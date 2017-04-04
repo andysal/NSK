@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="1a4af53f-2322-4a3b-a09b-a1105f77b2f8"
+  name="ManagedDesigns.Northwind.Architecture" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="7fc53886-9def-420b-808c-2e9b35717485"
+        name="Party"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="7b0c756a-0395-4ab1-901a-84469e5ff2ef"
+            isDerived="false"
+            sourceEndRoleName="Party"
+            targetEndRoleName="AddressInfo"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e90f36f3-31ee-4692-8c3d-760f7731f00d"
+              LastKnownName="AddressInfo"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="baf2cfee-9677-4119-8243-6494068347ec"
+                  name="Party"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f0202997-a13f-4659-9cb4-e25921c5c411"
+                  name="AddressInfo"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="27b0983c-ce80-4c2a-8d58-606c5895c7cf"
+        name="Customer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="7a48e533-21bb-40b8-b6f6-df3bc99ed95e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="437ea7f3-15a9-4b5c-bb2b-712a62bacdc3"
+              LastKnownName="Organization"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0fc8aef2-0068-4ee9-9f41-26418b806f7f"
+        name="Supplier"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="5f029feb-b1cd-4b54-a8ca-8553a89c8851"
+            isSubstitutable="false">
+            <classMoniker
+              Id="437ea7f3-15a9-4b5c-bb2b-712a62bacdc3"
+              LastKnownName="Organization"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="437ea7f3-15a9-4b5c-bb2b-712a62bacdc3"
+        name="Organization"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="f4282013-103b-465d-913d-3dbfdbb65016"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7fc53886-9def-420b-808c-2e9b35717485"
+              LastKnownName="Party"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f9072193-ce96-43cc-ab1c-780d1a98f8cc"
+        name="Person"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="8dfbb82c-e630-4365-af3d-137b6f97452e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7fc53886-9def-420b-808c-2e9b35717485"
+              LastKnownName="Party"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="aff44247-49b3-4e40-ad2f-258048e2a9c6"
+        name="Employee"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="de31ede9-888e-45c2-bbfd-e4bc5cbf9413"
+            isSubstitutable="false">
+            <classMoniker
+              Id="f9072193-ce96-43cc-ab1c-780d1a98f8cc"
+              LastKnownName="Person"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e90f36f3-31ee-4692-8c3d-760f7731f00d"
+        name="AddressInfo"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="37db0631-8b2d-4028-aa6e-3bd617473651"
+        name="Web User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c5a5576c-8d16-40f6-90f4-a81e88688151"
+            isDerived="false"
+            sourceEndRoleName="Web User"
+            targetEndRoleName="Search catalog"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="67ae41d1-02ed-4661-ad59-3dfb5e6d94c5"
+              LastKnownName="Search catalog"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="00990589-b530-47bb-9cc8-47e98fb263be"
+                  name="Web User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7d39316d-a148-4bbc-8b62-ee518596de2e"
+                  name="Search catalog"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7628f4ac-ae2f-4076-8829-7fb547fd5453"
+            isDerived="false"
+            sourceEndRoleName="Web User"
+            targetEndRoleName="Browse products by Category"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fbb4b7a5-3e77-4275-b684-7fd22e516779"
+              LastKnownName="Browse products by Category"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="965d9fba-3544-4f97-a908-2122cdfc7375"
+                  name="Web User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dbf57df4-d17a-4c95-9652-b8c9b540dee3"
+                  name="Browse products by Category"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c0894db9-c84d-4801-8df8-45356f63cf5b"
+            isDerived="false"
+            sourceEndRoleName="Web User"
+            targetEndRoleName="View product  data sheet"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="52a43e0d-a4cf-4655-a241-3b00eb459a3d"
+              LastKnownName="View product  detail"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="17b2a1a4-6fff-4bc5-9359-26e252def16c"
+                  name="Web User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="79973368-0902-4c1c-88e1-35df71e85a2f"
+                  name="View product  data sheet"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="43877741-1149-4668-83ee-5c681a890936"
+            isDerived="false"
+            sourceEndRoleName="Web User"
+            targetEndRoleName="Add product to cart"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="81ee2d7e-05e3-4f1a-9861-f1efd884bfa0"
+              LastKnownName="Add product to cart"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="73c80263-9f64-4088-b48e-83811f9b506e"
+                  name="Web User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4ed7f41d-6d2b-4a74-bf7b-4e088c6aeda5"
+                  name="Add product to cart"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="2dc5d3cd-c65a-42b6-bed9-d854d3263557"
+        name="Database"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="5323e60d-9d6d-4cab-afa1-4e57598c124d"
+        name="Catalog"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="67ae41d1-02ed-4661-ad59-3dfb5e6d94c5"
+        name="Search catalog"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="9c0d3a9a-ac04-48c6-8d06-caf4864ead6a"
+            isDerived="false"
+            sourceEndRoleName="Search catalog"
+            targetEndRoleName="Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="2dc5d3cd-c65a-42b6-bed9-d854d3263557"
+              LastKnownName="Database"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ef7faff2-f8f9-4822-9583-8272f11b7522"
+                  name="Search catalog"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fb354f90-1ee6-4c26-b7b9-cbf076c94f4f"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="5323e60d-9d6d-4cab-afa1-4e57598c124d"
+            LastKnownName="Catalog"
+            LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fbb4b7a5-3e77-4275-b684-7fd22e516779"
+        name="Browse products by Category"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="078ef22e-24e3-42ed-9802-c5be6816cd66"
+            isDerived="false"
+            sourceEndRoleName="Browse products by Category"
+            targetEndRoleName="Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="2dc5d3cd-c65a-42b6-bed9-d854d3263557"
+              LastKnownName="Database"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5e64b3c6-33f0-49e1-84d8-a5eff934c883"
+                  name="Browse products by Category"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="352bbc20-c06f-4714-b0cc-693d4de979d2"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="5323e60d-9d6d-4cab-afa1-4e57598c124d"
+            LastKnownName="Catalog"
+            LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="52a43e0d-a4cf-4655-a241-3b00eb459a3d"
+        name="View product  detail"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8084eced-241e-4023-b90b-ad86231af4fa"
+            isDerived="false"
+            sourceEndRoleName="View product  data sheet"
+            targetEndRoleName="Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="2dc5d3cd-c65a-42b6-bed9-d854d3263557"
+              LastKnownName="Database"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e9eb4afc-e8a6-44ef-b49e-7cb029ed0901"
+                  name="View product  data sheet"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d564b548-d8d5-4dfe-a225-53ddf73bf378"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend
+            Id="a2ca59d0-f05b-461a-9522-9e3f9ec5a163">
+            <useCaseMoniker
+              Id="fbb4b7a5-3e77-4275-b684-7fd22e516779"
+              LastKnownName="Browse products by Category"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          </extend>
+          <extend
+            Id="ae433d22-097f-4cf1-8b9b-be5780237559">
+            <useCaseMoniker
+              Id="67ae41d1-02ed-4661-ad59-3dfb5e6d94c5"
+              LastKnownName="Search catalog"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="5323e60d-9d6d-4cab-afa1-4e57598c124d"
+            LastKnownName="Catalog"
+            LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          <subsystemMoniker
+            Id="bc72b09a-4ed9-4615-82f2-6bf7828c971e"
+            LastKnownName="Shopping cart"
+            LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="bc72b09a-4ed9-4615-82f2-6bf7828c971e"
+        name="Shopping cart"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="81ee2d7e-05e3-4f1a-9861-f1efd884bfa0"
+        name="Add product to cart"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="62a6d1de-4d05-4524-bf2e-bdb121eb6dc9"
+            handle="%tfs.codeplex.com\TFS01#81e6e737-5a20-4d0f-a97c-cb01297b46e0$29768"
+            tag="Work Item Reference" />
+        </referencesInternal>
+        <targetEnds>
+          <association
+            Id="dd7043e9-483f-4ebf-ac7a-f1d9bc29f273"
+            isDerived="false"
+            sourceEndRoleName="Add product to cart"
+            targetEndRoleName="Database"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="2dc5d3cd-c65a-42b6-bed9-d854d3263557"
+              LastKnownName="Database"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="22061065-7de9-4699-b22e-43813e394705"
+                  name="Add product to cart"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="66e46c6c-5f12-4c6f-8edc-fcf20f6b745c"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend
+            Id="1e6cf29f-7094-4db6-9bbc-fabcbda69665">
+            <useCaseMoniker
+              Id="52a43e0d-a4cf-4655-a241-3b00eb459a3d"
+              LastKnownName="View product  detail"
+              LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="bc72b09a-4ed9-4615-82f2-6bf7828c971e"
+            LastKnownName="Shopping cart"
+            LastKnownLocation="ManagedDesigns.Northwind.Architecture.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

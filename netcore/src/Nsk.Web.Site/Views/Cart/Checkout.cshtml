@@ -1,0 +1,47 @@
+﻿@model Nsk.Web.Site.Models.Cart.CheckoutViewModel
+@{
+    ViewBag.Title = "Checkout - NSK";
+}
+
+<div class="row" >
+    <div class="col-md-9">
+        <h2>Your Cart</h2>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="pull-left">
+                                    <a href="@UrlBuilder.BuildProductPageUrl(item.ProductId, item.ProductName)">
+                                        <img src="@UrlBuilder.BuildProductThumbnailUrl(item.ProductId)" style="border: 0" alt="@item.ProductName">
+                                    </a>
+                                </div>
+                                <div class="pull-left">
+                                    <a href="@UrlBuilder.BuildProductPageUrl(item.ProductId, item.ProductName)"><strong>@item.ProductName</strong></a><br />
+                                    by @item.SupplierName
+                                    <br />
+                                </div>
+                            </div>
+                        </td>
+                        <td>@item.UnitPrice</td>
+                        <td>@item.Quantity</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div class="row">
+            <span>Total Price: @Model.TotalPrice</span>
+        </div>
+    </div>
+</div>
+

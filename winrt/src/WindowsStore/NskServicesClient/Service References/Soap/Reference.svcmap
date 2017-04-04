@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c3694dd8-a8c4-4bb4-a182-a6983231cee8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost.:1183/Soap/CatalogServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CatalogServices.xsd" MetadataType="Schema" ID="66bd86f8-d056-46ea-b97f-acaae58f70ed" SourceId="1" SourceUrl="http://localhost.:1183/Soap/CatalogServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="CatalogServices1.xsd" MetadataType="Schema" ID="f6105436-0498-4573-a873-fdab179334d9" SourceId="1" SourceUrl="http://localhost.:1183/Soap/CatalogServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="CatalogServices.disco" MetadataType="Disco" ID="3eb735a5-e364-49a8-84c6-cdcfb18011f0" SourceId="1" SourceUrl="http://localhost.:1183/Soap/CatalogServices.svc?disco" />
+    <MetadataFile FileName="CatalogServices2.xsd" MetadataType="Schema" ID="9d76f06e-0c34-4bc5-9fb3-b47af43c41fa" SourceId="1" SourceUrl="http://localhost.:1183/Soap/CatalogServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="CatalogServices.wsdl" MetadataType="Wsdl" ID="30962d67-8306-4393-8566-13bbb9f9e754" SourceId="1" SourceUrl="http://localhost.:1183/Soap/CatalogServices.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Model.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customers" EntityType="Model.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employees" EntityType="Model.Store.Employees" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeTerritories" EntityType="Model.Store.EmployeeTerritories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order Details" EntityType="Model.Store.Order Details" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders" EntityType="Model.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="Model.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Region" EntityType="Model.Store.Region" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Shippers" EntityType="Model.Store.Shippers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Suppliers" EntityType="Model.Store.Suppliers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Territories" EntityType="Model.Store.Territories" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Employees_Employees" Association="Model.Store.FK_Employees_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees1" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeTerritories_Employees" Association="Model.Store.FK_EmployeeTerritories_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="EmployeeTerritories" EntitySet="EmployeeTerritories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeTerritories_Territories" Association="Model.Store.FK_EmployeeTerritories_Territories">
+            <End Role="Territories" EntitySet="Territories" />
+            <End Role="EmployeeTerritories" EntitySet="EmployeeTerritories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Orders" Association="Model.Store.FK_Order_Details_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order Details" EntitySet="Order Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Products" Association="Model.Store.FK_Order_Details_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Order Details" EntitySet="Order Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Customers" Association="Model.Store.FK_Orders_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Employees" Association="Model.Store.FK_Orders_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Shippers" Association="Model.Store.FK_Orders_Shippers">
+            <End Role="Shippers" EntitySet="Shippers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="Model.Store.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Suppliers" Association="Model.Store.FK_Products_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Territories_Region" Association="Model.Store.FK_Territories_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Territories" EntitySet="Territories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="Version" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="nchar" Nullable="false" MaxLength="5" />
+          <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ContactTitle" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" />
+          <Property Name="TitleOfCourtesy" Type="nvarchar" MaxLength="25" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="HireDate" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="HomePhone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="4" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="Notes" Type="ntext" />
+          <Property Name="ReportsTo" Type="int" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EmployeeTerritories">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="TerritoryID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="TerritoryID" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Order Details">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="money" Nullable="false" />
+          <Property Name="Quantity" Type="smallint" Nullable="false" />
+          <Property Name="Discount" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="nchar" MaxLength="5" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="RequiredDate" Type="datetime" />
+          <Property Name="ShippedDate" Type="datetime" />
+          <Property Name="ShipVia" Type="int" />
+          <Property Name="Freight" Type="money" />
+          <Property Name="ShipName" Type="nvarchar" MaxLength="40" />
+          <Property Name="ShipAddress" Type="nvarchar" MaxLength="60" />
+          <Property Name="ShipCity" Type="nvarchar" MaxLength="15" />
+          <Property Name="ShipRegion" Type="nvarchar" MaxLength="15" />
+          <Property Name="ShipPostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ShipCountry" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="QuantityPerUnit" Type="nvarchar" MaxLength="20" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="UnitsInStock" Type="smallint" />
+          <Property Name="UnitsOnOrder" Type="smallint" />
+          <Property Name="ReorderLevel" Type="smallint" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="int" Nullable="false" />
+          <Property Name="RegionDescription" Type="nchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Shippers">
+          <Key>
+            <PropertyRef Name="ShipperID" />
+          </Key>
+          <Property Name="ShipperID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ContactTitle" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+          <Property Name="HomePage" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Territories">
+          <Key>
+            <PropertyRef Name="TerritoryID" />
+          </Key>
+          <Property Name="TerritoryID" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="TerritoryDescription" Type="nchar" Nullable="false" MaxLength="50" />
+          <Property Name="RegionID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Employees_Employees">
+          <End Role="Employees" Type="Model.Store.Employees" Multiplicity="0..1" />
+          <End Role="Employees1" Type="Model.Store.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Employees1">
+              <PropertyRef Name="ReportsTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeTerritories_Employees">
+          <End Role="Employees" Type="Model.Store.Employees" Multiplicity="1" />
+          <End Role="EmployeeTerritories" Type="Model.Store.EmployeeTerritories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeTerritories">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeTerritories_Territories">
+          <End Role="Territories" Type="Model.Store.Territories" Multiplicity="1" />
+          <End Role="EmployeeTerritories" Type="Model.Store.EmployeeTerritories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Territories">
+              <PropertyRef Name="TerritoryID" />
+            </Principal>
+            <Dependent Role="EmployeeTerritories">
+              <PropertyRef Name="TerritoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Orders">
+          <End Role="Orders" Type="Model.Store.Orders" Multiplicity="1" />
+          <End Role="Order Details" Type="Model.Store.Order Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Order Details">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Products">
+          <End Role="Products" Type="Model.Store.Products" Multiplicity="1" />
+          <End Role="Order Details" Type="Model.Store.Order Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Order Details">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Customers">
+          <End Role="Customers" Type="Model.Store.Customers" Multiplicity="0..1" />
+          <End Role="Orders" Type="Model.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Employees">
+          <End Role="Employees" Type="Model.Store.Employees" Multiplicity="0..1" />
+          <End Role="Orders" Type="Model.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Shippers">
+          <End Role="Shippers" Type="Model.Store.Shippers" Multiplicity="0..1" />
+          <End Role="Orders" Type="Model.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shippers">
+              <PropertyRef Name="ShipperID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ShipVia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="Model.Store.Categories" Multiplicity="0..1" />
+          <End Role="Products" Type="Model.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Suppliers">
+          <End Role="Suppliers" Type="Model.Store.Suppliers" Multiplicity="0..1" />
+          <End Role="Products" Type="Model.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Territories_Region">
+          <End Role="Region" Type="Model.Store.Region" Multiplicity="1" />
+          <End Role="Territories" Type="Model.Store.Territories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionID" />
+            </Principal>
+            <Dependent Role="Territories">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReadModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="NskReadModel" annotation:LazyLoadingEnabled="true" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <EntitySet Name="Categories" EntityType="ReadModel.Category" />
+          <EntitySet Name="Customers" EntityType="ReadModel.Customer" />
+          <EntitySet Name="Employees" EntityType="ReadModel.Employee" />
+          <EntitySet Name="Order_Details" EntityType="ReadModel.OrderItem" />
+          <EntitySet Name="Orders" EntityType="ReadModel.Order" />
+          <EntitySet Name="Products" EntityType="ReadModel.Product" />
+          <EntitySet Name="Regions" EntityType="ReadModel.Region" />
+          <EntitySet Name="Shippers" EntityType="ReadModel.Shipper" />
+          <EntitySet Name="Suppliers" EntityType="ReadModel.Supplier" />
+          <EntitySet Name="Territories" EntityType="ReadModel.Territory" />
+          <AssociationSet Name="FK_Products_Categories" Association="ReadModel.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Customers" Association="ReadModel.FK_Orders_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Employees" Association="ReadModel.FK_Employees_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees1" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Employees" Association="ReadModel.FK_Orders_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Orders" Association="ReadModel.FK_Order_Details_Orders">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Products" Association="ReadModel.FK_Order_Details_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Shippers" Association="ReadModel.FK_Orders_Shippers">
+            <End Role="Shippers" EntitySet="Shippers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Suppliers" Association="ReadModel.FK_Products_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Territories_Region" Association="ReadModel.FK_Territories_Region">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Territories" EntitySet="Territories" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeTerritories" Association="ReadModel.EmployeeTerritories">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Territories" EntitySet="Territories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="ReadModel.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+          <Property Type="Binary" Name="Version" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <Property Name="FaxNumber" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Orders" Relationship="ReadModel.FK_Orders_Customers" FromRole="Customers" ToRole="Orders" />
+          <Property Name="ContactInfo" Type="ReadModel.ContactInfo" Nullable="false" />
+          <Property Name="MainPostalAddress" Type="ReadModel.PostalAddress" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="TitleOfCourtesy" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="HireDate" Type="DateTime" Precision="3" />
+          <Property Name="HomePhone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <Property Name="Extension" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PhotoPath" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Reports" Relationship="ReadModel.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
+          <NavigationProperty Name="Manager" Relationship="ReadModel.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
+          <NavigationProperty Name="Orders" Relationship="ReadModel.FK_Orders_Employees" FromRole="Employees" ToRole="Orders" />
+          <NavigationProperty Name="Territories" Relationship="ReadModel.EmployeeTerritories" FromRole="Employees" ToRole="Territories" />
+          <Property Name="MainPostalAddress" Type="ReadModel.PostalAddress" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Quantity" Type="Int16" Nullable="false" />
+          <Property Name="Discount" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="ReadModel.FK_Order_Details_Orders" FromRole="Order_Details" ToRole="Orders" />
+          <NavigationProperty Name="Product" Relationship="ReadModel.FK_Order_Details_Products" FromRole="Order_Details" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="RequiredDate" Type="DateTime" Precision="3" />
+          <Property Name="ShippedDate" Type="DateTime" Precision="3" />
+          <Property Name="Freight" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ShipName" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Customer" Relationship="ReadModel.FK_Orders_Customers" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="Employee" Relationship="ReadModel.FK_Orders_Employees" FromRole="Orders" ToRole="Employees" />
+          <NavigationProperty Name="Items" Relationship="ReadModel.FK_Order_Details_Orders" FromRole="Orders" ToRole="Order_Details" a:GetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Public" />
+          <NavigationProperty Name="Shipper" Relationship="ReadModel.FK_Orders_Shippers" FromRole="Orders" ToRole="Shippers" />
+          <Property Name="ShippingAddress" Type="ReadModel.PostalAddress" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="QuantityPerUnit" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitsInStock" Type="Int16" />
+          <Property Name="UnitsOnOrder" Type="Int16" />
+          <Property Name="ReorderLevel" Type="Int16" />
+          <Property Name="IsDiscontinued" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="ReadModel.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="OrderItems" Relationship="ReadModel.FK_Order_Details_Products" FromRole="Products" ToRole="Order_Details" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+          <NavigationProperty Name="Supplier" Relationship="ReadModel.FK_Products_Suppliers" FromRole="Products" ToRole="Suppliers" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Territories" Relationship="ReadModel.FK_Territories_Region" FromRole="Region" ToRole="Territories" />
+        </EntityType>
+        <EntityType Name="Shipper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Orders" Relationship="ReadModel.FK_Orders_Shippers" FromRole="Shippers" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <Property Name="FaxNumber" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+          <Property Name="HomePage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="ReadModel.FK_Products_Suppliers" FromRole="Suppliers" ToRole="Products" />
+          <Property Name="ContactInfo" Type="ReadModel.ContactInfo" Nullable="false" />
+          <Property Name="MainPostalAddress" Type="ReadModel.PostalAddress" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Territory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Region" Relationship="ReadModel.FK_Territories_Region" FromRole="Territories" ToRole="Region" />
+          <NavigationProperty Name="Employees" Relationship="ReadModel.EmployeeTerritories" FromRole="Territories" ToRole="Employees" />
+        </EntityType>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="ReadModel.Category" Multiplicity="0..1" />
+          <End Role="Products" Type="ReadModel.Product" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Orders_Customers">
+          <End Role="Customers" Type="ReadModel.Customer" Multiplicity="0..1" />
+          <End Role="Orders" Type="ReadModel.Order" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Employees_Employees">
+          <End Role="Employees" Type="ReadModel.Employee" Multiplicity="0..1" />
+          <End Role="Employees1" Type="ReadModel.Employee" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Orders_Employees">
+          <End Role="Employees" Type="ReadModel.Employee" Multiplicity="0..1" />
+          <End Role="Orders" Type="ReadModel.Order" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Order_Details_Orders">
+          <End Role="Orders" Type="ReadModel.Order" Multiplicity="1" />
+          <End Role="Order_Details" Type="ReadModel.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Products">
+          <End Role="Products" Type="ReadModel.Product" Multiplicity="1" />
+          <End Role="Order_Details" Type="ReadModel.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Shippers">
+          <End Role="Shippers" Type="ReadModel.Shipper" Multiplicity="0..1" />
+          <End Role="Orders" Type="ReadModel.Order" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Products_Suppliers">
+          <End Role="Suppliers" Type="ReadModel.Supplier" Multiplicity="0..1" />
+          <End Role="Products" Type="ReadModel.Product" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Territories_Region">
+          <End Role="Region" Type="ReadModel.Region" Multiplicity="1" />
+          <End Role="Territories" Type="ReadModel.Territory" Multiplicity="*" />
+        </Association>
+        <Association Name="EmployeeTerritories">
+          <End Role="Employees" Type="ReadModel.Employee" Multiplicity="*" />
+          <End Role="Territories" Type="ReadModel.Territory" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="ContactInfo">
+          <Property Type="String" Name="ContactName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactTitle" MaxLength="30" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="PostalAddress">
+          <Property Type="String" Name="Address" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Region" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="15" FixedLength="false" Unicode="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="NskReadModel">
+          <EntitySetMapping Name="Categories"><EntityTypeMapping TypeName="ReadModel.Category"><MappingFragment StoreEntitySet="Categories">
+            <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Id" ColumnName="CategoryID" />
+            <ScalarProperty Name="Name" ColumnName="CategoryName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Customers"><EntityTypeMapping TypeName="ReadModel.Customer"><MappingFragment StoreEntitySet="Customers">
+            <ScalarProperty Name="Id" ColumnName="CustomerID" />
+            <ScalarProperty Name="Name" ColumnName="CompanyName" />
+            <ScalarProperty Name="PhoneNumber" ColumnName="Phone" />
+            <ScalarProperty Name="FaxNumber" ColumnName="Fax" />
+                <ComplexProperty Name="ContactInfo">
+                  <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+                  <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                </ComplexProperty>
+                <ComplexProperty Name="MainPostalAddress">
+                  <ScalarProperty Name="Country" ColumnName="Country" />
+                  <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                  <ScalarProperty Name="Region" ColumnName="Region" />
+                  <ScalarProperty Name="City" ColumnName="City" />
+                  <ScalarProperty Name="Address" ColumnName="Address" />
+                </ComplexProperty>
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Employees"><EntityTypeMapping TypeName="ReadModel.Employee"><MappingFragment StoreEntitySet="Employees">
+            <ScalarProperty Name="Id" ColumnName="EmployeeID" />
+            <ScalarProperty Name="Surname" ColumnName="LastName" />
+            <ScalarProperty Name="Name" ColumnName="FirstName" />
+            <ScalarProperty Name="JobTitle" ColumnName="Title" />
+            <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+            <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+            <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+            <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+            <ScalarProperty Name="Extension" ColumnName="Extension" />
+            <ScalarProperty Name="Notes" ColumnName="Notes" />
+            <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ComplexProperty Name="MainPostalAddress">
+                  <ScalarProperty Name="Country" ColumnName="Country" />
+                  <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                  <ScalarProperty Name="Region" ColumnName="Region" />
+                  <ScalarProperty Name="City" ColumnName="City" />
+                  <ScalarProperty Name="Address" ColumnName="Address" />
+                </ComplexProperty>
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Order_Details"><EntityTypeMapping TypeName="ReadModel.OrderItem"><MappingFragment StoreEntitySet="Order Details">
+            <ScalarProperty Name="OrderId" ColumnName="OrderID" />
+            <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+            <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+            <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+            <ScalarProperty Name="Discount" ColumnName="Discount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Orders"><EntityTypeMapping TypeName="ReadModel.Order"><MappingFragment StoreEntitySet="Orders">
+            <ScalarProperty Name="Id" ColumnName="OrderID" />
+            <ScalarProperty Name="Date" ColumnName="OrderDate" />
+            <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
+            <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
+            <ScalarProperty Name="Freight" ColumnName="Freight" />
+            <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+                <ComplexProperty Name="ShippingAddress">
+                  <ScalarProperty Name="Country" ColumnName="ShipCountry" />
+                  <ScalarProperty Name="PostalCode" ColumnName="ShipPostalCode" />
+                  <ScalarProperty Name="Region" ColumnName="ShipRegion" />
+                  <ScalarProperty Name="City" ColumnName="ShipCity" />
+                  <ScalarProperty Name="Address" ColumnName="ShipAddress" />
+                </ComplexProperty>
+            </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Products"><EntityTypeMapping TypeName="ReadModel.Product"><MappingFragment StoreEntitySet="Products">
+            <ScalarProperty Name="Id" ColumnName="ProductID" />
+            <ScalarProperty Name="Name" ColumnName="ProductName" />
+            <ScalarProperty Name="QuantityPerUnit" ColumnName="QuantityPerUnit" />
+            <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+            <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+            <ScalarProperty Name="UnitsOnOrder" ColumnName="UnitsOnOrder" />
+            <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+            <ScalarProperty Name="IsDiscontinued" ColumnName="Discontinued" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Regions"><EntityTypeMapping TypeName="ReadModel.Region"><MappingFragment StoreEntitySet="Region">
+            <ScalarProperty Name="Id" ColumnName="RegionID" />
+            <ScalarProperty Name="Description" ColumnName="RegionDescription" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Shippers"><EntityTypeMapping TypeName="ReadModel.Shipper"><MappingFragment StoreEntitySet="Shippers">
+            <ScalarProperty Name="Id" ColumnName="ShipperID" />
+            <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Suppliers"><EntityTypeMapping TypeName="ReadModel.Supplier"><MappingFragment StoreEntitySet="Suppliers">
+            <ScalarProperty Name="Id" ColumnName="SupplierID" />
+            <ScalarProperty Name="Name" ColumnName="CompanyName" />
+            <ScalarProperty Name="PhoneNumber" ColumnName="Phone" />
+            <ScalarProperty Name="FaxNumber" ColumnName="Fax" />
+            <ScalarProperty Name="HomePage" ColumnName="HomePage" />
+                <ComplexProperty Name="ContactInfo">
+                  <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+                  <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                </ComplexProperty>
+                <ComplexProperty Name="MainPostalAddress">
+                  <ScalarProperty Name="Country" ColumnName="Country" />
+                  <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                  <ScalarProperty Name="Region" ColumnName="Region" />
+                  <ScalarProperty Name="City" ColumnName="City" />
+                  <ScalarProperty Name="Address" ColumnName="Address" />
+                </ComplexProperty>
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Territories"><EntityTypeMapping TypeName="ReadModel.Territory"><MappingFragment StoreEntitySet="Territories">
+            <ScalarProperty Name="Id" ColumnName="TerritoryID" />
+            <ScalarProperty Name="Description" ColumnName="TerritoryDescription" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="FK_Products_Categories" TypeName="ReadModel.FK_Products_Categories" StoreEntitySet="Products">
+            <EndProperty Name="Categories">
+              <ScalarProperty Name="Id" ColumnName="CategoryID" />
+            </EndProperty>
+            <EndProperty Name="Products">
+              <ScalarProperty Name="Id" ColumnName="ProductID" />
+            </EndProperty>
+            <Condition ColumnName="CategoryID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Orders_Customers" TypeName="ReadModel.FK_Orders_Customers" StoreEntitySet="Orders">
+            <EndProperty Name="Customers">
+              <ScalarProperty Name="Id" ColumnName="CustomerID" />
+            </EndProperty>
+            <EndProperty Name="Orders">
+              <ScalarProperty Name="Id" ColumnName="OrderID" />
+            </EndProperty>
+            <Condition ColumnName="CustomerID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Employees_Employees" TypeName="ReadModel.FK_Employees_Employees" StoreEntitySet="Employees">
+            <EndProperty Name="Employees">
+              <ScalarProperty Name="Id" ColumnName="ReportsTo" />
+            </EndProperty>
+            <EndProperty Name="Employees1">
+              <ScalarProperty Name="Id" ColumnName="EmployeeID" />
+            </EndProperty>
+            <Condition ColumnName="ReportsTo" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Orders_Employees" TypeName="ReadModel.FK_Orders_Employees" StoreEntitySet="Orders">
+            <EndProperty Name="Employees">
+              <ScalarProperty Name="Id" ColumnName="EmployeeID" />
+            </EndProperty>
+            <EndProperty Name="Orders">
+              <ScalarProperty Name="Id" ColumnName="OrderID" />
+            </EndProperty>
+            <Condition ColumnName="EmployeeID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Orders_Shippers" TypeName="ReadModel.FK_Orders_Shippers" StoreEntitySet="Orders">
+            <EndProperty Name="Shippers">
+              <ScalarProperty Name="Id" ColumnName="ShipVia" />
+            </EndProperty>
+            <EndProperty Name="Orders">
+              <ScalarProperty Name="Id" ColumnName="OrderID" />
+            </EndProperty>
+            <Condition ColumnName="ShipVia" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Products_Suppliers" TypeName="ReadModel.FK_Products_Suppliers" StoreEntitySet="Products">
+            <EndProperty Name="Suppliers">
+              <ScalarProperty Name="Id" ColumnName="SupplierID" />
+            </EndProperty>
+            <EndProperty Name="Products">
+              <ScalarProperty Name="Id" ColumnName="ProductID" />
+            </EndProperty>
+            <Condition ColumnName="SupplierID" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Territories_Region" TypeName="ReadModel.FK_Territories_Region" StoreEntitySet="Territories">
+            <EndProperty Name="Region">
+              <ScalarProperty Name="Id" ColumnName="RegionID" />
+            </EndProperty>
+            <EndProperty Name="Territories">
+              <ScalarProperty Name="Id" ColumnName="TerritoryID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="EmployeeTerritories" TypeName="ReadModel.EmployeeTerritories" StoreEntitySet="EmployeeTerritories">
+            <EndProperty Name="Employees">
+              <ScalarProperty Name="Id" ColumnName="EmployeeID" />
+            </EndProperty>
+            <EndProperty Name="Territories">
+              <ScalarProperty Name="Id" ColumnName="TerritoryID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="NskModel">
+        <EntityTypeShape EntityType="ReadModel.Category" Width="1.5" PointX="0.75" PointY="15.375" Height="1.787985026041671" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.Customer" Width="2.125" PointX="0.5" PointY="1.375" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.Employee" Width="1.5" PointX="0.75" PointY="7.375" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.OrderItem" Width="1.5" PointX="5.25" PointY="1.375" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.Order" Width="1.5" PointX="3" PointY="1" Height="3.1340950520833326" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.Product" Width="1.5" PointX="3" PointY="16.5" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.Region" Width="1.5" PointX="2.75" PointY="6" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.Shipper" Width="1.5" PointX="0.75" PointY="12.25" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.Supplier" Width="1.5" PointX="0.75" PointY="18.125" Height="2.5571907552083388" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReadModel.Territory" Width="1.5" PointX="5" PointY="7.875" Height="1.7879850260416674" IsExpanded="true" />
+        <AssociationConnector Association="ReadModel.FK_Products_Categories" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="16.831492512977373" />
+          <ConnectorPoint PointX="3" PointY="16.831492512977373" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.FK_Orders_Customers" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.5574446614583337" />
+          <ConnectorPoint PointX="3" PointY="2.5574446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.FK_Employees_Employees" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.2819230769230767" PointY="11.470602213541667" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="11.720602213541667" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="11.720602213541667" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="11.470602213541667" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.FK_Orders_Employees" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.564392903534074" />
+          <ConnectorPoint PointX="4.40625" PointY="9.564392903534074" />
+          <ConnectorPoint PointX="4.40625" PointY="4.1340950520833326" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.FK_Order_Details_Orders" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.5574446614583328" />
+          <ConnectorPoint PointX="5.25" PointY="2.5574446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.FK_Order_Details_Products" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="18.067047526041666" />
+          <ConnectorPoint PointX="6.65625" PointY="18.067047526041666" />
+          <ConnectorPoint PointX="6.65625" PointY="3.7398893229166656" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.FK_Orders_Shippers" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="13.143992513020834" />
+          <ConnectorPoint PointX="4.3749975" PointY="13.143992513020834" />
+          <ConnectorPoint PointX="4.3749975" PointY="4.1340950520833326" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.FK_Products_Suppliers" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="18.879547526041669" />
+          <ConnectorPoint PointX="3" PointY="18.879547526041669" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.FK_Territories_Region" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.25" PointY="6.797841796875" />
+          <ConnectorPoint PointX="4.2916641666666671" PointY="6.7978417968749989" />
+          <ConnectorPoint PointX="4.4895833333333321" PointY="6.797841796875" />
+          <ConnectorPoint PointX="5.75" PointY="6.797841796875" />
+          <ConnectorPoint PointX="5.75" PointY="7.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ReadModel.EmployeeTerritories" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.657196451767037" />
+          <ConnectorPoint PointX="4.2916641666666671" PointY="8.657196451767037" />
+          <ConnectorPoint PointX="4.4895833333333321" PointY="8.657196451767037" />
+          <ConnectorPoint PointX="5" PointY="8.657196451767037" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

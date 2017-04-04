@@ -1,0 +1,47 @@
+<%@ Master Language="C#" AutoEventWireup="true" Inherits="System.Web.Mvc.ViewMasterPage<Nsk.Web.OnlineStore.Models.NskPageBaseViewModel>"  %>
+<%@ Import Namespace="System.Web.Optimization" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder runat="server" ID="TitlePlaceholder" />
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <%: Styles.Render("~/Content/css") %>
+    <%: Styles.Render("~/Content/themes/base/css") %>
+    <%: Scripts.Render("~/bundles/jquery") %> 
+    <%: Scripts.Render("~/bundles/jqueryui") %>
+    <%: Scripts.Render("~/bundles/jqueryval") %>
+     
+    <asp:ContentPlaceHolder runat="server" ID="HeaderPlaceholder" />
+</head>
+<body>
+   <div>
+        <div>
+            <div style="float: left;">
+                <h2><a href="/Home">NSK Online Store</a></h2>
+            </div>
+            <% if (!Request.IsAuthenticated) {%>
+            <div style="float: right;">
+                Sign in to get personalized recommendations. New customer? <a href="/Home/Register">Start here</a>.
+            </div>
+            <% } %>
+            <div style="clear: both;">
+                <% using (Html.BeginForm("Search", "Catalog")) { %>
+                    <span>Search </span>
+                    <%: Html.DropDownListFor(model => model.SelectedCategoryId, new SelectList(Model.ProductCategories, "Id", "Name"))%>
+                    <%: Html.TextBoxFor(model => model.SearchQuery)%>
+                    <%: Html.ValidationMessageFor(model => model.SearchQuery)%>
+                    <input type="submit" />
+                <% } %>
+            </div>
+        </div>
+        <div style="clear: both;">
+            <asp:ContentPlaceHolder ID="MainContentPlaceholder" runat="server" />
+        </div>
+        <div style="clear: both;">
+            NSK &copy; Copyleft 2008, by <a href="http://www.manageddesigns.it">Managed Designs</a>
+        </div>
+    </div>
+</body>
+</html>

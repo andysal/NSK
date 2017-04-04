@@ -1,0 +1,61 @@
+﻿@model Nsk.Web.Site.Models.Catalog.ProductDetailViewModel
+
+@{
+    ViewBag.Title = string.Format("{0} - NSK - {1}", Model.Name, Model.CategoryName);
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <img src="@UrlBuilder.BuildProductThumbnailUrl(Model.Id)" style="border: 0; padding: 50px" alt="@string.Format("{0}", Model.Name)" />
+    </div>
+    <div class="col-md-6">
+        <article itemscope itemtype="http://schema.org/Product">
+            <h2 itemprop="name">@Model.Name</h2>
+            by <a href="@UrlBuilder.BuildProductsBySupplierPageUrl(Model.SupplierId, Model.SupplierName)"><span itemprop="brand">@Model.SupplierName</span></a><br />
+            @Html.LabelFor(model => model.UnitPrice) <span itemprop="price">@Model.UnitPrice.ToString("0.00")</span><br />
+            @Html.LabelFor(model => model.UnitsInStock) <span>@Model.UnitsInStock</span><br />
+            @Html.LabelFor(model => model.QuantityPerUnit) <span>@Model.QuantityPerUnit</span>
+        </article>
+    </div>
+    <div class="col-md-3" style="padding-top: 50px">
+        <form class="form-horizontal" method="post" action="/Cart/AddProduct">
+            <input type="hidden" id="productId" name="productId" value="@Model.Id" />
+            <div class="form-group">
+                <label for="quantity" class="control-label col-md-3">Quantity</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" value="1" data-val="true" data-val-required="*">@*<span class="field-validation-valid" data-valmsg-for="quantity" data-valmsg-replace="true"></span>*@
+                </div>
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <button type="submit" class="btn btn-warning" style="width: 60%">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>Add to cart
+                </button>
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <button type="button" class="btn btn-default" style="width: 60%">
+                    <span class="glyphicon glyphicon-star"></span>Add to wish list
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (Model.RelatedProducts != null && Model.RelatedProducts.Count() > 0)
+{
+    <div class="row">
+        <h4>Related products</h4>
+        <ul class="list-inline">
+            @foreach (var product in Model.RelatedProducts)
+            {
+                <li itemscope itemtype="http://schema.org/Product" class="col-md-3">
+                    <a itemprop="url" href="@UrlBuilder.BuildProductPageUrl(product.Id, product.Name)">
+                        <img src="@UrlBuilder.BuildProductThumbnailUrl(product.Id)" style="border: 0" alt="@string.Format("{0}", product.Name)" /><br />
+                        <span itemprop="name" style="font-weight: bold;">@product.Name</span>
+                    </a><br />
+                    <span itemprop="price">@product.UnitPrice.ToString("0.00")</span>
+                </li>
+            }
+        </ul>
+    </div>
+}
+

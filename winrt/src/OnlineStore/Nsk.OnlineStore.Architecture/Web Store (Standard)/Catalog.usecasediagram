@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="1bca20cf-8ad6-4d16-b6a7-fa52b7363d8b" name="Catalog" linkedPackageId="ca38c727-7534-4ece-9a4e-ef719c85d56f" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="eb89d846-1870-4f9f-a15f-3a918cdcf89b" name="Web User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="37db0631-8b2d-4028-aa6e-3bd617473651" />
+        <targetEnds>
+          <association Id="5700aa35-1256-4f03-ac7f-2879a8e01c3f" isDerived="false" sourceEndRoleName="Web User" targetEndRoleName="Search catalog" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="218d5c06-918a-4f4b-aa78-ad9f9651bbe1" LastKnownName="Search catalog" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="900d646c-9970-4d9a-9881-35dd54d3e36b" name="Web User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="00990589-b530-47bb-9cc8-47e98fb263be" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="46eac0ea-b66d-45b7-8a70-3f899b560aa5" name="Search catalog" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7d39316d-a148-4bbc-8b62-ee518596de2e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c5a5576c-8d16-40f6-90f4-a81e88688151" />
+          </association>
+          <association Id="342933f3-31e0-4401-bcb6-fc182791eae5" isDerived="false" sourceEndRoleName="Web User" targetEndRoleName="Browse products by Category" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6f9f81f7-2f1f-4673-ba7e-33a1d2063c8b" LastKnownName="Browse products by Category" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="791a341a-8dc6-4c11-ab5b-2465785a35d1" name="Web User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="965d9fba-3544-4f97-a908-2122cdfc7375" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d92a5178-f712-4db1-8f5d-5cf537dc0a31" name="Browse products by Category" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="dbf57df4-d17a-4c95-9652-b8c9b540dee3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7628f4ac-ae2f-4076-8829-7fb547fd5453" />
+          </association>
+          <association Id="b14bb033-c1bf-4945-a790-5fa6b7e83ef4" isDerived="false" sourceEndRoleName="Web User" targetEndRoleName="View product  data sheet" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1be196f4-7223-46f0-a152-443877addec2" LastKnownName="View product  detail" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c55a8f5b-6480-478d-a7b0-42760211e0fd" name="Web User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="17b2a1a4-6fff-4bc5-9359-26e252def16c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="27a6ecfa-aa2b-4867-976a-1bed1587e65a" name="View product  data sheet" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="79973368-0902-4c1c-88e1-35df71e85a2f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c0894db9-c84d-4801-8df8-45356f63cf5b" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="b8bcf54b-97ea-4ec4-b91f-dacbbaf909b7" name="Database" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2dc5d3cd-c65a-42b6-bed9-d854d3263557" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="6671ce20-4f29-48c3-8adf-530364d786e6" name="Catalog" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5323e60d-9d6d-4cab-afa1-4e57598c124d" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="218d5c06-918a-4f4b-aa78-ad9f9651bbe1" name="Search catalog" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="67ae41d1-02ed-4661-ad59-3dfb5e6d94c5" />
+        <targetEnds>
+          <association Id="b2569da0-ee0c-4efe-8c1f-a241a165bb09" isDerived="false" sourceEndRoleName="Search catalog" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="b8bcf54b-97ea-4ec4-b91f-dacbbaf909b7" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="78897316-ece2-48c1-866f-513ed27434d7" name="Search catalog" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ef7faff2-f8f9-4822-9583-8272f11b7522" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1bec6c14-fc28-4c6f-bd67-3d59ba90477c" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fb354f90-1ee6-4c26-b7b9-cbf076c94f4f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9c0d3a9a-ac04-48c6-8d06-caf4864ead6a" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="6671ce20-4f29-48c3-8adf-530364d786e6" LastKnownName="Catalog" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="6f9f81f7-2f1f-4673-ba7e-33a1d2063c8b" name="Browse products by Category" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fbb4b7a5-3e77-4275-b684-7fd22e516779" />
+        <targetEnds>
+          <association Id="29a0dab9-fbe6-4fd7-9adb-52394adabbe1" isDerived="false" sourceEndRoleName="Browse products by Category" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="b8bcf54b-97ea-4ec4-b91f-dacbbaf909b7" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="67c03212-76d2-4e95-910e-0a1281088541" name="Browse products by Category" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5e64b3c6-33f0-49e1-84d8-a5eff934c883" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bd2e97ed-cad4-42e6-9a4a-51e4166d2707" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="352bbc20-c06f-4714-b0cc-693d4de979d2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="078ef22e-24e3-42ed-9802-c5be6816cd66" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="6671ce20-4f29-48c3-8adf-530364d786e6" LastKnownName="Catalog" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="1be196f4-7223-46f0-a152-443877addec2" name="View product  detail" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="52a43e0d-a4cf-4655-a241-3b00eb459a3d" />
+        <targetEnds>
+          <association Id="26f028a1-7b8e-443f-997f-1cdc79e14efe" isDerived="false" sourceEndRoleName="View product  data sheet" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="b8bcf54b-97ea-4ec4-b91f-dacbbaf909b7" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6104ab67-e711-47f6-81b0-8363cd7c90a7" name="View product  data sheet" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e9eb4afc-e8a6-44ef-b49e-7cb029ed0901" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4b48d56b-5ec7-4c54-ba69-1480b8d5fb78" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d564b548-d8d5-4dfe-a225-53ddf73bf378" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8084eced-241e-4023-b90b-ad86231af4fa" />
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend Id="ff26df58-3516-4ee6-af5a-e2fa001471ce">
+            <useCaseMoniker Id="6f9f81f7-2f1f-4673-ba7e-33a1d2063c8b" LastKnownName="Browse products by Category" />
+            <elementDefinition Id="a2ca59d0-f05b-461a-9522-9e3f9ec5a163" />
+          </extend>
+          <extend Id="a09034d6-0073-41d3-972c-94533f4d7804">
+            <useCaseMoniker Id="218d5c06-918a-4f4b-aa78-ad9f9651bbe1" LastKnownName="Search catalog" />
+            <elementDefinition Id="ae433d22-097f-4cf1-8b9b-be5780237559" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="6671ce20-4f29-48c3-8adf-530364d786e6" LastKnownName="Catalog" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="ca38c727-7534-4ece-9a4e-ef719c85d56f" name="ManagedDesigns.Northwind.Architecture">
+    <elementDefinition Id="1a4af53f-2322-4a3b-a09b-a1105f77b2f8" />
+    <profileInstances>
+      <packageHasProfileInstances Id="9ff755e2-58bd-4558-88b0-eb42466c47bc">
+        <profileInstance Id="6d883547-c714-4689-9716-383cbf11a3fe" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="3d491683-58be-473b-8231-2ae2ff99eaff">
+        <profileInstance Id="95df5f26-66a4-4ee2-958a-c5ec07f0f637" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

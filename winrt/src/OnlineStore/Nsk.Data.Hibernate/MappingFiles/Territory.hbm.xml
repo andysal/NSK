@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+  <class name="Territory" table="Territories">
+    <id name="Id" column="TerritoryId">
+      <generator class="assigned" />
+    </id>
+    <property name ="Description" column="TerritoryDescription"/>
+    <many-to-one name ="Region" column="RegionId"/>
+
+    <bag name="Employees" table="EmployeeTerritories" lazy="true" inverse="true" cascade="save-update">
+      <key column="TerritoryId"/>
+      <many-to-many class="Employee" column="EmployeeId" lazy="proxy"/>
+    </bag>
+    
+  </class>
+</hibernate-mapping>
+  

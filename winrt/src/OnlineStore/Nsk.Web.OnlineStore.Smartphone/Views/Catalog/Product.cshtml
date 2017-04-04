@@ -1,0 +1,41 @@
+﻿@model Nsk.Web.OnlineStore.Smartphone.Models.Catalog.ProductViewModel
+
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+<h2>Product</h2>
+
+<fieldset>
+    <legend>ProductViewModel</legend>
+
+    <div class="display-label">Product Id</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductDetail.Id)
+    </div>
+
+    <div class="display-label">Product Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductDetail.Name)
+    </div>
+
+    <div class="display-label">Unit Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductDetail.UnitPrice)
+    </div>
+
+    <div class="display-label">Units in Stock</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductDetail.UnitsInStock)
+    </div>
+
+    <div class="display-label">Quantity per Unit</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductDetail.QuantityPerUnit)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

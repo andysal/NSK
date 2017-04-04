@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+	<class name="Customer" table="Customers">
+		<id name="Id" column="CustomerId" type="String" length="5">
+			<generator class="assigned" />
+		</id>
+		<component name="MainPostalAddress">
+			<property name="Address"	type="String" length="60" />
+			<property name="City"		type="String" length="15" />
+			<property name="Region"		type="String" length="15"  />
+			<property name="PostalCode"	type="String" length="10"  />
+			<property name="Country"	type="String" length="15"  />
+		</component>
+		<component name="ContactInfo">
+			<property name="ContactName"	type="String" length="30" />
+			<property name="ContactTitle"	type="String" length="30" />
+		</component>
+		<property name="Name" 	column="CompanyName"	type="String" length="30" />
+		<property name="FaxNumber"		column="Fax"			    type="String" length="24"  />
+		<property name="PhoneNumber"	column="Phone"			  type="String" length="24" />
+
+    <bag name="m_Orders" table="Orders" inverse="true" cascade="all-delete-orphan" generic="true" lazy="true" fetch="subselect">
+      <key column="CustomerID" />
+      <one-to-many class="Order"/>
+    </bag>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+﻿@model Nsk.Web.OnlineStore.Smartphone.Models.Home.HomePageViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+<div>
+    <div style="border: 1px; margin-left:auto; margin-right:auto; text-align: center; width: 200px;">
+        <span style="font-weight: bold;">@Nsk.Web.OnlineStore.Smartphone.Resources.Home.Index.Recommendation</span>
+        <div>
+            <a href="/Catalog/Product/@Model.RecommendedProduct.Id"><img style="border: 0px; height: 100px; width: 100px" src="" alt="Product thumbnail" /></a>
+        </div>
+        <div>
+            <a href="/Catalog/Product/@Model.RecommendedProduct.Id">@Model.RecommendedProduct.Name</a>
+        </div>
+        <p>
+            @Model.RecommendedProduct.SupplierName<br />
+            @Model.RecommendedProduct.UnitPrice
+        </p>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+  <class name="Order" table="Orders" lazy="true">
+    <id name="Id" column="OrderId">
+      <generator class="native" />
+    </id>
+    <property name="Date" column="OrderDate" />
+    <property name="RequiredDate"	column="RequiredDate"	/>
+    <property name="ShippedDate"	column="ShippedDate"/>
+    <property name="Freight" column="Freight" />
+    <property name="ShipName" column="ShipName" />
+
+    <many-to-one name="Customer" column="CustomerID" lazy="proxy" not-null="false" fetch="select"/>
+    <many-to-one name="Employee" column="EmployeeID" lazy="proxy" not-null="false" fetch="select" />
+    <many-to-one name="Shipper" column="ShipVia"	lazy="proxy" not-null="false" fetch="select" />
+
+    <component name="ShippingAddress">
+      <property name="Address"	type="String" length="60" column="ShipAddress" />
+      <property name="City" type="String" length="15" column="ShipCity" />
+      <property name="Region" type="String" length="15" column="ShipRegion"  />
+      <property name="PostalCode"	type="String" length="10" column="ShipPostalCode" />
+      <property name="Country" type="String" length="15"  column="ShipCountry" />
+    </component>
+    <bag name="m_Items" table="Order Details" inverse="true" cascade="all-delete-orphan" generic="true" lazy="true" fetch="subselect">
+      <key column="OrderId" />
+      <one-to-many class="OrderItem"/>
+    </bag>
+  </class>
+</hibernate-mapping>

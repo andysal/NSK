@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Your Account</h2>
+<div class="row">
+    <h3>Orders</h3>
+    <ul class="list-unstyled">
+        <li><a>Order History</a></li>
+    </ul>
+</div>
+<div class="row">
+    <h3>Settings</h3>
+    <ul class="list-unstyled">
+        <li>@Html.ActionLink("Change Account Settings", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage" })</li>
+    </ul>
+</div>

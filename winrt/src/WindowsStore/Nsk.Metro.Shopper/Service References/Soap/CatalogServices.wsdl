@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CatalogServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1183/Soap/CatalogServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1183/Soap/CatalogServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1183/Soap/CatalogServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Nsk.Metro.Services.Soap" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICatalogServices_GetProductCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductCategories" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetProductCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetProductsByCategoryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsByCategoryId" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetProductsByCategoryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsByCategoryIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetProductsByCategoryName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsByCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetProductsByCategoryName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsByCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_SearchInCatalog_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchInCatalog" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_SearchInCatalog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchInCatalogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetImageUrlByCategoryId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageUrlByCategoryId" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetImageUrlByCategoryId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImageUrlByCategoryIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetProductDetailInformations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductDetailInformations" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogServices_GetProductDetailInformations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductDetailInformationsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICatalogServices">
+    <wsdl:operation name="GetProductCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogServices/GetProductCategories" message="tns:ICatalogServices_GetProductCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogServices/GetProductCategoriesResponse" message="tns:ICatalogServices_GetProductCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCategoryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogServices/GetProductsByCategoryId" message="tns:ICatalogServices_GetProductsByCategoryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogServices/GetProductsByCategoryIdResponse" message="tns:ICatalogServices_GetProductsByCategoryId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCategoryName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogServices/GetProductsByCategoryName" message="tns:ICatalogServices_GetProductsByCategoryName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogServices/GetProductsByCategoryNameResponse" message="tns:ICatalogServices_GetProductsByCategoryName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchInCatalog">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogServices/SearchInCatalog" message="tns:ICatalogServices_SearchInCatalog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogServices/SearchInCatalogResponse" message="tns:ICatalogServices_SearchInCatalog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImageUrlByCategoryId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogServices/GetImageUrlByCategoryId" message="tns:ICatalogServices_GetImageUrlByCategoryId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogServices/GetImageUrlByCategoryIdResponse" message="tns:ICatalogServices_GetImageUrlByCategoryId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetailInformations">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogServices/GetProductDetailInformations" message="tns:ICatalogServices_GetProductDetailInformations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogServices/GetProductDetailInformationsResponse" message="tns:ICatalogServices_GetProductDetailInformations_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICatalogServices" type="tns:ICatalogServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductCategories">
+      <soap:operation soapAction="http://tempuri.org/ICatalogServices/GetProductCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCategoryId">
+      <soap:operation soapAction="http://tempuri.org/ICatalogServices/GetProductsByCategoryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByCategoryName">
+      <soap:operation soapAction="http://tempuri.org/ICatalogServices/GetProductsByCategoryName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchInCatalog">
+      <soap:operation soapAction="http://tempuri.org/ICatalogServices/SearchInCatalog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImageUrlByCategoryId">
+      <soap:operation soapAction="http://tempuri.org/ICatalogServices/GetImageUrlByCategoryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetailInformations">
+      <soap:operation soapAction="http://tempuri.org/ICatalogServices/GetProductDetailInformations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CatalogServices">
+    <wsdl:port name="BasicHttpBinding_ICatalogServices" binding="tns:BasicHttpBinding_ICatalogServices">
+      <soap:address location="http://localhost:1183/Soap/CatalogServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

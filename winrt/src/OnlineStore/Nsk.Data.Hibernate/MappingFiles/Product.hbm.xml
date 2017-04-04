@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+  <class name="Product" table="Products">
+    <id name="Id" column="ProductId" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="ProductName" />
+    <many-to-one name="Supplier" column="SupplierId" cascade="save-update" />
+    <many-to-one name="Category" column="CategoryId" cascade="save-update" />
+    <property name="QuantityPerUnit" />
+    <property name="UnitPrice" />
+    <property name="UnitsInStock"/>
+    <property name="UnitsOnOrder"/>
+    <property name="ReorderLevel"/>
+    <property name="IsDiscontinued" column="Discontinued"/>
+  </class>
+</hibernate-mapping>

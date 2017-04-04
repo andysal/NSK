@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Shopping Cart - NSK";
+}
+<div class="row" data-ng-app="nskShoppingCart" data-ng-controller="ShoppingCartController">
+    <div class="col-md-9">
+        <h2>Your Cart</h2>
+        <div class="row">
+            <table class="table" data-ng-model="items">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Price</td>
+                        <td style="width: 100px;"></td>
+                        <td style="width: 100px;">Quantity</td>
+                    </tr>
+                </thead>
+                <tr data-ng-repeat="item in ShoppingCart.Items">
+                    <td>
+                        <div class="row">
+                            <div class="pull-left">
+                                <a href="/product/{{item.ProductId}}/{{item.ProductName | beautify}}">
+                                    <img data-ng-src="http://localhost:1866/api/image/product/{{item.ProductId}}" style="border: 0" alt="{{item.ProductName}}">
+                                </a>
+                            </div>
+                            <div class="pull-left">
+                                <a href="/product/{{item.ProductId}}/{{item.ProductName | beautify}}"><strong>{{item.ProductName}}</strong></a><br />
+                                by {{item.SupplierName}}
+                                <br />
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{item.UnitPrice}}</td>
+                    <td>
+                        <button type="button" class="btn btn-default" data-ng-click="removeFromCart(item)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <input type="number" class="form-control" data-val="true" data-val-required="*" data-val-number="Quantity must be a number." data-ng-model="item.Quantity" data-ng-change="updateCart(item)" />
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <span>Total Price: {{TotalPrice}}</span>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h3>Total Price ({{ShoppingCart.Items.length}} products):</h3><br />
+        {{TotalPrice}}<br />
+        <button class="btn" style="width: 100%" data-ng-disabled="preventCheckout()" data-ng-click="checkout()">Checkout</button>
+    </div>
+</div>
+
+
+@section head
+{
+<environment names="Development">
+    <script type="text/javascript" src="~/lib/angular/angular.js"></script>
+</environment>
+<environment names="Staging,Production">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"
+            asp-fallback-src="~/lib/angular/angular.min.js"
+            asp-fallback-test="window.angular">
+    </script>
+</environment>
+
+}
+@section scripts
+{
+    <script type="text/javascript" src="~/js/nsk/cart-inspect.js"> </script>
+}

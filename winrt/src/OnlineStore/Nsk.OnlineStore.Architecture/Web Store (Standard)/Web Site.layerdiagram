@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="c05c2358-323c-4621-a03c-c387c5c2b96a" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="2e4f9c14-d487-4fc1-bae4-e25d259ab808" name="Domain">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="27840b97-1733-424d-84da-4bead090324c" direction="Forward">
+          <layerMoniker Id="314288b8-dbd2-4455-8ae4-6d5ec6ca3846" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="9887b078-c53d-44d1-967e-87097457540f" name="Model">
+          <references>
+            <reference Id="f180d231-b954-472a-adc3-140f9d7a1251" name="Model">
+              <ArtifactNode Label="Model" Category="CodeSchema_ProjectItem" Id="(Assembly=../../manageddesigns.nsk.domain/model/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=AddressInfo)" Label="AddressInfo" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Category)" Label="Category" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=ContactInfo)" Label="ContactInfo" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Customer)" Label="Customer" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Employee)" Label="Employee" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=IAggregateRoot)" Label="IAggregateRoot" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Order)" Label="Order" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=OrderItem)" Label="OrderItem" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Organization)" Label="Organization" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Party)" Label="Party" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Person)" Label="Person" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Product)" Label="Product" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Region)" Label="Region" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Shipper)" Label="Shipper" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Supplier)" Label="Supplier" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Model Type=Territory)" Label="Territory" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="2d664e96-d586-4eab-8e36-9afbe043ff87" name="Services&#xD;&#xA;">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="2baa6970-2e3c-4bb6-b54e-423de3af73a0" direction="Forward">
+              <layerMoniker Id="7e60ed44-338b-4457-837b-508cef6af7b4" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="afc0ac4d-a7e3-4dd0-8f70-8c72972a5203" direction="Forward">
+              <layerMoniker Id="9887b078-c53d-44d1-967e-87097457540f" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="686e28c7-5e97-45d2-8344-8b9c16cd0846" name="ICustomerServices.cs">
+              <ArtifactNode Label="ICustomerServices.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../manageddesigns.nsk.services/icustomerservices.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain.Services Namespace=ManagedDesigns.Nsk.Domain.Services Type=ICustomerServices)" Label="ICustomerServices" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="3fb8409e-8317-4ed5-9fce-a248430830f0" name="IProductServices.cs">
+              <ArtifactNode Label="IProductServices.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../manageddesigns.nsk.services/iproductservices.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain.Services Namespace=ManagedDesigns.Nsk.Domain.Services Type=IProductServices)" Label="IProductServices" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="292e27cd-ef3e-4fba-b4c1-3c960908bd10" name="IMarketingServices.cs">
+              <ArtifactNode Label="IMarketingServices.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../manageddesigns.nsk.services/imarketingservices.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain.Services Namespace=ManagedDesigns.Nsk.Domain.Services Type=IMarketingServices)" Label="IMarketingServices" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="7e60ed44-338b-4457-837b-508cef6af7b4" name="Repositories&#xD;&#xA;">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="0bb49361-0e6a-4fa0-9187-bb4ddfc751a6" direction="Forward">
+              <layerMoniker Id="9887b078-c53d-44d1-967e-87097457540f" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="83ad35bd-db86-41e4-9430-4884d090eef5" name="ICategoryRepository.cs">
+              <ArtifactNode Label="ICategoryRepository.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../ManagedDesigns.Nsk.Domain/Repositories/ICategoryRepository.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Repositories Type=ICategoryRepository)" Label="ICategoryRepository" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="e0ed3e8b-2b5c-435b-8888-8647601ec78d" name="IEmployeeRepository.cs">
+              <ArtifactNode Label="IEmployeeRepository.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../ManagedDesigns.Nsk.Domain/Repositories/IEmployeeRepository.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Repositories Type=IEmployeeRepository)" Label="IEmployeeRepository" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="30af42c5-7519-4f04-99fc-8bc67c55658c" name="ICustomerRepository.cs">
+              <ArtifactNode Label="ICustomerRepository.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../ManagedDesigns.Nsk.Domain/Repositories/ICustomerRepository.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Repositories Type=ICustomerRepository)" Label="ICustomerRepository" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="d4e1be5e-8618-468f-8520-d8c74e1d9d33" name="IOrderRepository.cs">
+              <ArtifactNode Label="IOrderRepository.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../ManagedDesigns.Nsk.Domain/Repositories/IOrderRepository.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Repositories Type=IOrderRepository)" Label="IOrderRepository" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="14ed4b22-3e39-4fe3-8608-cb32adea3ccc" name="IProductRepository.cs">
+              <ArtifactNode Label="IProductRepository.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../ManagedDesigns.Nsk.Domain/Repositories/IProductRepository.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Repositories Type=IProductRepository)" Label="IProductRepository" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="0518a31e-a094-4d88-96ab-c2a4df14881a" name="IRepository.cs">
+              <ArtifactNode Label="IRepository.cs" Category="CodeSchema_ProjectItem" Id="(Assembly=../../ManagedDesigns.Nsk.Domain/Repositories/IRepository.cs)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=ManagedDesigns.Nsk.Domain Namespace=ManagedDesigns.Nsk.Domain.Repositories Type=(Name=IRepository GenericParameterCount=1))" Label="IRepository&lt;T&gt;" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Contains" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="879e4104-c47a-4351-9cf4-5011cf32257c" name="Application">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="06152b2f-e9fd-4fc2-bba0-42400bac5ef6" direction="Forward">
+          <layerMoniker Id="314288b8-dbd2-4455-8ae4-6d5ec6ca3846" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="861b1063-7ed4-4cfe-a874-25c8661037d1" name="Worker Services">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="545a7c0c-0b98-4105-a546-1cce69a498dc" direction="Forward">
+              <layerMoniker Id="2e4f9c14-d487-4fc1-bae4-e25d259ab808" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="4ab4b8da-aa3a-4737-90d0-23049236724f" name="Presentation">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="3c089826-b300-4fe3-a655-72188183debc" direction="Forward">
+          <layerMoniker Id="314288b8-dbd2-4455-8ae4-6d5ec6ca3846" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="fc9a8ef6-141c-422b-aa8f-ca55f31fe87c" name="Views&#xD;&#xA;">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="324ec13c-a418-42d2-81da-97d3a1669c54" direction="Forward">
+              <layerMoniker Id="3fe22a9e-2b04-42f5-bac9-125f3d5a1331" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="3fe22a9e-2b04-42f5-bac9-125f3d5a1331" name="Controllers&#xD;&#xA;">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="db92791b-96f1-4123-a361-d57ebd396ec6" direction="Forward">
+              <layerMoniker Id="861b1063-7ed4-4cfe-a874-25c8661037d1" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="314288b8-dbd2-4455-8ae4-6d5ec6ca3846" name="Infrastructure" />
+  </layers>
+</layerModel>

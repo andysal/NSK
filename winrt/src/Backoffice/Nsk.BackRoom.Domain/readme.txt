@@ -1,0 +1,1 @@
+﻿based on Greg Young's "Super Simple CQRS Sample" (https://github.com/gregoryyoung/m-r)

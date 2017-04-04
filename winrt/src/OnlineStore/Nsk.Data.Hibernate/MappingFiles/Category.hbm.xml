@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+  <class name="Category" table="Categories">
+    <id name="Id" column="CategoryId" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="CategoryName" />
+    <property name="Description"/>
+    <bag name="Products" table="Products" inverse="true" cascade="all-delete-orphan" generic="true" lazy="true" fetch="subselect">
+      <key column="CategoryID" />
+      <one-to-many class="Product"/>
+    </bag>    
+    <!--<property name="Picture" type="BinaryBlob"/>-->
+  </class>
+</hibernate-mapping>

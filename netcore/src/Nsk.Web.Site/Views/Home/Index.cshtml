@@ -1,0 +1,44 @@
+﻿@model Nsk.Web.Site.Models.Home.IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row" style="padding-top: 50px">
+
+    <h1>Northwind Starter Kit</h1>
+
+</div>
+
+<div class="row">
+    <h3>Categories</h3>
+    <ul class="list-inline">
+        @foreach (var category in Model.Categories)
+        {
+            <li class="col-md-3">
+                <a href="@UrlBuilder.BuildProductsByCategoryPageUrl(category.Id, category.Name)">
+                    <img src="@UrlBuilder.BuildProductThumbnailUrl(category.Id)" style="border: 0" alt="@string.Format("{0}", category.Name)" /><br />
+                    <span>@category.Name</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+<div class="row">
+    <h3>Best selling</h3>
+    <ul class="list-inline">
+        @await Component.InvokeAsync("ProductList", new { products = Model.BestSellingProducts })
+    </ul>
+</div>
+
+@section head
+{
+    <style>
+        ul[class="list-inline"] li {
+            text-align: center;
+        }
+    </style>
+}
+@section scripts
+{
+
+}

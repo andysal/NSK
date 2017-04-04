@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+  <class name="Supplier" table="Suppliers">
+    <id name="Id" column="SupplierId" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name ="Name" column="CompanyName"/>
+    <component name="MainPostalAddress">
+      <property name="Address"/>
+      <property name="City"/>
+      <property name="Region"/>
+      <property name="PostalCode"/>
+      <property name="Country"/>
+    </component>
+    <component name="ContactInfo">
+      <property name="ContactName"/>
+      <property name="ContactTitle"/>
+    </component>
+    <property name="FaxNumber" column="Fax" />
+    <property name="PhoneNumber" column="Phone"/>
+  </class>  
+</hibernate-mapping>

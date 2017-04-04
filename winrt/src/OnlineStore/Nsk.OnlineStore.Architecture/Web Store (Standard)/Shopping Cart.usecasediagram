@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="1d87d84d-415a-4760-8155-1448987a16db" name="Shopping Cart" linkedPackageId="69dcfb87-7f17-4ae4-96c0-2e7d4862b40a" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="aa8f70f4-ffef-4f8f-82d9-93a2e290fa0d">
+      <profileInstance Id="ab47c4ab-e991-42c2-83b7-d3ab2597f717" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7ea3faf0-d8ed-41ef-8e09-4625ba6aa691">
+      <profileInstance Id="0ef7c277-4cee-4a71-b713-ea560c28cbf9" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="2bc6c563-5097-4021-aead-3f939e6dddbc" name="Shopping cart" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bc72b09a-4ed9-4615-82f2-6bf7828c971e" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="353fbef6-45e2-4854-80ba-6655375675c5" name="Web User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="37db0631-8b2d-4028-aa6e-3bd617473651" />
+        <targetEnds>
+          <association Id="b7cef192-32f1-4b15-9600-0356c74ad467" isDerived="false" sourceEndRoleName="Web User" targetEndRoleName="View product  data sheet" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="fda9382b-7f57-4681-b62a-ba48dccba595" LastKnownName="View product  detail" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="82aae2ba-cc23-45f7-bf55-b2fa3d5543e8" name="Web User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="17b2a1a4-6fff-4bc5-9359-26e252def16c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3beb770d-9da2-42ae-a923-a2e04e68ceaa" name="View product  data sheet" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="79973368-0902-4c1c-88e1-35df71e85a2f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c0894db9-c84d-4801-8df8-45356f63cf5b" />
+          </association>
+          <association Id="3cb52f48-125f-4e25-90c3-21b063f566e8" isDerived="false" sourceEndRoleName="Web User" targetEndRoleName="Add product to cart" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c54e3c75-fce1-4c17-9685-b72402822581" LastKnownName="Add product to cart" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="19f4176e-435f-478c-8e09-17979083c314" name="Web User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="73c80263-9f64-4088-b48e-83811f9b506e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="31dcd4e4-dffe-4b00-bb8d-c3d1f6eefe7f" name="Add product to cart" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4ed7f41d-6d2b-4a74-bf7b-4e088c6aeda5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="43877741-1149-4668-83ee-5c681a890936" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="8752cd92-f9fe-4753-84fd-c079f1d4f1db" name="Database" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2dc5d3cd-c65a-42b6-bed9-d854d3263557" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="fda9382b-7f57-4681-b62a-ba48dccba595" name="View product  detail" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="52a43e0d-a4cf-4655-a241-3b00eb459a3d" />
+        <targetEnds>
+          <association Id="d6f00e21-52c4-49bf-92c2-f6e7720edbee" isDerived="false" sourceEndRoleName="View product  data sheet" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="8752cd92-f9fe-4753-84fd-c079f1d4f1db" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3121fc7e-52f4-41ee-b7f5-b4bc11c30845" name="View product  data sheet" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e9eb4afc-e8a6-44ef-b49e-7cb029ed0901" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c357d54e-e40f-4a39-96e6-8ea684b0f6f2" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d564b548-d8d5-4dfe-a225-53ddf73bf378" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8084eced-241e-4023-b90b-ad86231af4fa" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="2bc6c563-5097-4021-aead-3f939e6dddbc" LastKnownName="Shopping cart" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="c54e3c75-fce1-4c17-9685-b72402822581" name="Add product to cart" isAbstract="false" isLeaf="false">
+        <referencesInternal>
+          <reference Id="34bbb99e-e19a-4cfc-8078-1c9c9caa6e6a" handle="%tfs.codeplex.com\TFS01#81e6e737-5a20-4d0f-a97c-cb01297b46e0$29768" tag="Work Item Reference">
+            <elementDefinition Id="62a6d1de-4d05-4524-bf2e-bdb121eb6dc9" />
+          </reference>
+        </referencesInternal>
+        <elementDefinition Id="81ee2d7e-05e3-4f1a-9861-f1efd884bfa0" />
+        <targetEnds>
+          <association Id="ec0cbf08-3091-4ec8-af47-e5c8ae6b717b" isDerived="false" sourceEndRoleName="Add product to cart" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="8752cd92-f9fe-4753-84fd-c079f1d4f1db" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3c9afe85-84e6-4861-83ab-af7fdb6572e9" name="Add product to cart" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="22061065-7de9-4699-b22e-43813e394705" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4f8fd65a-3923-4d22-aa94-b978d36d8c5e" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="66e46c6c-5f12-4c6f-8edc-fcf20f6b745c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="dd7043e9-483f-4ebf-ac7a-f1d9bc29f273" />
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend Id="3190470b-eb01-48f5-a7bc-daa8d9ef2a2f">
+            <useCaseMoniker Id="fda9382b-7f57-4681-b62a-ba48dccba595" LastKnownName="View product  detail" />
+            <elementDefinition Id="1e6cf29f-7094-4db6-9bbc-fabcbda69665" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="2bc6c563-5097-4021-aead-3f939e6dddbc" LastKnownName="Shopping cart" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="69dcfb87-7f17-4ae4-96c0-2e7d4862b40a" name="ManagedDesigns.Northwind.Architecture">
+    <elementDefinition Id="1a4af53f-2322-4a3b-a09b-a1105f77b2f8" />
+  </package>
+</useCaseModelRoot>

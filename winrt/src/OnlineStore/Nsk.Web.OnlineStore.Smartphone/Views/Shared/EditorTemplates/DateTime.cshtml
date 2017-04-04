@@ -1,0 +1,7 @@
+﻿@model DateTime?
+@Html.TextBox("", Model.Value.ToString("dd/MM/yyyy"), new { @class = "date" })
+<script type="text/javascript">
+    $(function () {
+        $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").datepicker({ dateFormat: "dd/mm/yy" });
+    });
+</script>

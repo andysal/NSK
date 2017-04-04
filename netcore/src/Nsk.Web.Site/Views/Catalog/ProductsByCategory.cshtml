@@ -1,0 +1,11 @@
+﻿@model Nsk.Web.Site.Models.Catalog.ProductsByCategoryViewModel
+
+@{
+    ViewBag.Title = string.Format("{0} - NSK", Model.CategoryName);
+}
+<div class="row">
+    <h2>@Model.CategoryName</h2>
+    <ul class="list-inline list-unstyled">
+        @await Component.InvokeAsync("ProductList", new { products = Model.Products })
+    </ul>
+</div>

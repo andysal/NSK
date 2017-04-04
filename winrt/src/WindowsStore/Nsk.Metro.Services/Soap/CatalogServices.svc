@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Nsk.Metro.Services.Soap.CatalogServices" CodeBehind="CatalogServices.svc.cs" Factory="Nsk.ServiceModel.WcfUnityServiceHostFactory" %>

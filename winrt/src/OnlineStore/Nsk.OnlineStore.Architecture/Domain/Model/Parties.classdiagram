@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="772253af-ac4e-4dc4-9e52-e69f73ee21ad" name="Parties" linkedPackageId="f91ca41a-d076-4f90-a88e-d97d8ce8a4cd" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="11ac9fc3-2f27-4136-867e-28c1f84fd34c" name="Party" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7fc53886-9def-420b-808c-2e9b35717485" />
+        <targetEnds>
+          <association Id="e807a2ce-1ca6-49ef-8033-acc03a2ed1bc" isDerived="false" sourceEndRoleName="Party" targetEndRoleName="AddressInfo" isLeaf="false" isAbstract="false">
+            <classMoniker Id="8f686f91-99a1-4867-8da6-f2cb0ced6187" LastKnownName="AddressInfo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a8f08329-d65c-4b8b-8be7-89663e4815e8" name="Party" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="baf2cfee-9677-4119-8243-6494068347ec" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5e06f36f-4b15-451e-97e6-e35b3ab23783" name="AddressInfo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="f0202997-a13f-4659-9cb4-e25921c5c411" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7b0c756a-0395-4ab1-901a-84469e5ff2ef" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b686c31c-0c3b-4f42-9b1d-78923c156210" name="Customer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="27b0983c-ce80-4c2a-8d58-606c5895c7cf" />
+        <generalsInternal>
+          <generalization Id="8e96e262-2d54-4e0b-a04c-b23cd4a4680d" isSubstitutable="false">
+            <classMoniker Id="fa16fa27-61cd-4c18-bc18-0b56b706da67" LastKnownName="Organization" />
+            <elementDefinition Id="7a48e533-21bb-40b8-b6f6-df3bc99ed95e" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b3d98112-3759-41bb-a656-c3bb6f71b437" name="Supplier" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0fc8aef2-0068-4ee9-9f41-26418b806f7f" />
+        <generalsInternal>
+          <generalization Id="fb55e694-aac6-49e9-b3a0-21fb7bab7168" isSubstitutable="false">
+            <classMoniker Id="fa16fa27-61cd-4c18-bc18-0b56b706da67" LastKnownName="Organization" />
+            <elementDefinition Id="5f029feb-b1cd-4b54-a8ca-8553a89c8851" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fa16fa27-61cd-4c18-bc18-0b56b706da67" name="Organization" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="437ea7f3-15a9-4b5c-bb2b-712a62bacdc3" />
+        <generalsInternal>
+          <generalization Id="cf33c938-9733-4f5b-9eb0-5b8bb47c29f2" isSubstitutable="false">
+            <classMoniker Id="11ac9fc3-2f27-4136-867e-28c1f84fd34c" LastKnownName="Party" />
+            <elementDefinition Id="f4282013-103b-465d-913d-3dbfdbb65016" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="dc8bc551-7268-4cac-a7f4-6958167ec6bd" name="Person" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f9072193-ce96-43cc-ab1c-780d1a98f8cc" />
+        <generalsInternal>
+          <generalization Id="caa13bd9-d277-4b5a-b663-233a19274ffa" isSubstitutable="false">
+            <classMoniker Id="11ac9fc3-2f27-4136-867e-28c1f84fd34c" LastKnownName="Party" />
+            <elementDefinition Id="8dfbb82c-e630-4365-af3d-137b6f97452e" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7db3cd45-16bf-4a06-b9eb-bc2dfe6c2524" name="Employee" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="aff44247-49b3-4e40-ad2f-258048e2a9c6" />
+        <generalsInternal>
+          <generalization Id="9cbeecd4-f0ff-4f73-80ef-873c866ecf28" isSubstitutable="false">
+            <classMoniker Id="dc8bc551-7268-4cac-a7f4-6958167ec6bd" LastKnownName="Person" />
+            <elementDefinition Id="de31ede9-888e-45c2-bbfd-e4bc5cbf9413" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8f686f91-99a1-4867-8da6-f2cb0ced6187" name="AddressInfo" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e90f36f3-31ee-4692-8c3d-760f7731f00d" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="f91ca41a-d076-4f90-a88e-d97d8ce8a4cd" name="ManagedDesigns.Northwind.Architecture">
+    <elementDefinition Id="1a4af53f-2322-4a3b-a09b-a1105f77b2f8" />
+    <profileInstances>
+      <packageHasProfileInstances Id="23563924-076d-493d-9567-551b04c5f19d">
+        <profileInstance Id="e8922cdb-0a4a-464a-ab74-65f8d6fb6046" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="c109c3f7-a92b-44ad-a13c-2671d441d101">
+        <profileInstance Id="3cd8e21f-0091-46e1-9ae0-285a4f2f6132" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

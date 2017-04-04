@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+  <class name="Region" table="Region">
+    <id name="Id" column="RegionId" unsaved-value="0">
+      <generator class="native" />
+    </id>
+    <property name ="Description" column="RegionDescription"/>
+  </class>  
+</hibernate-mapping>

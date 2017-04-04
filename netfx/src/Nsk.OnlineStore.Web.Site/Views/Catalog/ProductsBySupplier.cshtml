@@ -1,0 +1,22 @@
+﻿@model Nsk.OnlineStore.Web.Site.Models.Catalog.ProductsBySupplierViewModel
+
+@{
+    ViewBag.Title = string.Format("{0} - NSK", Model.SupplierName);
+}
+<div class="row">
+    <h2>@Model.SupplierName</h2>
+    <ul class="list-inline list-unstyled">
+        @foreach (var product in Model.Products)
+        {
+            <li itemscope itemtype="http://schema.org/Product" class="col-md-3" style="padding-bottom: 10px">
+                <a itemprop="url" href="@UrlBuilder.BuildProductPageUrl(product.Id, product.Name)">
+                    <img src="@UrlBuilder.BuildProductThumbnailUrl(product.Id)" style="border: 0" alt="@string.Format("{0}", product.Name)" /><br />
+                    <span itemprop="name" style="font-weight: bold;">@product.Name</span>
+                </a><br />
+                Found in: <a itemprop="url" href="@UrlBuilder.BuildProductsByCategoryPageUrl(product.CategoryId, product.CategoryName)"><span itemprop="category">@product.CategoryName</span></a><br />
+                <span itemprop="price">@product.UnitPrice.ToString("0.00")</span>
+            </li>
+        }
+    </ul>
+</div>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Nsk.Domain.Model" assembly="Nsk.Domain">
+	<class name="Employee" table="Employees">
+		<id name="Id" column="EmployeeID" type="Int32" >
+			<generator class="native" />
+		</id>
+
+		<many-to-one name="Manager" column="ReportsTo" cascade="save-update" lazy="proxy"/>
+
+		<property name="Name"			                    column="FirstName" type="String" length="10" />
+		<property name="Surname"			                column="LastName"  type="String" length="20" />
+		<property name="JobTitle"     column="Title"	type="String" length="30" />
+		<property name="TitleOfCourtesy"	            type="String" length="25" />
+		<property name="HireDate"			                type="DateTime" />
+		<property name="BirthDate"			              type="DateTime" />
+		<component name="MainPostalAddress">
+			<property name="Address"			              type="String" length="60" />
+			<property name="City"				                type="String" length="15" />
+			<property name="Region"			                type="String" length="15" />
+			<property name="PostalCode"		              type="String" length="10" />
+			<property name="Country"			              type="String" length="15" />
+		</component>
+		<property name="Extension"			              type="String" length="4" />
+		<property name="HomePhone"			              type="String" length="24" />
+		<property name="Notes"				                type="StringClob" />
+		<property name="PhotoPath"			              type="String" length="255" />
+
+    <bag name="Territories" table="EmployeeTerritories" lazy="true" inverse="true" cascade="save-update">
+      <key column="EmployeeId"/>
+      <many-to-many class="Territory" column="TerritoryId"/>
+    </bag>
+
+    <bag name="Orders" table="Orders" inverse="true" cascade="all-delete-orphan" generic="true" lazy="true" fetch="subselect">
+      <key column="EmployeeID" />
+      <one-to-many class="Order"/>
+    </bag>
+	</class>
+</hibernate-mapping>
