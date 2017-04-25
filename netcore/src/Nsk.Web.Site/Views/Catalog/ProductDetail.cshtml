@@ -12,9 +12,9 @@
         <article itemscope itemtype="http://schema.org/Product">
             <h2 itemprop="name">@Model.Name</h2>
             by <a href="@UrlBuilder.BuildProductsBySupplierPageUrl(Model.SupplierId, Model.SupplierName)"><span itemprop="brand">@Model.SupplierName</span></a><br />
-            @Html.LabelFor(model => model.UnitPrice) <span itemprop="price">@Model.UnitPrice.ToString("0.00")</span><br />
-            @Html.LabelFor(model => model.UnitsInStock) <span>@Model.UnitsInStock</span><br />
-            @Html.LabelFor(model => model.QuantityPerUnit) <span>@Model.QuantityPerUnit</span>
+            <label asp-for="UnitPrice"></label> <span itemprop="price">@Model.UnitPrice.ToString("0.00")</span><br />
+            <label asp-for="UnitsInStock"></label> <span>@Model.UnitsInStock</span><br />
+            <label asp-for="QuantityPerUnit"></label> <span>@Model.QuantityPerUnit</span>
         </article>
     </div>
     <div class="col-md-3" style="padding-top: 50px">

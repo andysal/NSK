@@ -1,9 +1,4 @@
 INTRODUCTION
 
 NSK
-NSK is a sample application produced by Managed Designs (http://www.manageddesigns.it) 
-and intended to be used as a blueprint when designing and implementing a .NET layered application architecture.
-The application uses the standard Northwind database, as included in Microsoft SQL Server: no modifications to
-the database schema are required in order to install and run the starter kit.
-
-Project leader and main architect is Andrea Saltarello
+Northwind Starter Kit (NSK) is a sample application developed by Andrea Saltarello as a companion demo for both Managed Designs' courses and "Microsoft .NET: Architecting Applications for the Enterprise" (first edition), the book he co-authored along with Dino Esposito.
