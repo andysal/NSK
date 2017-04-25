@@ -12,9 +12,7 @@ namespace Nsk.Web.Site.Controllers
 
         public CatalogController(CatalogControllerWorkerServices workerServices)
         {
-            if (workerServices == null)
-                throw new ArgumentNullException("workerServices");
-            this.WorkerServices = workerServices;
+            this.WorkerServices = workerServices ?? throw new ArgumentNullException("workerServices");
         }
 
         [HttpGet]

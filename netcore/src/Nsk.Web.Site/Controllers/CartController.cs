@@ -15,9 +15,7 @@ namespace Nsk.Web.Site.Controllers
 
         public CartController(CartControllerWorkerServices workerServices)
         {
-            if (workerServices == null)
-                throw new ArgumentNullException(nameof(workerServices));
-            this.WorkerServices = workerServices;
+            this.WorkerServices = workerServices ?? throw new ArgumentNullException(nameof(workerServices));
         }
 
         [HttpPost]

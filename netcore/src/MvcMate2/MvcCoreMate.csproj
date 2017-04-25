@@ -3,12 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <AssemblyName>MvcMate2</AssemblyName>
-    <PackageId>MvcMate2</PackageId>
+    <PackageId>MvcCoreMate</PackageId>
     <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <Authors>MvcCoreMate</Authors>
+    <Copyright>Andrea Saltarello</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

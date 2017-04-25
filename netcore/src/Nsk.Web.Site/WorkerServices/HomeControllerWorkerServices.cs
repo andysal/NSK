@@ -12,9 +12,7 @@ namespace Nsk.Web.Site.WorkerServices
 
         public HomeControllerWorkerServices(IDatabase database)
         {
-            if (database == null)
-                throw new ArgumentNullException(nameof(database));
-            this.Database = database;
+            this.Database = database ?? throw new ArgumentNullException(nameof(database));
         }
 
         public IndexViewModel GetIndexViewModel()

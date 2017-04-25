@@ -14,9 +14,7 @@ namespace Nsk.Web.Site.Controllers
 
         public HomeController(HomeControllerWorkerServices workerServices)
         {
-            if (workerServices == null)
-                throw new ArgumentNullException(nameof(workerServices));
-            this.WorkerServices = workerServices;
+            this.WorkerServices = workerServices ?? throw new ArgumentNullException(nameof(workerServices));
         }
 
         public IActionResult About()
@@ -28,7 +26,7 @@ namespace Nsk.Web.Site.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Managed Designs";
 
             return View();
         }

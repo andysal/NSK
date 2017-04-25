@@ -14,12 +14,8 @@ namespace Nsk.Web.Site.WorkerServices
 
         public CartControllerWorkerServices(IDatabase database, CartCommands commands)
         {
-            if (database == null)
-                throw new ArgumentNullException(nameof(database));
-            if (commands == null)
-                throw new ArgumentNullException(nameof(commands));
-            this.Database = database;
-            this.Commands = commands;
+            this.Database = database ?? throw new ArgumentNullException(nameof(database));
+            this.Commands = commands ?? throw new ArgumentNullException(nameof(commands));
         }
 
         public void PostAddProduct(int productId, int quantity)

@@ -14,9 +14,7 @@ namespace Nsk.Web.Site.WorkerServices
 
         public CatalogControllerWorkerServices(IDatabase database)
         {
-            if (database == null)
-                throw new ArgumentNullException("database");
-            this.Database = database;
+            this.Database = database ?? throw new ArgumentNullException("database");
         }
 
         public SearchViewModel GetSearchViewModel()

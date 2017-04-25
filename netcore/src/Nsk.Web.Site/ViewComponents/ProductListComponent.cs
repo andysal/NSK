@@ -14,9 +14,7 @@ namespace Nsk.Web.Site.ViewComponents
 
         public ProductListViewComponent(IDatabase database)
         {
-            if (database == null)
-                throw new ArgumentNullException(nameof(database));
-            Database = database;
+            Database = database ?? throw new ArgumentNullException(nameof(database));
         }
 
         public IViewComponentResult Invoke(IEnumerable<Nsk.Web.Site.Models.Shared.Product> products)
