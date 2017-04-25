@@ -1,0 +1,94 @@
+﻿@model Nsk.Web.Site.Models.Catalog.SearchViewModel
+
+@{
+    ViewBag.Title = "Search - NSK";
+}
+
+<h2>Search</h2>
+<div class="row">
+    <div class="col-md-3">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Query, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Query, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Query, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedCategoryId, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.SelectedCategoryId, Model.Categories, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SelectedCategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaxUnitPrice, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MaxUnitPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MaxUnitPrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MinUnitPrice, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MinUnitPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MinUnitPrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Search" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-md-9">
+        @if (Model.Products != null)
+        {
+            <ul class="list-unstyled">
+                @foreach (var p in Model.Products)
+                {
+                    <li itemscope itemtype="http://schema.org/Product">
+                        <a itemprop="url" href="@UrlBuilder.BuildProductPageUrl(p.Id, p.Name)">
+                            <h3 itemprop="name">@p.Name</h3>
+                        </a>
+                        By: <span itemprop="brand">@p.SupplierName</span><br />
+                        Found in: <span itemprop="category">@p.CategoryName</span><br />
+                        <span itemprop="price">@p.UnitPrice.Value.ToString("0.00")</span><br />
+                    </li>
+                }
+            </ul>
+
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+<environment names="Development">
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</environment>
+<environment names="Staging,Production">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+            asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+            asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+    </script>
+</environment>
+}
