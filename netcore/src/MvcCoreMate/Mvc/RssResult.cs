@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MvcMate2.Mvc.Model;
+using MvcCoreMate.Mvc.Model;
 using System;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvcMate2.Mvc
+namespace MvcCoreMate.Mvc
 {
     public class RssResult : IActionResult
     {

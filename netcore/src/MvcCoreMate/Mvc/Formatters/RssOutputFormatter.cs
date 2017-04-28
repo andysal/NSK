@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Net.Http.Headers;
-using MvcMate2.Mvc.Model;
+using MvcCoreMate.Mvc.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvcMate2.Mvc.Formatters
+namespace MvcCoreMate.Mvc.Formatters
 {
     public class RssOutputFormatter : OutputFormatter
     { 

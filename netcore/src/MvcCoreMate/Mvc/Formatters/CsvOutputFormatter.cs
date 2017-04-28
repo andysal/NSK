@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace MvcMate2.Mvc.Formatters
+namespace MvcCoreMate.Mvc.Formatters
 {
     public class CsvOutputFormatter : OutputFormatter
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MvcMate2.Mvc.Model;
+using MvcCoreMate.Mvc.Model;
 
-namespace MvcMate2.Mvc
+namespace MvcCoreMate.Mvc
 {
     /// <summary>
     /// Provides extensions for ASP.NET MVC Controller class in order to add support

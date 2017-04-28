@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using MvcMate2.Mvc.Model;
+using MvcCoreMate.Mvc.Model;
 using Nsk.Data.ReadModel;
 using Nsk.Web.Site.Models.Catalog;
 using System;

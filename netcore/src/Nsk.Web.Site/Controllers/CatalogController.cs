@@ -2,7 +2,7 @@
 using Nsk.Web.Site.Models.Catalog;
 using Nsk.Web.Site.WorkerServices;
 using System;
-using MvcMate2.Mvc;
+using MvcCoreMate.Mvc;
 
 namespace Nsk.Web.Site.Controllers
 {

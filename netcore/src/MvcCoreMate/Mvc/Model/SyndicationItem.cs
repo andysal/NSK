@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MvcMate2.Mvc.Model
+namespace MvcCoreMate.Mvc.Model
 {
     public class SyndicationItem
     {

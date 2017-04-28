@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Mvc.ViewFeatures.Internal;
 using System.Text.Encodings.Web;
 
-namespace MvcMate2.Mvc.Rendering
+namespace MvcCoreMate.Mvc.Rendering
 {
     /// <summary>
     /// Represents support for HTML input "file" controls in an application.

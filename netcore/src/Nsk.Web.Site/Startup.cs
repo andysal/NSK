@@ -17,7 +17,7 @@ using Nsk.Data.ReadModel;
 using Nsk.Commands;
 using Nsk.Web.Site.WorkerServices;
 using Microsoft.Net.Http.Headers;
-using MvcMate2.Mvc.Formatters;
+using MvcCoreMate.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Nsk.Web.Site

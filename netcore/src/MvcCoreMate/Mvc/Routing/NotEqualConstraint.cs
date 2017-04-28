@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace MvcMate2.Mvc.Routing
+namespace MvcCoreMate.Mvc.Routing
 {
     /// <summary>
     /// Enables you to prevent a controller to be considered when ASP.NET routing determines whether a URL matches a route.

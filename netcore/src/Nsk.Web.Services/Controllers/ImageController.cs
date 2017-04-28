@@ -16,10 +16,7 @@ namespace Nsk.Web.Services.Controllers
 
         public ImageController(IDatabase database)
         {
-            if (database == null)
-                throw new ArgumentNullException(nameof(database));
-
-            this.Database = database;
+            this.Database = database ?? throw new ArgumentNullException(nameof(database));
         }
 
         [HttpGet]

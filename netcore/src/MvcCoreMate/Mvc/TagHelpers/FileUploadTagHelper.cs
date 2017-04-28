@@ -5,7 +5,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace MvcMate2.Mvc.TagHelpers
+namespace MvcCoreMate.Mvc.TagHelpers
 {
     [HtmlTargetElement("upload")]
     public class FileUploadTagHelper : TagHelper

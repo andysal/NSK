@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MvcMate2\MvcCoreMate.csproj" />
+    <ProjectReference Include="..\MvcCoreMate\MvcCoreMate.csproj" />
     <ProjectReference Include="..\Nsk.Data\Nsk.Data.csproj" />
     <ProjectReference Include="..\Nsk.Commands\Nsk.Commands.csproj" />
   </ItemGroup>
