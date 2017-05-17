@@ -34,10 +34,6 @@ namespace Nsk.Data.Model
 
                 entity.Property(e => e.Picture).HasColumnType("image");
 
-                entity.Property(e => e.Version)
-                    .IsRequired()
-                    .HasColumnType("timestamp")
-                    .ValueGeneratedOnAddOrUpdate();
             });
 
             modelBuilder.Entity<CustomerCustomerDemo>(entity =>
