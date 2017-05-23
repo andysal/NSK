@@ -69,6 +69,7 @@
   <ItemGroup>
     <Folder Include="Areas\My\Models\" />
     <Folder Include="Areas\My\Views\Order\" />
+    <Folder Include="Areas\My\Models\Order\" />
   </ItemGroup>
 
 </Project>
