@@ -40,7 +40,7 @@ namespace Nsk.Web.Site.WorkerServices
             {
                 repo = repo.Where(p => p.UnitPrice >= model.MinUnitPrice);
             }
-            repo = repo.Where(p => p.Name.StartsWith(model.Query));
+            repo = repo.Where(p => p.Name.Contains(model.Query));
             model.Products = (from p in repo
                             orderby p.Name
                             select new SearchViewModel.Product
