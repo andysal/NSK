@@ -13,6 +13,7 @@ namespace Nsk.Web.Site
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
+                //.UseWebRoot("staticfiles")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
