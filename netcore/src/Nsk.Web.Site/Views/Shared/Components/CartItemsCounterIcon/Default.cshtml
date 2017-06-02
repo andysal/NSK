@@ -1,0 +1,12 @@
+@model Int32
+
+<li>
+    <a asp-area="" asp-controller="Cart" asp-action="Inspect">
+        Your Cart
+        @if (Model > 0)
+        {
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            <span id="cart-status">@Model</span>
+        }
+    </a>
+</li>

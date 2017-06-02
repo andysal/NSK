@@ -12,7 +12,6 @@ namespace Nsk.Commands
     {
         public ShoppingCart CurrentCart { get; private set; }
 
-
         /// <summary>
         /// Creates a new instance
         /// </summary>

@@ -5,12 +5,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Nsk.Web.Site.Models.Catalog
 {
-    public class SearchViewModel
+    public class SearchViewModel: BaseSearchViewModel
     {
-        public IEnumerable<SelectListItem> Categories { get; set; }
-
-        [DisplayName("Category")]
-        public int SelectedCategoryId { get; set; }
 
         public IEnumerable<Product> Products { get; set; }
 
@@ -18,9 +14,7 @@ namespace Nsk.Web.Site.Models.Catalog
 
         public int? MinUnitPrice { get; set; }
 
-        [DisplayName("Product Name")]
-        [Required]
-        public string Query { get; set; }
+
 
         public class Product
         {

@@ -23,6 +23,19 @@ namespace Nsk.Web.Site.WorkerServices
             Commands.AddProductToCart(productId, quantity);
         }
 
+        public int GetCartItemsCount()
+        {
+            var total= 0;
+            if (Commands.CurrentCart.Items.Count() > 0)
+            {
+                foreach (var item in Commands.CurrentCart.Items)
+                {
+                    total += item.Quantity;
+                }
+            }
+            return total;
+        }
+
         public void GetRemoveProduct(int productId)
         {
             Commands.RemoveProductFromCart(productId);
