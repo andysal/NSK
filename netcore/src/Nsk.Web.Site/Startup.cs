@@ -83,14 +83,14 @@ namespace Nsk.Web.Site
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
             //Infrastructure
-            services.AddTransient<IDatabase, Database>();
+            services.AddTransient<IDatabase>(implementationFactory => new Database(Configuration.GetConnectionString("DefaultConnection")));
 
             ////MVC
             //services.AddTransient<AccountController>();
             //services.AddTransient<ManageController>();
 
             ////Commands
-            services.AddTransient<CartCommands>();
+            services.AddTransient<CartCommands>(implementationFactory => new CartCommands(Configuration.GetConnectionString("DefaultConnection")));
 
             // WorkerServices
             services.AddTransient<AccountControllerWorkerServices>();

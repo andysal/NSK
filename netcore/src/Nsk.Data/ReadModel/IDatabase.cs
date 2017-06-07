@@ -15,6 +15,6 @@ namespace Nsk.Data.ReadModel
 
         //Image GetCategoryThumbnail(int categoryId);
 
-        ShoppingCart GetCurrentCart();
+        CartCommads GetCurrentCart();
     }
 }

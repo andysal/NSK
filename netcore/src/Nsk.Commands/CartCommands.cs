@@ -10,17 +10,20 @@ namespace Nsk.Commands
 {
     public class CartCommands
     {
-        public ShoppingCart CurrentCart { get; private set; }
+        private string _connectionString;
+
+        public CartCommads CurrentCart { get; private set; }
 
         /// <summary>
         /// Creates a new instance
         /// </summary>
-        public CartCommands()
+        public CartCommands(string connectionString)
         {
-            CurrentCart = ShoppingCart.GetCart();
+            CurrentCart = CartCommads.GetCart();
+            _connectionString = connectionString;
         }
 
-        public CartCommands(ShoppingCart cart)
+        public CartCommands(CartCommads cart)
         {
             if (cart == null)
                 throw new ArgumentNullException(nameof(cart));
@@ -35,12 +38,12 @@ namespace Nsk.Commands
         /// <exception cref="ProductIsNotForSaleException">Thrown if the product is not for sale</exception>
         public void AddProductToCart(int productId, int quantity)
         {
-            using (var ctx = new NorthwindContext())
+            using (var ctx = new NorthwindContext(_connectionString))
             {
                 var product = ctx.Products
                     .Where(p => p.Id == productId)
                     .SingleOrDefault();
-                if(product == null || product.IsDiscontinued)
+                if (product == null || product.IsDiscontinued)
                 {
                     throw new ProductIsNotForSaleException();
                 }
@@ -54,7 +57,7 @@ namespace Nsk.Commands
         /// <param name="productId">The id of the product to be removed from the current cart</param>
         public void RemoveProductFromCart(int productId)
         {
-            CurrentCart.RemoveProduct(productId);
+             CurrentCart.RemoveProduct(productId);
         }
 
         /// <summary>
@@ -64,7 +67,7 @@ namespace Nsk.Commands
         /// <param name="quantity">The quantity</param>
         public void UpdateProductQuantity(int productId, int quantity)
         {
-            CurrentCart.UpdateProductQuantity(productId, quantity);
+             CurrentCart.UpdateProductQuantity(productId, quantity);
         }
     }
 }

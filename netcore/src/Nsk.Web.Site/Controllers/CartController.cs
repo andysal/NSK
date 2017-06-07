@@ -58,5 +58,11 @@ namespace Nsk.Web.Site.Controllers
             WorkerServices.GetUpdateProduct(productId, quantity);
             return Ok();
         }
+
+        [HttpGet]
+        public IActionResult ReloadViewComponent()
+        {
+            return ViewComponent("CartItemsCounterIcon");
+        }
     }
 }

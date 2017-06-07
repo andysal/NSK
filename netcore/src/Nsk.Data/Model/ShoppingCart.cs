@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Nsk.Data.Model
 {
-    public class ShoppingCart
+    public class CartCommads
     {
-        private static ShoppingCart CurrentCart = new ShoppingCart();
+        private static CartCommads CurrentCart = new CartCommads();
 
         public virtual IEnumerable<CartItem> Items { private set; get; }
 
@@ -15,10 +15,9 @@ namespace Nsk.Data.Model
             public int ProductId { get; set; }
             public int Quantity { get; set; }
             public decimal UnitPrice { get; set; }
-
         }
 
-        internal ShoppingCart()
+        internal CartCommads()
         {
             Items = new List<CartItem>();
         }
@@ -63,7 +62,7 @@ namespace Nsk.Data.Model
 
         public void UpdateProductQuantity(int productId, int quantity)
         {
-            if(quantity<=0)
+            if (quantity <= 0)
             {
                 throw new ArgumentException("Product quantoty must be higher than zero.", "quantity");
             }
@@ -79,7 +78,7 @@ namespace Nsk.Data.Model
             }
         }
 
-        internal static ShoppingCart GetCart()
+        internal static CartCommads GetCart()
         {
             return CurrentCart;
             //var session = HttpContext.Current.Session;
