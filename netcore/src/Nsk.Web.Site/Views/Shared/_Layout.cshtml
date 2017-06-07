@@ -18,9 +18,9 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/lib/jqueri-ui/themes/base/jquery-ui.css" />
         @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"
-                asp-fallback-src="~/lib/angular/angular.min.js"
-                asp-fallback-test="window.angular">
-        </script>*@
+                    asp-fallback-src="~/lib/angular/angular.min.js"
+                    asp-fallback-test="window.angular">
+            </script>*@
     </environment>
     @RenderSection("head", required: false)
 </head>
@@ -39,35 +39,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>*@
-                    <li><a asp-area="" asp-controller="Cart" asp-action="Inspect">Your Cart</a></li>
+                    <li class="counterIcon"><vc:cart-items-counter-icon ></vc:cart-items-counter-icon></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
-            <div class="row">
-                <form class="navbar-form navbar-left" role="search" method="post" action="/Catalog/Search">
-                    <select class="form-control" data-val="true" id="SelectedCategoryId" name="SelectedCategoryId">
-                        <option selected="selected" value="0">All Categories</option>
-                        <option value="1">Beverages</option>
-                        <option value="2">Condiments</option>
-                        <option value="3">Confections</option>
-                        <option value="4">Dairy Products</option>
-                        <option value="5">Grains/Cereals</option>
-                        <option value="6">Meat/Poultry</option>
-                        <option value="7">Produce</option>
-                        <option value="8">Seafood</option>
-                    </select>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" id="query" name="query" data-val="true" data-val-required="*">
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn btn-default">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
-                </form>
-            </div>
+            @await Component.InvokeAsync("LayoutSearch")
         </div>
     </div>
     <div class="container body-content" style="padding-top: 50px">

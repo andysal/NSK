@@ -44,7 +44,7 @@ namespace Nsk.Web.Site.Controllers
                 return new StatusCodeResult(400);
             return View(model);
         }
-
+        
         [HttpGet]
         //[OutputCache(Duration=30)]
         public IActionResult Rss()

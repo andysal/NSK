@@ -2,6 +2,7 @@
 using MvcCoreMate.Mvc.Model;
 using Nsk.Data.ReadModel;
 using Nsk.Web.Site.Models.Catalog;
+using Nsk.Web.Site.WorkerServices.WorkerServicesExtensionMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +18,22 @@ namespace Nsk.Web.Site.WorkerServices
             this.Database = database ?? throw new ArgumentNullException("database");
         }
 
+        public BaseSearchViewModel GetLayoutSearchViewModel()
+        {
+            var model = new BaseSearchViewModel().PopulateCategories(Database.Categories);
+            return model;
+        }
+
         public SearchViewModel GetSearchViewModel()
         {
             var model = new SearchViewModel();
-            PopulateCategories(model);
+            model.PopulateCategories(Database.Categories);
             return model;
         }
 
         public SearchViewModel PostSearchViewModel(SearchViewModel model)
         {
-            PopulateCategories(model);
+            model.PopulateCategories(Database.Categories);
             var repo = Database.Products.ForSale();
             if(model.SelectedCategoryId > 0 )
             {
@@ -40,7 +47,7 @@ namespace Nsk.Web.Site.WorkerServices
             {
                 repo = repo.Where(p => p.UnitPrice >= model.MinUnitPrice);
             }
-            repo = repo.Where(p => p.Name.StartsWith(model.Query));
+            repo = repo.Where(p => p.Name.Contains(model.Query));
             model.Products = (from p in repo
                             orderby p.Name
                             select new SearchViewModel.Product
@@ -202,21 +209,6 @@ namespace Nsk.Web.Site.WorkerServices
             //feed.Title = new TextSyndicationContent("NSK Online Store product catalog");
             feed.LastUpdatedTime = DateTime.Now;
             return feed;
-        }
-
-        private void PopulateCategories(SearchViewModel model)
-        {
-            var categories = (from c in Database.Categories
-                                select new SelectListItem
-                                {
-                                    Value = c.Id.ToString(),
-                                    Text = c.Name
-                                }).ToList();
-            categories.Add(new SelectListItem() { 
-                                    Text = "All Categories",
-                                    Value = "0"
-                                });
-            model.Categories = categories.OrderBy(c => c.Text);
         }
     }
 }

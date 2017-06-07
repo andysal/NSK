@@ -8,9 +8,9 @@ namespace Nsk.Data.ReadModel
     {
         private NorthwindContext Context;
 
-        public Database()
+        public Database(string connectionString)
         {
-            Context = new NorthwindContext();
+            Context = new NorthwindContext(connectionString);
             Context.ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
@@ -46,9 +46,9 @@ namespace Nsk.Data.ReadModel
             }
         }
 
-        public ShoppingCart GetCurrentCart()
+        public CartCommads GetCurrentCart()
         {
-            return ShoppingCart.GetCart();
+            return CartCommads.GetCart();
         }
 
         //public Image GetCategoryThumbnail(int categoryId)
