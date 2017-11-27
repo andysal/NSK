@@ -4,16 +4,18 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>MvcCoreMate</AssemblyName>
     <PackageId>MvcCoreMate</PackageId>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <Authors>MvcCoreMate</Authors>
+    <Authors>Andrea Saltarello</Authors>
     <Copyright>Andrea Saltarello</Copyright>
+    <Company>Managed Designs</Company>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>
