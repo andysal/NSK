@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Nsk.Data.Model;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Nsk.Data.ReadModel
 {
@@ -8,9 +9,9 @@ namespace Nsk.Data.ReadModel
     {
         private NorthwindContext Context;
 
-        public Database()
+        public Database(NorthwindContext context)
         {
-            Context = new NorthwindContext();
+            Context = context ?? throw new ArgumentNullException(nameof(context));
             Context.ChangeTracker.AutoDetectChangesEnabled = false;
         }
 

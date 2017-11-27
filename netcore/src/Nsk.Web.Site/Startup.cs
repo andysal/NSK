@@ -20,6 +20,7 @@ using Microsoft.Net.Http.Headers;
 using MvcCoreMate.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Identity;
+using Nsk.Data.Model;
 
 namespace Nsk.Web.Site
 {
@@ -43,6 +44,8 @@ namespace Nsk.Web.Site
         {
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<NorthwindContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
