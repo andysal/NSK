@@ -48,20 +48,20 @@ namespace MvcCoreMate.Mvc
         //    return new ImageResult(image, mimeType, thumbnailSize);
         //}
 
-        ///// <summary>
-        ///// Creates a System.Web.Mvc.JsonResult object that serializes the specified object to JavaScript Object Notation (JSON).
-        ///// </summary>
-        ///// <param name="controller"></param>
-        ///// <param name="data">The JavaScript object graph to serialize.</param>
-        ///// <returns>
-        ///// The JSONP result object that serializes the specified object to JSONP format. 
-        ///// The result object that is prepared by this method is written to the response 
-        ///// by the ASP.NET MVC framework when the object is executed.
-        ///// </returns>
-        //public static JsonpResult Jsonp(this Controller controller, object data)
-        //{
-        //    return new JsonpResult(data);
-        //}
+        /// <summary>
+        /// Creates a System.Web.Mvc.JsonResult object that serializes the specified object to JavaScript Object Notation (JSON).
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="data">The JavaScript object graph to serialize.</param>
+        /// <returns>
+        /// The JSONP result object that serializes the specified object to JSONP format. 
+        /// The result object that is prepared by this method is written to the response 
+        /// by the ASP.NET MVC framework when the object is executed.
+        /// </returns>
+        public static JsonpResult Jsonp(this Controller controller, object data)
+        {
+            return new JsonpResult(data);
+        }
 
         /// <summary>
         /// Creates a Methnology.Web.Mvc.Rss20Result object that serializes the specified feed 

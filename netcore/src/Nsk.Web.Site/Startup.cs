@@ -19,6 +19,7 @@ using Nsk.Web.Site.WorkerServices;
 using Microsoft.Net.Http.Headers;
 using MvcCoreMate.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Identity;
 
 namespace Nsk.Web.Site
 {
@@ -79,8 +80,7 @@ namespace Nsk.Web.Site
             services.AddSingleton<IConfigurationRoot>(Configuration);
 
             // Add application services.
-            services.AddTransient<IEmailSender, AuthMessageSender>();
-            services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddTransient<IEmailSender, EmailSender>();
 
             //Infrastructure
             services.AddTransient<IDatabase, Database>();
@@ -120,7 +120,7 @@ namespace Nsk.Web.Site
 
             app.UseStaticFiles();
             
-            app.UseIdentity();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
