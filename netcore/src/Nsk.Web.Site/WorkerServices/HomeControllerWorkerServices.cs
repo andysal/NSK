@@ -18,7 +18,7 @@ namespace Nsk.Web.Site.WorkerServices
         public IndexViewModel GetIndexViewModel()
         {
             var model = new IndexViewModel();
-            model.BestSellingProducts = from p in Database
+            model.BestSellingProducts = (from p in Database
                                        .Products
                                        .ForSale()
                                        .BestSelling()
@@ -30,34 +30,34 @@ namespace Nsk.Web.Site.WorkerServices
                                             SupplierId = p.Supplier.Id,
                                             SupplierName = p.Supplier.CompanyName,
                                             UnitPrice = p.UnitPrice
-                                        };
-            model.Categories = from c in Database.Categories
+                                        }).ToArray();
+            model.Categories = (from c in Database.Categories
                                orderby c.Name
                                select new IndexViewModel.Category
                                {
                                    Id = c.Id,
                                    Name = c.Name
-                               };
+                               }).ToArray();
             return model;
         }
 
         public SiteMapViewModel GetSiteMapViewModel()
         {
             var model = new SiteMapViewModel();
-            model.Categories = from p in Database.Categories
-                             orderby p.Name
-                             select new SiteMapViewModel.Category
-                             {
-                                 Id = p.Id,
-                                 Name = p.Name
-                             };
-            model.Products = from p in Database.Products.ForSale()
+            model.Categories = (from p in Database.Categories
+                                orderby p.Name
+                                select new SiteMapViewModel.Category
+                                {
+                                    Id = p.Id,
+                                    Name = p.Name
+                                }).ToArray();
+            model.Products = (from p in Database.Products.ForSale()
                              orderby p.Name
                              select new SiteMapViewModel.Product
                              {
                                  Id = p.Id,
                                  Name = p.Name
-                             };
+                             }).ToArray();
             return model;
         }
 
