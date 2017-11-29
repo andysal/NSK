@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Nsk.Web.Services.Data;
 using SixLabors.ImageSharp;
+using System.Threading.Tasks;
 
 namespace Nsk.Web.Services.Controllers
 {
@@ -20,33 +21,32 @@ namespace Nsk.Web.Services.Controllers
 
         [HttpGet]
         [ResponseCache(Duration = 30)]
-        public HttpResponseMessage Category(int id)
-        {          
-            var image = Database.GetCategoryThumbnail(id);
-            var result = BuildHttpResponse(image);
-
-            return result;
+        public IActionResult Category(int id)
+        {
+            using (var image = Database.GetCategoryThumbnail(id))
+            {
+                var result = BuildHttpResponse(image);
+                return File(result, "image/jpeg");
+            }
         }
 
         [HttpGet]
         [ResponseCache(Duration = 30)]
-        public HttpResponseMessage Product(int id)
+        public IActionResult Product(int id)
         {
-            var image = Database.GetProductThumbnail(id);
-            var result = BuildHttpResponse(image);
-
-            return result;
+            using (var image = Database.GetProductThumbnail(id))
+            {
+                var result = BuildHttpResponse(image);
+                return File(result, "image/jpeg");
+            }
         }
 
-        private static HttpResponseMessage BuildHttpResponse(Image<Rgba32> image)
+        private static MemoryStream BuildHttpResponse(Image<Rgba32> image)
         {
             var memoryStream = new MemoryStream();
-            //image.Save(memoryStream, ImageFormat.Jpeg);
             image.SaveAsJpeg(memoryStream);
-            var result = new HttpResponseMessage(HttpStatusCode.OK);
-            result.Content = new ByteArrayContent(memoryStream.ToArray());
-            result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
-            return result;
+            memoryStream.Seek(0, SeekOrigin.Begin);
+            return memoryStream;
         }
     }
 }

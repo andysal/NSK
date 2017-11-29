@@ -32,8 +32,8 @@ namespace Nsk.Web.Services
         {
             // Add framework services.
             services
-                .AddMvc()
-                .AddWebApiConventions();
+                .AddMvc();
+                //.AddWebApiConventions();
 
             services.AddTransient<IDatabase, Database>();
 
