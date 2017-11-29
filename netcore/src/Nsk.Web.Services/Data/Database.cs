@@ -1,14 +1,14 @@
 ﻿using System;
 using System.IO;
-using System.Drawing;
 using System.Data;
 using System.Data.SqlClient;
+using SixLabors.ImageSharp;
 
 namespace Nsk.Web.Services.Data
 {
     public class Database : IDatabase
     {
-        public Image GetCategoryThumbnail(int categoryId)
+        public Image<Rgba32> GetCategoryThumbnail(int categoryId)
         {
             byte[] imageRawData = null;
             var connectionString = Startup.ConnectionString;
@@ -29,7 +29,7 @@ namespace Nsk.Web.Services.Data
             return byteArrayToImage(imageRawData, true);
         }
 
-        public Image GetProductThumbnail(int productId)
+        public Image<Rgba32> GetProductThumbnail(int productId)
         {
             var connectionString = Startup.ConnectionString;
             using (var cn = new SqlConnection(connectionString))
@@ -43,13 +43,13 @@ namespace Nsk.Web.Services.Data
             }
         }
 
-        private System.Drawing.Image byteArrayToImage(byte[] byteArrayIn, bool stripOleHeader)
+        private Image<Rgba32> byteArrayToImage(byte[] byteArrayIn, bool stripOleHeader)
         {
             int strippedImageLength = byteArrayIn.Length - (stripOleHeader ? 78 : 0);
             byte[] strippedImageData = new byte[strippedImageLength];
             Array.Copy(byteArrayIn, (stripOleHeader ? 78 : 0), strippedImageData, 0, strippedImageLength);
             var ms = new MemoryStream(strippedImageData);
-            return System.Drawing.Image.FromStream(ms);
+            return Image.Load(ms);
         }
     }
 }

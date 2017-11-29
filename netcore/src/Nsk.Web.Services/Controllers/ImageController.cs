@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Nsk.Web.Services.Data;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
+﻿using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Mvc;
+using Nsk.Web.Services.Data;
+using SixLabors.ImageSharp;
 
 namespace Nsk.Web.Services.Controllers
 {
@@ -39,10 +38,11 @@ namespace Nsk.Web.Services.Controllers
             return result;
         }
 
-        private static HttpResponseMessage BuildHttpResponse(Image image)
+        private static HttpResponseMessage BuildHttpResponse(Image<Rgba32> image)
         {
             var memoryStream = new MemoryStream();
-            image.Save(memoryStream, ImageFormat.Jpeg);
+            //image.Save(memoryStream, ImageFormat.Jpeg);
+            image.SaveAsJpeg(memoryStream);
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             result.Content = new ByteArrayContent(memoryStream.ToArray());
             result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");

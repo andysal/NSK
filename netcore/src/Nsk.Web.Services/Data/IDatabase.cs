@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using System.Drawing;
+using SixLabors.ImageSharp;
 
 namespace Nsk.Web.Services.Data
 {
     public interface IDatabase
     {
-        Image GetCategoryThumbnail(int categoryId);
+        Image<Rgba32> GetCategoryThumbnail(int categoryId);
 
-        Image GetProductThumbnail(int productId);
+        Image<Rgba32> GetProductThumbnail(int productId);
     }
 }
