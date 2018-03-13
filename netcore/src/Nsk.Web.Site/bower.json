@@ -5,7 +5,7 @@
     "angular": "1.5.8",
     "bootstrap": "v3.3.7",
     "jquery": "2.2.4",
-    "jqueri-ui": "1.12.1",
+    "jquery-ui": "1.12.1",
     "jquery-validation": "1.16.0",
     "jquery-validation-unobtrusive": "3.2.6"
   },

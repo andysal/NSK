@@ -29,4 +29,7 @@
     <Folder Include="Areas\My\Models\Order\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\jqueri-ui\.bower.json" />
+  </ItemGroup>
 </Project>
