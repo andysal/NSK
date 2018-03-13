@@ -27,7 +27,7 @@ namespace Nsk.Data.Model
         {
             if (quantity <= 0)
             {
-                throw new ArgumentException("Product quantoty must be higher than zero.", "quantity");
+                throw new ArgumentException("Product quantity must be higher than zero.", nameof(quantity));
             }
             var item = Items.Where(i => i.ProductId == productId)
                             .SingleOrDefault();
@@ -53,7 +53,7 @@ namespace Nsk.Data.Model
                             .SingleOrDefault();
             if (item == null)
             {
-                throw new ArgumentException("The cart does not cointain the specified product.", "productId");
+                throw new ArgumentException("The cart does not cointain the specified product.", nameof(productId));
             }
             else
             {
@@ -65,13 +65,13 @@ namespace Nsk.Data.Model
         {
             if(quantity<=0)
             {
-                throw new ArgumentException("Product quantoty must be higher than zero.", "quantity");
+                throw new ArgumentException("Product quantoty must be higher than zero.", nameof(quantity));
             }
             var item = Items.Where(i => i.ProductId == productId)
                             .SingleOrDefault();
             if (item == null)
             {
-                throw new ArgumentException("The cart does not cointain the specified product.", "productId");
+                throw new ArgumentException("The cart does not cointain the specified product.", nameof(productId));
             }
             else
             {
@@ -79,7 +79,7 @@ namespace Nsk.Data.Model
             }
         }
 
-        internal static ShoppingCart GetCart()
+        public static ShoppingCart GetCart()
         {
             return CurrentCart;
             //var session = HttpContext.Current.Session;

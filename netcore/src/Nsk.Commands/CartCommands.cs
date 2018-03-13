@@ -11,21 +11,12 @@ namespace Nsk.Commands
     public class CartCommands
     {
         public ShoppingCart CurrentCart { get; private set; }
+        public NorthwindContext ActiveContext { get; private set; }
 
-
-        /// <summary>
-        /// Creates a new instance
-        /// </summary>
-        public CartCommands()
+        public CartCommands(NorthwindContext context)
         {
             CurrentCart = ShoppingCart.GetCart();
-        }
-
-        public CartCommands(ShoppingCart cart)
-        {
-            if (cart == null)
-                throw new ArgumentNullException(nameof(cart));
-            CurrentCart = cart;
+            ActiveContext = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         /// <summary>
@@ -36,17 +27,14 @@ namespace Nsk.Commands
         /// <exception cref="ProductIsNotForSaleException">Thrown if the product is not for sale</exception>
         public void AddProductToCart(int productId, int quantity)
         {
-            using (var ctx = new NorthwindContext())
+            var product = ActiveContext.Products
+                                .Where(p => p.Id == productId)
+                                .SingleOrDefault();
+            if(product == null || product.IsDiscontinued)
             {
-                var product = ctx.Products
-                    .Where(p => p.Id == productId)
-                    .SingleOrDefault();
-                if(product == null || product.IsDiscontinued)
-                {
-                    throw new ProductIsNotForSaleException();
-                }
-                CurrentCart.AddProduct(product.Id, quantity, product.UnitPrice.Value);
+                throw new ProductIsNotForSaleException();
             }
+            CurrentCart.AddProduct(product.Id, quantity, product.UnitPrice.Value);
         }
 
         /// <summary>

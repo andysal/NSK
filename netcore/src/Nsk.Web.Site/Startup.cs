@@ -88,11 +88,7 @@ namespace Nsk.Web.Site
             //Infrastructure
             services.AddTransient<IDatabase, Database>();
 
-            ////MVC
-            //services.AddTransient<AccountController>();
-            //services.AddTransient<ManageController>();
-
-            ////Commands
+            //Commands
             services.AddTransient<CartCommands>();
 
             // WorkerServices
@@ -100,6 +96,8 @@ namespace Nsk.Web.Site
             services.AddTransient<CartControllerWorkerServices>();
             services.AddTransient<CatalogControllerWorkerServices>();
             services.AddTransient<HomeControllerWorkerServices>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
