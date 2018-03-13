@@ -7,15 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{82193C2B-07E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95053877-2E0F-4C20-94AB-5663211D4646}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsk.Data", "src\Nsk.Data\Nsk.Data.csproj", "{7B745F20-4BD7-420A-9473-960F1383625B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.Data", "src\Nsk.Data\Nsk.Data.csproj", "{7B745F20-4BD7-420A-9473-960F1383625B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsk.Commands", "src\Nsk.Commands\Nsk.Commands.csproj", "{71CC39D9-F37F-4E32-87C0-2A7B588E88F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.Commands", "src\Nsk.Commands\Nsk.Commands.csproj", "{71CC39D9-F37F-4E32-87C0-2A7B588E88F8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsk.Web.Site", "src\Nsk.Web.Site\Nsk.Web.Site.csproj", "{57845718-6234-4664-9BB2-011D1838F06B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.Web.Site", "src\Nsk.Web.Site\Nsk.Web.Site.csproj", "{57845718-6234-4664-9BB2-011D1838F06B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsk.Web.Services", "src\Nsk.Web.Services\Nsk.Web.Services.csproj", "{DD97C234-BF65-4684-A5D3-53892C13CD9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.Web.Services", "src\Nsk.Web.Services\Nsk.Web.Services.csproj", "{DD97C234-BF65-4684-A5D3-53892C13CD9C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcCoreMate", "src\MvcCoreMate\MvcCoreMate.csproj", "{A0A39CA1-84F5-4F58-B33B-72D2DDE4D0F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcCoreMate", "src\MvcCoreMate\MvcCoreMate.csproj", "{A0A39CA1-84F5-4F58-B33B-72D2DDE4D0F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,5 +56,12 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {965BF1A8-A020-4003-B052-F6F97C80F26C}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.StandardHeader = $2
+		$0.VersionControlPolicy = $3
 	EndGlobalSection
 EndGlobal

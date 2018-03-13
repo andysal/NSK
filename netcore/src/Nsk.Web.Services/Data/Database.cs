@@ -8,10 +8,21 @@ namespace Nsk.Web.Services.Data
 {
     public class Database : IDatabase
     {
+        public string ConnectionString
+        {
+            get;
+            private set;
+        }
+
+        public Database(string connectionString)
+        {
+            ConnectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));    
+        }
+
         public Image<Rgba32> GetCategoryThumbnail(int categoryId)
         {
             byte[] imageRawData = null;
-            var connectionString = Startup.ConnectionString;
+            var connectionString = this.ConnectionString;
             using(var cn = new SqlConnection(connectionString))
             using(IDbCommand cmd = cn.CreateCommand())
             {
@@ -31,7 +42,7 @@ namespace Nsk.Web.Services.Data
 
         public Image<Rgba32> GetProductThumbnail(int productId)
         {
-            var connectionString = Startup.ConnectionString;
+            var connectionString = this.ConnectionString;
             using (var cn = new SqlConnection(connectionString))
             using (IDbCommand cmd = cn.CreateCommand())
             {
