@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Andrea\Progetti\Nsk_Afresh\src\Nsk.OnlineStore.Data\Northwind.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Dev\Github\NSK\netfx\src\Nsk.OnlineStore.Data\Northwind.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
