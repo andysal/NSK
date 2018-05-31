@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Nsk.Web.Services.Data;
 using SixLabors.ImageSharp;
 using System.Threading.Tasks;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace Nsk.Web.Services.Controllers
 {

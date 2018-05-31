@@ -3,6 +3,7 @@ using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace Nsk.Web.Services.Data
 {

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace Nsk.Web.Services.Data
 {
