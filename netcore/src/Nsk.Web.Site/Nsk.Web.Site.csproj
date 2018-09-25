@@ -8,9 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\My\**" />
+    <Content Remove="Areas\My\**" />
+    <EmbeddedResource Remove="Areas\My\**" />
+    <None Remove="Areas\My\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MvcCoreMate\MvcCoreMate.csproj" />
     <ProjectReference Include="..\Nsk.Data\Nsk.Data.csproj" />
     <ProjectReference Include="..\Nsk.Commands\Nsk.Commands.csproj" />
+    <ProjectReference Include="..\Nsk.Web.Site.Areas.My\Nsk.Web.Site.Areas.My.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,12 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\My\Models\" />
-    <Folder Include="Areas\My\Views\Order\" />
-    <Folder Include="Areas\My\Models\Order\" />
+    <Content Remove="wwwroot\lib\jqueri-ui\.bower.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\lib\jqueri-ui\.bower.json" />
+    <Folder Include="Areas\" />
   </ItemGroup>
 </Project>

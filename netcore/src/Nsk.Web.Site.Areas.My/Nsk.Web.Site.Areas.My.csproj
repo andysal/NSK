@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MvcCoreMate\MvcCoreMate.csproj" />
+    <ProjectReference Include="..\Nsk.Commands\Nsk.Commands.csproj" />
+    <ProjectReference Include="..\Nsk.Data\Nsk.Data.csproj" />
+  </ItemGroup>
+</Project>
