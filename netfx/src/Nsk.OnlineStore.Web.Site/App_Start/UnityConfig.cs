@@ -45,7 +45,6 @@ namespace Nsk.OnlineStore.Web.Site
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
 
-            // TODO: Register your type's mappings here.
             //Infrastructure
             container.RegisterType<IDatabase, Database>();
 
@@ -60,7 +59,6 @@ namespace Nsk.OnlineStore.Web.Site
             container.RegisterType<AccountControllerWorkerServices>();
             container.RegisterType<CatalogControllerWorkerServices>();
             container.RegisterType<HomeControllerWorkerServices>();
-
         }
     }
 }
