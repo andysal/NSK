@@ -5,14 +5,15 @@
     <AssemblyName>Nsk.Web.Site</AssemblyName>
     <PackageId>Nsk.Web.Site</PackageId>
     <UserSecretsId>aspnet-Nsk.Web.Site-6b0da5ce-9fc6-4286-b47c-e0ec62b49f37</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <Compile Remove="Areas\My\**" />
     <Content Remove="Areas\My\**" />
     <EmbeddedResource Remove="Areas\My\**" />
     <None Remove="Areas\My\**" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <ProjectReference Include="..\MvcCoreMate\MvcCoreMate.csproj" />
@@ -22,11 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All">
+      <PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
+      <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
