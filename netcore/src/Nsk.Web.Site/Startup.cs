@@ -59,7 +59,7 @@ namespace Nsk.Web.Site
                 {
                     // Add XML Content Negotiation
                     options.RespectBrowserAcceptHeader = true;
-                    options.InputFormatters.Add(new XmlSerializerInputFormatter());
+                    options.InputFormatters.Add(new XmlSerializerInputFormatter(options));
                     options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
 
                     // Add CSV Output Formatter
