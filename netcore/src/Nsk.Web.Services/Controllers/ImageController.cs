@@ -21,25 +21,41 @@ namespace Nsk.Web.Services.Controllers
         }
 
         [HttpGet]
-        [ResponseCache(Duration = 30)]
+        //[ResponseCache(Duration = 30)]
         public IActionResult Category(int id)
         {
-            using (var image = Database.GetCategoryThumbnail(id))
+            try
             {
-                var result = BuildHttpResponse(image);
-                return File(result, "image/jpeg");
+                using (var image = Database.GetCategoryThumbnail(id))
+                {
+                    var result = BuildHttpResponse(image);
+                    return File(result, "image/jpeg");
+                }
             }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
         }
 
         [HttpGet]
-        [ResponseCache(Duration = 30)]
+        //[ResponseCache(Duration = 30)]
         public IActionResult Product(int id)
         {
-            using (var image = Database.GetProductThumbnail(id))
+            try
             {
-                var result = BuildHttpResponse(image);
-                return File(result, "image/jpeg");
+                using (var image = Database.GetProductThumbnail(id))
+                {
+                    var result = BuildHttpResponse(image);
+                    return File(result, "image/jpeg");
+                }
             }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
         }
 
         private static MemoryStream BuildHttpResponse(Image<Rgba32> image)
