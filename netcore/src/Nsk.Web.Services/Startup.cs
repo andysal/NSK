@@ -46,6 +46,7 @@ namespace Nsk.Web.Services
                 app.UseHsts();
             }
 
+            app.UseRouting();
             app.UseHttpsRedirection();
 
             app.UseEndpoints(endpoints => {
@@ -53,9 +54,9 @@ namespace Nsk.Web.Services
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-                endpoints.MapControllerRoute(
-                    name: "DefaultApi",
-                    pattern: "api/{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //    name: "DefaultApi",
+                //    pattern: "api/{controller=Home}/{action=Index}/{id?}");
             });    
         }
     }
