@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Nsk.Web.Site.Areas.Admin.MyFeature.Pages
+namespace Nsk.Web.Site.Areas.Admin.Pages
 {
     public class Page1Model : PageModel
     {

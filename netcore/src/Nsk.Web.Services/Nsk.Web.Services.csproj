@@ -6,7 +6,6 @@
     <AssemblyName>Nsk.Web.Services</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>Nsk.Web.Services</PackageId>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <ItemGroup>

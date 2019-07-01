@@ -66,6 +66,7 @@ namespace Nsk.Web.Site
                     options.OutputFormatters.Add(new RssOutputFormatter());
                     options.FormatterMappings.SetMediaTypeMappingForFormat("rss", MediaTypeHeaderValue.Parse("application/rss+xml"));
                 })
+                .AddRazorRuntimeCompilation()
                 .AddNewtonsoftJson(opt =>
                 {
                     var resolver = opt.SerializerSettings.ContractResolver;
@@ -75,7 +76,7 @@ namespace Nsk.Web.Site
                         res.NamingStrategy = null;  //needed to remove the camelcasing
                     }
                 });
-                //.SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddRazorPages();
 
             // Application Configuration
             services.AddSingleton<IConfiguration>(Configuration);
@@ -119,12 +120,31 @@ namespace Nsk.Web.Site
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
+            app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "areaRoute",
-                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //    name: "areaRoute",
+                //    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
+
+                endpoints.MapAreaControllerRoute(
+                    name: "admin",
+                    areaName: "admin",
+                    pattern: "admin/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                    name: "my",
+                    areaName: "my",
+                    pattern: "my/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                    name: "mii",
+                    areaName: "mii",
+                    pattern: "mii/{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "ProductsByCategory",

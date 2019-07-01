@@ -5,25 +5,19 @@
     <AssemblyName>Nsk.Web.Site</AssemblyName>
     <PackageId>Nsk.Web.Site</PackageId>
     <UserSecretsId>aspnet-Nsk.Web.Site-6b0da5ce-9fc6-4286-b47c-e0ec62b49f37</UserSecretsId>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
-
-  <!--<ItemGroup>
-    <Compile Remove="Areas\My\**" />
-    <Content Remove="Areas\My\**" />
-    <EmbeddedResource Remove="Areas\My\**" />
-    <None Remove="Areas\My\**" />
-  </ItemGroup>-->
 
   <ItemGroup>
     <ProjectReference Include="..\MvcCoreMate\MvcCoreMate.csproj" />
     <ProjectReference Include="..\Nsk.Data\Nsk.Data.csproj" />
     <ProjectReference Include="..\Nsk.Commands\Nsk.Commands.csproj" />
+    <ProjectReference Include="..\Nsk.Web.Site.Areas.Admin\Nsk.Web.Site.Areas.Admin.csproj" />
     <ProjectReference Include="..\Nsk.Web.Site.Areas.My\Nsk.Web.Site.Areas.My.csproj" />
   </ItemGroup>
 
   <ItemGroup>
 <!--    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />-->
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0-preview6.19307.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0-preview6.19304.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview6.19307.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0-preview6.19304.10">
@@ -38,9 +32,5 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\lib\jqueri-ui\.bower.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\" />
   </ItemGroup>
 </Project>
