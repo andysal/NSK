@@ -19,12 +19,12 @@
 
         public static string BuildCategoryThumbnailUrl(int categoryId)
         {
-            return string.Format("https://localhost:5003/image/category/{0}", categoryId);
+            return string.Format("http://localhost:5002/image/category/{0}", categoryId);
         }
 
         public static string BuildProductThumbnailUrl(int productId)
         {
-            return string.Format("https://localhost:5003/image/product/{0}", productId);
+            return string.Format("http://localhost:5002/image/product/{0}", productId);
         }
 
         public static string BuildSearchResultPageUrl(string query)

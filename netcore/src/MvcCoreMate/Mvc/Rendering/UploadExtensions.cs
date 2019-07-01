@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.IO;
-using Microsoft.Extensions.WebEncoders;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Mvc.ViewFeatures.Internal;
 using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Mvc.ViewFeatures.Internal;
 
 namespace MvcCoreMate.Mvc.Rendering
 {
