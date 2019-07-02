@@ -17,6 +17,10 @@ using Microsoft.AspNetCore.Identity;
 using Nsk.Data.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System;
 
 namespace Nsk.Web.Site
 {
@@ -49,6 +53,12 @@ namespace Nsk.Web.Site
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.Add(
+                new ServiceDescriptor(
+                    typeof(IActionResultExecutor<JsonResult>),
+                    Type.GetType("Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor, Microsoft.AspNetCore.Mvc.Core"),
+                    ServiceLifetime.Singleton));
+
             services.AddResponseCaching();
             services.AddResponseCompression();
 
@@ -66,16 +76,22 @@ namespace Nsk.Web.Site
                     options.OutputFormatters.Add(new RssOutputFormatter());
                     options.FormatterMappings.SetMediaTypeMappingForFormat("rss", MediaTypeHeaderValue.Parse("application/rss+xml"));
                 })
-                .AddRazorRuntimeCompilation()
-                .AddNewtonsoftJson(opt =>
+                .AddJsonOptions(options =>
                 {
-                    var resolver = opt.SerializerSettings.ContractResolver;
-                    if (resolver != null)
-                    {
-                        var res = resolver as DefaultContractResolver;
-                        res.NamingStrategy = null;  //needed to remove the camelcasing
-                    }
-                });
+                    options.JsonSerializerOptions.WriteIndented = true;
+                    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                })
+                //.AddNewtonsoftJson(opt =>
+                //{
+                //    var resolver = opt.SerializerSettings.ContractResolver;
+                //    if (resolver != null)
+                //    {
+                //        var res = resolver as DefaultContractResolver;
+                //        res.NamingStrategy = null;  //needed to remove the camelcasing
+                //    }
+                //})
+                .AddRazorRuntimeCompilation();
+
             services.AddRazorPages();
 
             // Application Configuration
