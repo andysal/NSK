@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,8 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MvcCoreMate\MvcCoreMate.csproj" />
-    <ProjectReference Include="..\Nsk.Commands\Nsk.Commands.csproj" />
-    <ProjectReference Include="..\Nsk.Data\Nsk.Data.csproj" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
+
 </Project>

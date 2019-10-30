@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Nsk.Web.Services.Data;
 
@@ -15,8 +15,6 @@ namespace Nsk.Web.Services
 {
     public class Startup
     {
-        public static string ConnectionString = null;
-
         public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)
@@ -28,16 +26,14 @@ namespace Nsk.Web.Services
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            //services
-            //    .AddMvc();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddControllers();
 
-            ConnectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddTransient<IDatabase, Database>((o) => new Database(ConnectionString));
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddTransient<IDatabase, Database>((o) => new Database(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -50,16 +46,17 @@ namespace Nsk.Web.Services
                 app.UseHsts();
             }
 
+            app.UseRouting();
             app.UseHttpsRedirection();
 
-            app.UseMvc(routes => {
-                routes.MapRoute(
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-                routes.MapRoute(
-                    name: "DefaultApi",
-                    template: "api/{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //    name: "DefaultApi",
+                //    pattern: "api/{controller=Home}/{action=Index}/{id?}");
             });    
         }
     }

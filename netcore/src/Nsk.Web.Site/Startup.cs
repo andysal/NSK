@@ -16,6 +16,11 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Identity;
 using Nsk.Data.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System;
 
 namespace Nsk.Web.Site
 {
@@ -48,10 +53,16 @@ namespace Nsk.Web.Site
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.Add(
+                new ServiceDescriptor(
+                    typeof(IActionResultExecutor<JsonResult>),
+                    Type.GetType("Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor, Microsoft.AspNetCore.Mvc.Core"),
+                    ServiceLifetime.Singleton));
+
             services.AddResponseCaching();
             services.AddResponseCompression();
 
-            services.AddMvc(options =>
+            services.AddControllersWithViews(options =>
                 {
                     // Add XML Content Negotiation
                     options.RespectBrowserAcceptHeader = true;
@@ -65,16 +76,23 @@ namespace Nsk.Web.Site
                     options.OutputFormatters.Add(new RssOutputFormatter());
                     options.FormatterMappings.SetMediaTypeMappingForFormat("rss", MediaTypeHeaderValue.Parse("application/rss+xml"));
                 })
-                .AddJsonOptions(opt =>
+                .AddJsonOptions(options =>
                 {
-                    var resolver = opt.SerializerSettings.ContractResolver;
-                    if (resolver != null)
-                    {
-                        var res = resolver as DefaultContractResolver;
-                        res.NamingStrategy = null;  //needed to remove the camelcasing
-                    }
+                    options.JsonSerializerOptions.WriteIndented = true;
+                    options.JsonSerializerOptions.PropertyNamingPolicy = null;
                 })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                //.AddNewtonsoftJson(opt =>
+                //{
+                //    var resolver = opt.SerializerSettings.ContractResolver;
+                //    if (resolver != null)
+                //    {
+                //        var res = resolver as DefaultContractResolver;
+                //        res.NamingStrategy = null;  //needed to remove the camelcasing
+                //    }
+                //})
+                .AddRazorRuntimeCompilation();
+
+            services.AddRazorPages();
 
             // Application Configuration
             services.AddSingleton<IConfiguration>(Configuration);
@@ -98,12 +116,12 @@ namespace Nsk.Web.Site
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                //app.UseDatabaseErrorPage();
             }
             else
             {
@@ -113,46 +131,67 @@ namespace Nsk.Web.Site
             }
 
             app.UseResponseCompression();
+            app.UseRouting();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
+            app.UseAuthorization();
 
-            app.UseMvc(routes =>
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(name: "areaRoute",
-                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //    name: "areaRoute",
+                //    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
 
-                routes.MapRoute(
+                endpoints.MapAreaControllerRoute(
+                    name: "admin",
+                    areaName: "admin",
+                    pattern: "admin/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                    name: "my",
+                    areaName: "my",
+                    pattern: "my/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                    name: "mii",
+                    areaName: "mii",
+                    pattern: "mii/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
                     name: "ProductsByCategory",
-                    template: "catalog/c/{categoryId}/{categoryName?}",
+                    pattern: "catalog/c/{categoryId}/{categoryName?}",
                     defaults: new { controller = "Catalog", action = "ProductsByCategory" },
                     constraints: new { categoryId = @"\d+" }
                 );
 
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "ProductsBySupplier",
-                    template: "catalog/s/{supplierId}/{supplierName?}",
+                    pattern: "catalog/s/{supplierId}/{supplierName?}",
                     defaults: new { controller = "Catalog", action = "ProductsBySupplier" },
                     constraints: new { supplierId = @"\d+" }
                 );
 
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "ProductPage",
-                    template: "product/{productId}/{productName?}",
+                    pattern: "product/{productId}/{productName?}",
                     defaults: new { controller = "Catalog", action = "ProductDetail" },
                     constraints: new { productId = @"\d+" }
                 );
 
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "ProductsRssFeed",
-                    template: "products/rss",
+                    pattern: "products/rss",
                     defaults: new { controller = "Catalog", action = "Rss" }
                 );
 
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

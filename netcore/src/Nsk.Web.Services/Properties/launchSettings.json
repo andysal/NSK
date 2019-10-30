@@ -4,7 +4,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:5002",
-      "sslPort": 0
+      "sslPort": 44321
     }
   },
   "profiles": {
@@ -17,12 +17,10 @@
     },
     "Nsk.Web.Services": {
       "commandName": "Project",
-      "launchBrowser": false,
-      "launchUrl": "http://localhost:5002/api/values",
-      "applicationUrl": "https://localhost:5003;http://localhost:5002",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:5003;http://localhost:5002"
     }
   }
 }
