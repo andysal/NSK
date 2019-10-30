@@ -23,5 +23,10 @@
   "library": "jquery@2.2.4",
   "destination": "wwwroot/lib/jquery/"
 }
+,
+{
+  "library": "angular.js@1.5.8",
+  "destination": "wwwroot/lib/angularjs/"
+}
 ]
 }
