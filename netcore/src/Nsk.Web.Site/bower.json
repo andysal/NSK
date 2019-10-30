@@ -3,15 +3,11 @@
   "private": true,
   "dependencies": {
     "angular": "1.5.8",
-    "bootstrap": "v3.3.7",
     "jquery": "2.2.4",
-    "jquery-ui": "1.12.1",
-    "jquery-validation": "1.16.0",
-    "jquery-validation-unobtrusive": "3.2.6"
+    "jquery-validation": "1.16.0"
   },
   "resolutions": {
     "jquery": ">=1.6",
-    "jquery-validation": "1.15.0",
-    "bootstrap": "v3.3.7"
+    "jquery-validation": "1.15.0"
   }
 }
