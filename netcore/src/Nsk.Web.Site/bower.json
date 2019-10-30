@@ -3,11 +3,9 @@
   "private": true,
   "dependencies": {
     "angular": "1.5.8",
-    "jquery": "2.2.4",
-    "jquery-validation": "1.16.0"
+    "jquery": "2.2.4"
   },
   "resolutions": {
-    "jquery": ">=1.6",
-    "jquery-validation": "1.15.0"
+    "jquery": ">=1.6"
   }
 }

@@ -5,16 +5,18 @@
     {
       "library": "twitter-bootstrap@3.4.1",
       "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/lib/jqueryui/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "library": "jquery-validate@1.19.1",
+      "destination": "wwwroot/lib/jquery-validate/"
     }
-  ,
-{
-  "library": "jqueryui@1.12.1",
-  "destination": "wwwroot/lib/jqueryui/"
-}
-,
-{
-  "library": "jquery-validation-unobtrusive@3.2.11",
-  "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
-}
-]
+  ]
 }
