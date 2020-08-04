@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nsk.Data.Model
 {
@@ -10,7 +11,9 @@ namespace Nsk.Data.Model
             EmployeeTerritories = new HashSet<EmployeeTerritories>();
         }
 
+        [MaxLength(20)]
         public string Id { get; set; }
+        [Required]
         public string Description { get; set; }
         public int RegionId { get; set; }
 

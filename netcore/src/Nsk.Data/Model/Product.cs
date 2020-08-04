@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nsk.Data.Model
 {
@@ -11,9 +12,12 @@ namespace Nsk.Data.Model
         }
 
         public int Id { get; set; }
+        [Required]
+        [MaxLength(40)]
         public string Name { get; set; }
         public int? SupplierId { get; set; }
         public int? CategoryId { get; set; }
+        [MaxLength(20)]
         public string QuantityPerUnit { get; set; }
         public decimal? UnitPrice { get; set; }
         public short? UnitsInStock { get; set; }

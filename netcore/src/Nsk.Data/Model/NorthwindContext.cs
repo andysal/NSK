@@ -26,9 +26,7 @@ namespace Nsk.Data.Model
                     .HasColumnName("CategoryID");
 
                 entity.Property(e => e.Name)
-                .HasColumnName("CategoryName")
-                    .IsRequired()
-                    .HasMaxLength(15);
+                .HasColumnName("CategoryName");
 
                 entity.Property(e => e.Description).HasColumnType("ntext");
 
@@ -95,27 +93,25 @@ namespace Nsk.Data.Model
                     .HasColumnName("CustomerID")
                     .HasColumnType("nchar(5)");
 
-                entity.Property(e => e.Address).HasMaxLength(60);
+                entity.Property(e => e.Address);
 
-                entity.Property(e => e.City).HasMaxLength(15);
+                entity.Property(e => e.City);
 
-                entity.Property(e => e.CompanyName)
-                    .IsRequired()
-                    .HasMaxLength(40);
+                entity.Property(e => e.CompanyName);
 
-                entity.Property(e => e.ContactName).HasMaxLength(30);
+                entity.Property(e => e.ContactName);
 
-                entity.Property(e => e.ContactTitle).HasMaxLength(30);
+                entity.Property(e => e.ContactTitle);
 
-                entity.Property(e => e.Country).HasMaxLength(15);
+                entity.Property(e => e.Country);
 
-                entity.Property(e => e.Fax).HasMaxLength(24);
+                entity.Property(e => e.Fax);
 
-                entity.Property(e => e.Phone).HasMaxLength(24);
+                entity.Property(e => e.Phone);
 
-                entity.Property(e => e.PostalCode).HasMaxLength(10);
+                entity.Property(e => e.PostalCode);
 
-                entity.Property(e => e.Region).HasMaxLength(15);
+                entity.Property(e => e.Region);
             });
 
             modelBuilder.Entity<EmployeeTerritories>(entity =>
@@ -126,8 +122,7 @@ namespace Nsk.Data.Model
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
                 entity.Property(e => e.TerritoryId)
-                    .HasColumnName("TerritoryID")
-                    .HasMaxLength(20);
+                    .HasColumnName("TerritoryID");
 
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.EmployeeTerritories)
@@ -155,41 +150,37 @@ namespace Nsk.Data.Model
 
                 entity.Property(e => e.Id).HasColumnName("EmployeeID");
 
-                entity.Property(e => e.Address).HasMaxLength(60);
+                entity.Property(e => e.Address);
 
                 entity.Property(e => e.BirthDate).HasColumnType("datetime");
 
-                entity.Property(e => e.City).HasMaxLength(15);
+                entity.Property(e => e.City);
 
-                entity.Property(e => e.Country).HasMaxLength(15);
+                entity.Property(e => e.Country);
 
-                entity.Property(e => e.Extension).HasMaxLength(4);
+                entity.Property(e => e.Extension);
 
-                entity.Property(e => e.FirstName)
-                    .IsRequired()
-                    .HasMaxLength(10);
+                entity.Property(e => e.FirstName);
 
                 entity.Property(e => e.HireDate).HasColumnType("datetime");
 
-                entity.Property(e => e.HomePhone).HasMaxLength(24);
+                entity.Property(e => e.HomePhone);
 
-                entity.Property(e => e.LastName)
-                    .IsRequired()
-                    .HasMaxLength(20);
+                entity.Property(e => e.LastName);
 
                 entity.Property(e => e.Notes).HasColumnType("ntext");
 
                 entity.Property(e => e.Photo).HasColumnType("image");
 
-                entity.Property(e => e.PhotoPath).HasMaxLength(255);
+                entity.Property(e => e.PhotoPath);
 
-                entity.Property(e => e.PostalCode).HasMaxLength(10);
+                entity.Property(e => e.PostalCode);
 
-                entity.Property(e => e.Region).HasMaxLength(15);
+                entity.Property(e => e.Region);
 
-                entity.Property(e => e.Title).HasMaxLength(30);
+                entity.Property(e => e.Title);
 
-                entity.Property(e => e.TitleOfCourtesy).HasMaxLength(25);
+                entity.Property(e => e.TitleOfCourtesy);
 
                 entity.HasOne(d => d.Manager)
                     .WithMany(p => p.Reports)
@@ -274,17 +265,17 @@ namespace Nsk.Data.Model
 
                 entity.Property(e => e.RequiredDate).HasColumnType("datetime");
 
-                entity.Property(e => e.ShipAddress).HasMaxLength(60);
+                entity.Property(e => e.ShipAddress);
 
-                entity.Property(e => e.ShipCity).HasMaxLength(15);
+                entity.Property(e => e.ShipCity);
 
-                entity.Property(e => e.ShipCountry).HasMaxLength(15);
+                entity.Property(e => e.ShipCountry);
 
-                entity.Property(e => e.ShipName).HasMaxLength(40);
+                entity.Property(e => e.ShipName);
 
-                entity.Property(e => e.ShipPostalCode).HasMaxLength(10);
+                entity.Property(e => e.ShipPostalCode);
 
-                entity.Property(e => e.ShipRegion).HasMaxLength(15);
+                entity.Property(e => e.ShipRegion);
 
                 entity.Property(e => e.ShippedDate).HasColumnType("datetime");
 
@@ -329,11 +320,9 @@ namespace Nsk.Data.Model
                     .HasDefaultValueSql("0");
 
                 entity.Property(e => e.Name)
-                    .HasColumnName("ProductName")
-                    .IsRequired()
-                    .HasMaxLength(40);
+                    .HasColumnName("ProductName");
 
-                entity.Property(e => e.QuantityPerUnit).HasMaxLength(20);
+                entity.Property(e => e.QuantityPerUnit);
 
                 entity.Property(e => e.ReorderLevel).HasDefaultValueSql("0");
 
@@ -377,11 +366,9 @@ namespace Nsk.Data.Model
 
                 entity.Property(e => e.Id).HasColumnName("ShipperID");
 
-                entity.Property(e => e.CompanyName)
-                    .IsRequired()
-                    .HasMaxLength(40);
+                entity.Property(e => e.CompanyName);
 
-                entity.Property(e => e.Phone).HasMaxLength(24);
+                entity.Property(e => e.Phone);
             });
 
             modelBuilder.Entity<Supplier>(entity =>
@@ -397,29 +384,27 @@ namespace Nsk.Data.Model
 
                 entity.Property(e => e.Id).HasColumnName("SupplierID");
 
-                entity.Property(e => e.Address).HasMaxLength(60);
+                entity.Property(e => e.Address);
 
-                entity.Property(e => e.City).HasMaxLength(15);
+                entity.Property(e => e.City);
 
-                entity.Property(e => e.CompanyName)
-                    .IsRequired()
-                    .HasMaxLength(40);
+                entity.Property(e => e.CompanyName);
 
-                entity.Property(e => e.ContactName).HasMaxLength(30);
+                entity.Property(e => e.ContactName);
 
-                entity.Property(e => e.ContactTitle).HasMaxLength(30);
+                entity.Property(e => e.ContactTitle);
 
-                entity.Property(e => e.Country).HasMaxLength(15);
+                entity.Property(e => e.Country);
 
-                entity.Property(e => e.Fax).HasMaxLength(24);
+                entity.Property(e => e.Fax);
 
                 entity.Property(e => e.HomePage).HasColumnType("ntext");
 
-                entity.Property(e => e.Phone).HasMaxLength(24);
+                entity.Property(e => e.Phone);
 
-                entity.Property(e => e.PostalCode).HasMaxLength(10);
+                entity.Property(e => e.PostalCode);
 
-                entity.Property(e => e.Region).HasMaxLength(15);
+                entity.Property(e => e.Region);
             });
 
             modelBuilder.Entity<Territory>(entity =>
@@ -428,13 +413,11 @@ namespace Nsk.Data.Model
                     .HasName("PK_Territories");
 
                 entity.Property(e => e.Id)
-                    .HasColumnName("TerritoryID")
-                    .HasMaxLength(20);
+                    .HasColumnName("TerritoryID");
 
                 entity.Property(e => e.RegionId).HasColumnName("RegionID");
 
                 entity.Property(e => e.Description)
-                    .IsRequired()
                     .HasColumnName("TerritoryDescription")
                     .HasColumnType("nchar(50)");
 
