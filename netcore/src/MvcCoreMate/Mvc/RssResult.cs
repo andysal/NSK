@@ -19,10 +19,7 @@ namespace MvcCoreMate.Mvc
         /// <param name="feed">The feed to be serialized to RSS format</param>
         public RssResult(SyndicationFeed feed)
         {
-            if (feed == null)
-                throw new ArgumentNullException("feed");
-
-            this.Feed = feed;
+            this.Feed = feed ?? throw new ArgumentNullException(nameof(feed));
         }
 
         public Task ExecuteResultAsync(ActionContext context)

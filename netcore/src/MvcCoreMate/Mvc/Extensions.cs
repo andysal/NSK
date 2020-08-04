@@ -15,7 +15,7 @@ namespace MvcCoreMate.Mvc
             {
                 serializer.Serialize(writer, data);
                 var json = writer.ToString();
-                return string.Format("{0}({1})", callbackName, json);
+                return $"{callbackName}({json})";
             }    
         }
     }

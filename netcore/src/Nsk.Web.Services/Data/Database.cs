@@ -27,18 +27,16 @@ namespace Nsk.Web.Services.Data
             using(var cn = new SqlConnection(connectionString))
             using(IDbCommand cmd = cn.CreateCommand())
             {
-                cmd.CommandText = "SELECT Picture FROM Categories WHERE CategoryID=" + categoryId;
+                cmd.CommandText = $"SELECT Picture FROM Categories WHERE CategoryID={categoryId}";
                 cmd.Connection = cn;
                 cn.Open();
-                using (IDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection))
+                using IDataReader myReader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (myReader.Read())
                 {
-                    while (myReader.Read())
-                    {
-                        imageRawData = (byte[])myReader.GetValue(0);
-                    }
+                    imageRawData = (byte[])myReader.GetValue(0);
                 }
             }
-            return byteArrayToImage(imageRawData, true);
+            return ByteArrayToImage(imageRawData, true);
         }
 
         public Image<Rgba32> GetProductThumbnail(int productId)
@@ -47,7 +45,7 @@ namespace Nsk.Web.Services.Data
             using (var cn = new SqlConnection(connectionString))
             using (IDbCommand cmd = cn.CreateCommand())
             {
-                cmd.CommandText = "SELECT CategoryID FROM Products WHERE ProductID=" + productId.ToString();
+                cmd.CommandText = $"SELECT CategoryID FROM Products WHERE ProductID={productId}";
                 cmd.Connection = cn;
                 cn.Open();
                 var categoryId = (int) cmd.ExecuteScalar();
@@ -55,7 +53,7 @@ namespace Nsk.Web.Services.Data
             }
         }
 
-        private Image<Rgba32> byteArrayToImage(byte[] byteArrayIn, bool stripOleHeader)
+        private Image<Rgba32> ByteArrayToImage(byte[] byteArrayIn, bool stripOleHeader)
         {
             int strippedImageLength = byteArrayIn.Length - (stripOleHeader ? 78 : 0);
             byte[] strippedImageData = new byte[strippedImageLength];

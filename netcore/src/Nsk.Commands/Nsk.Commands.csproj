@@ -13,7 +13,4 @@
     <ProjectReference Include="..\Nsk.Data\Nsk.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
 </Project>

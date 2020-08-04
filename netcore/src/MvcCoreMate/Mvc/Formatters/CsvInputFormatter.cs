@@ -28,7 +28,7 @@ namespace MvcCoreMate.Mvc.Formatters
         {
             var type = context.ModelType;
             if (type == null)
-                throw new ArgumentNullException("type");
+                throw new ArgumentNullException(nameof(context));
 
             return isTypeOfIEnumerable(type);
         }

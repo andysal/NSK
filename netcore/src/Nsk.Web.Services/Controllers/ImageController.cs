@@ -22,11 +22,9 @@ namespace Nsk.Web.Services.Controllers
         {
             try
             {
-                using (var image = Database.GetCategoryThumbnail(id))
-                {
-                    var result = BuildHttpResponse(image);
-                    return File(result, "image/jpeg");
-                }
+                using var image = Database.GetCategoryThumbnail(id);
+                var result = BuildHttpResponse(image);
+                return File(result, "image/jpeg");
             }
             catch (Exception)
             {
@@ -41,11 +39,9 @@ namespace Nsk.Web.Services.Controllers
         {
             try
             {
-                using (var image = Database.GetProductThumbnail(id))
-                {
-                    var result = BuildHttpResponse(image);
-                    return File(result, "image/jpeg");
-                }
+                using var image = Database.GetProductThumbnail(id);
+                var result = BuildHttpResponse(image);
+                return File(result, "image/jpeg");
             }
             catch (Exception)
             {
