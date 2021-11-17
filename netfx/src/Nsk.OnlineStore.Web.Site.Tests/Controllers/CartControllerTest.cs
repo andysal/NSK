@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +20,7 @@ namespace Nsk.OnlineStore.Web.Site.Tests.Controllers
         [TestMethod]
         public void Ctor_should_throw_on_null_workerServices_argument()
         {
-            Executing.This(() => new CartController(null))
-                .Should()
-                .Throw<ArgumentNullException>()
-                .And
-                .ValueOf
-                .ParamName
-                .Should()
-                .Be
-                .EqualTo("workerServices");
+            Executing.This(() => new CartController(null)).Should().Throw<ArgumentNullException>().And.ValueOf.ParamName.Should().Be.EqualTo("workerServices");
         }
 
         [TestMethod]

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,7 +13,6 @@ namespace Nsk.OnlineStore.Data.ReadModel
     public class Database : IDatabase
     {
         private NorthwindEntities Context;
-
         public Database()
         {
             Context = new NorthwindEntities();
@@ -74,6 +73,7 @@ namespace Nsk.OnlineStore.Data.ReadModel
                     }
                 }
             }
+
             return byteArrayToImage(imageRawData, true);
         }
 

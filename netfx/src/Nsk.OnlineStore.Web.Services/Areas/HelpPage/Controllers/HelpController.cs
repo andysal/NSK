@@ -12,9 +12,7 @@ namespace Nsk.OnlineStore.Web.Services.Areas.HelpPage.Controllers
     public class HelpController : Controller
     {
         private const string ErrorViewName = "Error";
-
-        public HelpController()
-            : this(GlobalConfiguration.Configuration)
+        public HelpController(): this(GlobalConfiguration.Configuration)
         {
         }
 

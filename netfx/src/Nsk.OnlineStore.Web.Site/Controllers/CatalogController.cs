@@ -1,4 +1,4 @@
-﻿using Nsk.OnlineStore.Web.Site.Models.Catalog;
+using Nsk.OnlineStore.Web.Site.Models.Catalog;
 using Nsk.OnlineStore.Web.Site.WorkerServices;
 using System;
 using System.Collections.Generic;
@@ -45,7 +45,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
         public ActionResult ProductsBySupplier(int supplierId)
         {
             var model = WorkerServices.GetProductsBySupplierViewModel(supplierId);
-            if (model==null)
+            if (model == null)
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
             return View(model);
         }
@@ -68,10 +68,11 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
         [HttpPost]
         public ActionResult Search(SearchViewModel model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
+
             model = WorkerServices.PostSearchViewModel(model);
             return View(model);
         }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Claims;
@@ -25,13 +25,11 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+        public AccountController(ApplicationUserManager userManager, ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
@@ -43,6 +41,7 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
             {
                 return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
+
             private set
             {
                 _userManager = value;
@@ -57,13 +56,7 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
         public UserInfoViewModel GetUserInfo()
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
-
-            return new UserInfoViewModel
-            {
-                Email = User.Identity.GetUserName(),
-                HasRegistered = externalLogin == null,
-                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
-            };
+            return new UserInfoViewModel{Email = User.Identity.GetUserName(), HasRegistered = externalLogin == null, LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null};
         }
 
         // POST api/Account/Logout
@@ -79,39 +72,23 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
         public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
         {
             IdentityUser user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-
             if (user == null)
             {
                 return null;
             }
 
             List<UserLoginInfoViewModel> logins = new List<UserLoginInfoViewModel>();
-
             foreach (IdentityUserLogin linkedAccount in user.Logins)
             {
-                logins.Add(new UserLoginInfoViewModel
-                {
-                    LoginProvider = linkedAccount.LoginProvider,
-                    ProviderKey = linkedAccount.ProviderKey
-                });
+                logins.Add(new UserLoginInfoViewModel{LoginProvider = linkedAccount.LoginProvider, ProviderKey = linkedAccount.ProviderKey});
             }
 
             if (user.PasswordHash != null)
             {
-                logins.Add(new UserLoginInfoViewModel
-                {
-                    LoginProvider = LocalLoginProvider,
-                    ProviderKey = user.UserName,
-                });
+                logins.Add(new UserLoginInfoViewModel{LoginProvider = LocalLoginProvider, ProviderKey = user.UserName, });
             }
 
-            return new ManageInfoViewModel
-            {
-                LocalLoginProvider = LocalLoginProvider,
-                Email = user.UserName,
-                Logins = logins,
-                ExternalLoginProviders = GetExternalLogins(returnUrl, generateState)
-            };
+            return new ManageInfoViewModel{LocalLoginProvider = LocalLoginProvider, Email = user.UserName, Logins = logins, ExternalLoginProviders = GetExternalLogins(returnUrl, generateState)};
         }
 
         // POST api/Account/ChangePassword
@@ -123,9 +100,7 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
-                model.NewPassword);
-            
+            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -144,7 +119,6 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
             }
 
             IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
-
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -163,26 +137,19 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
             }
 
             Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-
             AuthenticationTicket ticket = AccessTokenFormat.Unprotect(model.ExternalAccessToken);
-
-            if (ticket == null || ticket.Identity == null || (ticket.Properties != null
-                && ticket.Properties.ExpiresUtc.HasValue
-                && ticket.Properties.ExpiresUtc.Value < DateTimeOffset.UtcNow))
+            if (ticket == null || ticket.Identity == null || (ticket.Properties != null && ticket.Properties.ExpiresUtc.HasValue && ticket.Properties.ExpiresUtc.Value < DateTimeOffset.UtcNow))
             {
                 return BadRequest("External login failure.");
             }
 
             ExternalLoginData externalData = ExternalLoginData.FromIdentity(ticket.Identity);
-
             if (externalData == null)
             {
                 return BadRequest("The external login is already associated with an account.");
             }
 
-            IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(),
-                new UserLoginInfo(externalData.LoginProvider, externalData.ProviderKey));
-
+            IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(externalData.LoginProvider, externalData.ProviderKey));
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -201,15 +168,13 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
             }
 
             IdentityResult result;
-
             if (model.LoginProvider == LocalLoginProvider)
             {
                 result = await UserManager.RemovePasswordAsync(User.Identity.GetUserId());
             }
             else
             {
-                result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(),
-                    new UserLoginInfo(model.LoginProvider, model.ProviderKey));
+                result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(model.LoginProvider, model.ProviderKey));
             }
 
             if (!result.Succeeded)
@@ -238,7 +203,6 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
             }
 
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
-
             if (externalLogin == null)
             {
                 return InternalServerError();
@@ -250,20 +214,13 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
                 return new ChallengeResult(provider, this);
             }
 
-            ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
-                externalLogin.ProviderKey));
-
+            ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider, externalLogin.ProviderKey));
             bool hasRegistered = user != null;
-
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
-                ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    CookieAuthenticationDefaults.AuthenticationType);
-
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager, OAuthDefaults.AuthenticationType);
+                ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager, CookieAuthenticationDefaults.AuthenticationType);
                 AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
@@ -284,9 +241,7 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
         {
             IEnumerable<AuthenticationDescription> descriptions = Authentication.GetExternalAuthenticationTypes();
             List<ExternalLoginViewModel> logins = new List<ExternalLoginViewModel>();
-
             string state;
-
             if (generateState)
             {
                 const int strengthInBits = 256;
@@ -299,19 +254,12 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
 
             foreach (AuthenticationDescription description in descriptions)
             {
-                ExternalLoginViewModel login = new ExternalLoginViewModel
+                ExternalLoginViewModel login = new ExternalLoginViewModel{Name = description.Caption, Url = Url.Route("ExternalLogin", new
                 {
-                    Name = description.Caption,
-                    Url = Url.Route("ExternalLogin", new
-                    {
-                        provider = description.AuthenticationType,
-                        response_type = "token",
-                        client_id = Startup.PublicClientId,
-                        redirect_uri = new Uri(Request.RequestUri, returnUrl).AbsoluteUri,
-                        state = state
-                    }),
-                    State = state
-                };
+                provider = description.AuthenticationType, response_type = "token", client_id = Startup.PublicClientId, redirect_uri = new Uri(Request.RequestUri, returnUrl).AbsoluteUri, state = state
+                }
+
+                ), State = state};
                 logins.Add(login);
             }
 
@@ -328,10 +276,9 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-
+            var user = new ApplicationUser()
+            {UserName = model.Email, Email = model.Email};
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -357,8 +304,8 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
                 return InternalServerError();
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-
+            var user = new ApplicationUser()
+            {UserName = model.Email, Email = model.Email};
             IdentityResult result = await UserManager.CreateAsync(user);
             if (!result.Succeeded)
             {
@@ -368,8 +315,9 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
+
             return Ok();
         }
 
@@ -384,11 +332,13 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
             base.Dispose(disposing);
         }
 
-        #region Helpers
-
+#region Helpers
         private IAuthenticationManager Authentication
         {
-            get { return Request.GetOwinContext().Authentication; }
+            get
+            {
+                return Request.GetOwinContext().Authentication;
+            }
         }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
@@ -423,14 +373,15 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
         private class ExternalLoginData
         {
             public string LoginProvider { get; set; }
+
             public string ProviderKey { get; set; }
+
             public string UserName { get; set; }
 
             public IList<Claim> GetClaims()
             {
                 IList<Claim> claims = new List<Claim>();
                 claims.Add(new Claim(ClaimTypes.NameIdentifier, ProviderKey, null, LoginProvider));
-
                 if (UserName != null)
                 {
                     claims.Add(new Claim(ClaimTypes.Name, UserName, null, LoginProvider));
@@ -447,9 +398,7 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
                 }
 
                 Claim providerKeyClaim = identity.FindFirst(ClaimTypes.NameIdentifier);
-
-                if (providerKeyClaim == null || String.IsNullOrEmpty(providerKeyClaim.Issuer)
-                    || String.IsNullOrEmpty(providerKeyClaim.Value))
+                if (providerKeyClaim == null || String.IsNullOrEmpty(providerKeyClaim.Issuer) || String.IsNullOrEmpty(providerKeyClaim.Value))
                 {
                     return null;
                 }
@@ -459,36 +408,27 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
                     return null;
                 }
 
-                return new ExternalLoginData
-                {
-                    LoginProvider = providerKeyClaim.Issuer,
-                    ProviderKey = providerKeyClaim.Value,
-                    UserName = identity.FindFirstValue(ClaimTypes.Name)
-                };
+                return new ExternalLoginData{LoginProvider = providerKeyClaim.Issuer, ProviderKey = providerKeyClaim.Value, UserName = identity.FindFirstValue(ClaimTypes.Name)};
             }
         }
 
         private static class RandomOAuthStateGenerator
         {
             private static RandomNumberGenerator _random = new RNGCryptoServiceProvider();
-
             public static string Generate(int strengthInBits)
             {
                 const int bitsPerByte = 8;
-
                 if (strengthInBits % bitsPerByte != 0)
                 {
                     throw new ArgumentException("strengthInBits must be evenly divisible by 8.", "strengthInBits");
                 }
 
                 int strengthInBytes = strengthInBits / bitsPerByte;
-
                 byte[] data = new byte[strengthInBytes];
                 _random.GetBytes(data);
                 return HttpServerUtility.UrlTokenEncode(data);
             }
         }
-
-        #endregion
+#endregion
     }
 }

@@ -1,4 +1,4 @@
-﻿using Nsk.OnlineStore.Web.Site.Models.Home;
+using Nsk.OnlineStore.Web.Site.Models.Home;
 using Nsk.OnlineStore.Web.Site.WorkerServices;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
         }
 
         [HttpGet]
-        [OutputCache(Duration=30)]
+        [OutputCache(Duration = 30)]
         public ActionResult Index()
         {
             var model = WorkerServices.GetIndexViewModel();
@@ -37,19 +37,17 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
         public ActionResult About()
         {
             //ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
         [HttpGet]
-        [OutputCache(Duration=30)]
+        [OutputCache(Duration = 30)]
         public ActionResult SiteMap()
         {
             var model = WorkerServices.GetSiteMapViewModel();

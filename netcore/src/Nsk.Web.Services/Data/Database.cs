@@ -20,7 +20,7 @@ namespace Nsk.Web.Services.Data
             ConnectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));    
         }
 
-        public Image<Rgba32> GetCategoryThumbnail(int categoryId)
+        public Image GetCategoryThumbnail(int categoryId)
         {
             byte[] imageRawData = null;
             var connectionString = this.ConnectionString;
@@ -39,7 +39,7 @@ namespace Nsk.Web.Services.Data
             return ByteArrayToImage(imageRawData, true);
         }
 
-        public Image<Rgba32> GetProductThumbnail(int productId)
+        public Image GetProductThumbnail(int productId)
         {
             var connectionString = this.ConnectionString;
             using (var cn = new SqlConnection(connectionString))
@@ -53,7 +53,7 @@ namespace Nsk.Web.Services.Data
             }
         }
 
-        private Image<Rgba32> ByteArrayToImage(byte[] byteArrayIn, bool stripOleHeader)
+        private Image ByteArrayToImage(byte[] byteArrayIn, bool stripOleHeader)
         {
             int strippedImageLength = byteArrayIn.Length - (stripOleHeader ? 78 : 0);
             byte[] strippedImageData = new byte[strippedImageLength];

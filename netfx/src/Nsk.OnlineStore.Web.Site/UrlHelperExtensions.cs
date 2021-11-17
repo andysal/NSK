@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,24 +12,7 @@ namespace Nsk.OnlineStore.Web.Site
     {
         public static string Beautify(string url)
         {
-            string beautifiedUrl = url
-                                    .Replace(" ", "-")
-                                    .Replace("'", "-")
-                                    .Replace("/", "-")
-                                    .Replace(".", "-")
-                                    .Replace(",", "-")
-                                    .Replace("--", "-")
-                                    .Replace("@", "-at-")
-                                    .Replace(":", "")
-                                    .Replace("?", "")
-                                    .Replace("%", "")
-                                    .Replace("&", "-and-")
-                                    .Replace("&amp;", "-and-")
-                                    .Replace("\"", "")
-                                    .Replace("\\", "")
-                                    .Replace("(", "")
-                                    .Replace(")", "");
-
+            string beautifiedUrl = url.Replace(" ", "-").Replace("'", "-").Replace("/", "-").Replace(".", "-").Replace(",", "-").Replace("--", "-").Replace("@", "-at-").Replace(":", "").Replace("?", "").Replace("%", "").Replace("&", "-and-").Replace("&amp;", "-and-").Replace("\"", "").Replace("\\", "").Replace("(", "").Replace(")", "");
             return beautifiedUrl;
         }
 
@@ -49,7 +32,6 @@ namespace Nsk.OnlineStore.Web.Site
             //                            .Replace("&amp;", "-and-")
             //                            .Replace("\"", "")
             //                            .Replace("\\", "");
-
             string beautifiedUrl = Beautify(url);
             return helper.Encode(beautifiedUrl);
         }

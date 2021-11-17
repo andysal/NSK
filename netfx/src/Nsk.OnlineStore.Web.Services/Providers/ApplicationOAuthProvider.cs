@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -16,7 +16,6 @@ namespace Nsk.OnlineStore.Web.Services.Providers
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {
         private readonly string _publicClientId;
-
         public ApplicationOAuthProvider(string publicClientId)
         {
             if (publicClientId == null)
@@ -30,20 +29,15 @@ namespace Nsk.OnlineStore.Web.Services.Providers
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
-
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
-
             if (user == null)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");
                 return;
             }
 
-            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager,
-               OAuthDefaults.AuthenticationType);
-            ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager,
-                CookieAuthenticationDefaults.AuthenticationType);
-
+            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, OAuthDefaults.AuthenticationType);
+            ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(userManager, CookieAuthenticationDefaults.AuthenticationType);
             AuthenticationProperties properties = CreateProperties(user.UserName);
             AuthenticationTicket ticket = new AuthenticationTicket(oAuthIdentity, properties);
             context.Validated(ticket);
@@ -76,7 +70,6 @@ namespace Nsk.OnlineStore.Web.Services.Providers
             if (context.ClientId == _publicClientId)
             {
                 Uri expectedRootUri = new Uri(context.Request.Uri, "/");
-
                 if (expectedRootUri.AbsoluteUri == context.RedirectUri)
                 {
                     context.Validated();
@@ -88,10 +81,7 @@ namespace Nsk.OnlineStore.Web.Services.Providers
 
         public static AuthenticationProperties CreateProperties(string userName)
         {
-            IDictionary<string, string> data = new Dictionary<string, string>
-            {
-                { "userName", userName }
-            };
+            IDictionary<string, string> data = new Dictionary<string, string>{{"userName", userName}};
             return new AuthenticationProperties(data);
         }
     }

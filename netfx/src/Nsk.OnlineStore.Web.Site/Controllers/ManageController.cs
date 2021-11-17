@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -15,7 +15,6 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
         public ManageController()
         {
         }
@@ -32,9 +31,10 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -44,6 +44,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
+
             private set
             {
                 _userManager = value;
@@ -54,24 +55,9 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
-                : "";
-
+            ViewBag.StatusMessage = message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed." : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set." : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set." : message == ManageMessageId.Error ? "An error has occurred." : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added." : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed." : "";
             var userId = User.Identity.GetUserId();
-            var model = new IndexViewModel
-            {
-                HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
-            };
+            var model = new IndexViewModel{HasPassword = HasPassword(), PhoneNumber = await UserManager.GetPhoneNumberAsync(userId), TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId), Logins = await UserManager.GetLoginsAsync(userId), BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)};
             return View(model);
         }
 
@@ -90,13 +76,20 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
+
                 message = ManageMessageId.RemoveLoginSuccess;
             }
             else
             {
                 message = ManageMessageId.Error;
             }
-            return RedirectToAction("ManageLogins", new { Message = message });
+
+            return RedirectToAction("ManageLogins", new
+            {
+            Message = message
+            }
+
+            );
         }
 
         //
@@ -116,18 +109,21 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 return View(model);
             }
+
             // Generate the token and send it
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), model.Number);
             if (UserManager.SmsService != null)
             {
-                var message = new IdentityMessage
-                {
-                    Destination = model.Number,
-                    Body = "Your security code is: " + code
-                };
+                var message = new IdentityMessage{Destination = model.Number, Body = "Your security code is: " + code};
                 await UserManager.SmsService.SendAsync(message);
             }
-            return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
+
+            return RedirectToAction("VerifyPhoneNumber", new
+            {
+            PhoneNumber = model.Number
+            }
+
+            );
         }
 
         //
@@ -142,6 +138,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
+
             return RedirectToAction("Index", "Manage");
         }
 
@@ -157,6 +154,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
+
             return RedirectToAction("Index", "Manage");
         }
 
@@ -166,7 +164,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
         {
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
             // Send an SMS through the SMS provider to verify the phone number
-            return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
+            return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel{PhoneNumber = phoneNumber});
         }
 
         //
@@ -179,6 +177,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 return View(model);
             }
+
             var result = await UserManager.ChangePhoneNumberAsync(User.Identity.GetUserId(), model.PhoneNumber, model.Code);
             if (result.Succeeded)
             {
@@ -187,8 +186,15 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.AddPhoneSuccess });
+
+                return RedirectToAction("Index", new
+                {
+                Message = ManageMessageId.AddPhoneSuccess
+                }
+
+                );
             }
+
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "Failed to verify phone");
             return View(model);
@@ -201,14 +207,26 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
             if (!result.Succeeded)
             {
-                return RedirectToAction("Index", new { Message = ManageMessageId.Error });
+                return RedirectToAction("Index", new
+                {
+                Message = ManageMessageId.Error
+                }
+
+                );
             }
+
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user != null)
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
-            return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
+
+            return RedirectToAction("Index", new
+            {
+            Message = ManageMessageId.RemovePhoneSuccess
+            }
+
+            );
         }
 
         //
@@ -228,6 +246,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 return View(model);
             }
+
             var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             if (result.Succeeded)
             {
@@ -236,8 +255,15 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+
+                return RedirectToAction("Index", new
+                {
+                Message = ManageMessageId.ChangePasswordSuccess
+                }
+
+                );
             }
+
             AddErrors(result);
             return View(model);
         }
@@ -265,8 +291,15 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     }
-                    return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
+
+                    return RedirectToAction("Index", new
+                    {
+                    Message = ManageMessageId.SetPasswordSuccess
+                    }
+
+                    );
                 }
+
                 AddErrors(result);
             }
 
@@ -278,23 +311,17 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
         // GET: /Manage/ManageLogins
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
-            ViewBag.StatusMessage =
-                message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : "";
+            ViewBag.StatusMessage = message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed." : message == ManageMessageId.Error ? "An error has occurred." : "";
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)
             {
                 return View("Error");
             }
+
             var userLogins = await UserManager.GetLoginsAsync(User.Identity.GetUserId());
             var otherLogins = AuthenticationManager.GetExternalAuthenticationTypes().Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider)).ToList();
             ViewBag.ShowRemoveButton = user.PasswordHash != null || userLogins.Count > 1;
-            return View(new ManageLoginsViewModel
-            {
-                CurrentLogins = userLogins,
-                OtherLogins = otherLogins
-            });
+            return View(new ManageLoginsViewModel{CurrentLogins = userLogins, OtherLogins = otherLogins});
         }
 
         //
@@ -314,10 +341,21 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
             if (loginInfo == null)
             {
-                return RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+                return RedirectToAction("ManageLogins", new
+                {
+                Message = ManageMessageId.Error
+                }
+
+                );
             }
+
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
-            return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
+            return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new
+            {
+            Message = ManageMessageId.Error
+            }
+
+            );
         }
 
         protected override void Dispose(bool disposing)
@@ -334,7 +372,6 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
 #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
-
         private IAuthenticationManager AuthenticationManager
         {
             get
@@ -358,6 +395,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 return user.PasswordHash != null;
             }
+
             return false;
         }
 
@@ -368,6 +406,7 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             {
                 return user.PhoneNumber != null;
             }
+
             return false;
         }
 
@@ -381,7 +420,6 @@ namespace Nsk.OnlineStore.Web.Site.Controllers
             RemovePhoneSuccess,
             Error
         }
-
 #endregion
     }
 }

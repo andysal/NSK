@@ -1,4 +1,4 @@
-﻿using Microsoft.Owin;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Nsk.OnlineStore.Web.Site.Startup))]

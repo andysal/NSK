@@ -50,7 +50,7 @@ namespace Nsk.Web.Services.Controllers
 
         }
 
-        private static MemoryStream BuildHttpResponse(Image<Rgba32> image)
+        private static MemoryStream BuildHttpResponse(Image image)
         {
             var memoryStream = new MemoryStream();
             image.SaveAsJpeg(memoryStream);
