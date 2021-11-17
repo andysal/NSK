@@ -1,4 +1,5 @@
 @model IEnumerable<Nsk.Web.Site.Models.Shared.Product>
+@inject UrlBuilder UrlBuilder;
 @foreach (var product in Model)
 {
     <li itemscope itemtype="http://schema.org/Product" class="col-md-3">

@@ -54,6 +54,8 @@ namespace Nsk.Web.Site
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddTransient<UrlBuilder>();
+
             services.Add(
                 new ServiceDescriptor(
                     typeof(IActionResultExecutor<JsonResult>),

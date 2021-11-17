@@ -1,5 +1,5 @@
 ﻿@model Nsk.Web.Site.Models.Catalog.ProductDetailViewModel
-
+@inject UrlBuilder UrlBuilder;
 @{
     ViewBag.Title = string.Format("{0} - NSK - {1}", Model.Name, Model.CategoryName);
 }
