@@ -42,7 +42,7 @@ namespace Nsk.Web.Site
 
         public string BuildSearchResultPageUrl(string query)
         {
-            return string.Format("/s/{0}", query);
+            return $"/s/{query}";
         }
     }
 }

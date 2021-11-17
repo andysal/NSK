@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>Nsk.Web.Site</AssemblyName>
     <PackageId>Nsk.Web.Site</PackageId>
-    <UserSecretsId>aspnet-Nsk.Web.Site-6b0da5ce-9fc6-4286-b47c-e0ec62b49f37</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

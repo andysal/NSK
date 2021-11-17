@@ -1,0 +1,4 @@
+﻿build:
+  env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: AWS
