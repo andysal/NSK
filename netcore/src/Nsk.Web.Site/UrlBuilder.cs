@@ -2,6 +2,8 @@
 {
     public static class UrlBuilder
     {
+        static string baseUrl = "http://localhost:5002";
+        //static string baseUrl = "http://NskWe-Recip-1GZ2THEA7IHVX-1990822341.eu-west-1.elb.amazonaws.com";
         public static string BuildProductsByCategoryPageUrl(int categoryId, string categoryName)
         {
             return string.Format("/catalog/c/{0}/{1}", categoryId, UrlHelperExtensions.Beautify(categoryName));
@@ -19,12 +21,12 @@
 
         public static string BuildCategoryThumbnailUrl(int categoryId)
         {
-            return string.Format("http://localhost:5002/image/category/{0}", categoryId);
+            return $"{baseUrl}/image/category/{categoryId})";
         }
 
         public static string BuildProductThumbnailUrl(int productId)
         {
-            return string.Format("http://localhost:5002/image/product/{0}", productId);
+            return $"{baseUrl}/image/product/{productId}";
         }
 
         public static string BuildSearchResultPageUrl(string query)

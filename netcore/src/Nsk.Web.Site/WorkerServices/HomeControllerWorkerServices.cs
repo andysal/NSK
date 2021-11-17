@@ -20,8 +20,8 @@ namespace Nsk.Web.Site.WorkerServices
             var model = new IndexViewModel();
             model.BestSellingProducts = (from p in Database
                                        .Products
-                                       //.ForSale()
-                                       //.BestSelling()
+                                       .ForSale()
+                                       .BestSelling()
                                        .Take(4)
                                         select new Nsk.Web.Site.Models.Shared.Product
                                         {
