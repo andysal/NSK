@@ -1,35 +1,48 @@
-﻿namespace Nsk.Web.Site
+﻿using System;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+
+namespace Nsk.Web.Site
 {
-    public static class UrlBuilder
+    public class UrlBuilder
     {
-        public static string BuildProductsByCategoryPageUrl(int categoryId, string categoryName)
+        public IConfiguration Configuration { get; private set; }
+        string baseUrl;
+
+        public UrlBuilder(IConfiguration configuration)
+        {
+            Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            baseUrl = Configuration.GetValue<string>("ImageBaseUrl");
+        }
+
+        public string BuildProductsByCategoryPageUrl(int categoryId, string categoryName)
         {
             return string.Format("/catalog/c/{0}/{1}", categoryId, UrlHelperExtensions.Beautify(categoryName));
         }
 
-        public static string BuildProductsBySupplierPageUrl(int supplierId, string supplierName)
+        public string BuildProductsBySupplierPageUrl(int supplierId, string supplierName)
         {
             return string.Format("/catalog/s/{0}/{1}", supplierId, UrlHelperExtensions.Beautify(supplierName));
         }
 
-        public static string BuildProductPageUrl(int productId, string productName)
+        public string BuildProductPageUrl(int productId, string productName)
         {
             return string.Format("/product/{0}/{1}", productId, UrlHelperExtensions.Beautify(productName));
         }
 
-        public static string BuildCategoryThumbnailUrl(int categoryId)
+        public string BuildCategoryThumbnailUrl(int categoryId)
         {
-            return string.Format("http://localhost:5002/image/category/{0}", categoryId);
+            return $"{baseUrl}/image/category/{categoryId})";
         }
 
-        public static string BuildProductThumbnailUrl(int productId)
+        public string BuildProductThumbnailUrl(int productId)
         {
-            return string.Format("http://localhost:5002/image/product/{0}", productId);
+            return $"{baseUrl}/image/product/{productId}";
         }
 
-        public static string BuildSearchResultPageUrl(string query)
+        public string BuildSearchResultPageUrl(string query)
         {
-            return string.Format("/s/{0}", query);
+            return $"/s/{query}";
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29021.104
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{82193C2B-07E4-46AA-BF6A-0A1E25F0647B}"
 EndProject
@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsk.Web.Site", "src\Nsk.Web
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsk.Web.Services", "src\Nsk.Web.Services\Nsk.Web.Services.csproj", "{F8BCAE52-D1CA-409D-BD07-6F406978B59E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nsk.Web.Site.Areas.Admin", "src\Nsk.Web.Site.Areas.Admin\Nsk.Web.Site.Areas.Admin.csproj", "{471C51E5-30FC-4395-AD40-9FE4D50D6B3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nsk.Web.Site.Areas.Admin", "src\Nsk.Web.Site.Areas.Admin\Nsk.Web.Site.Areas.Admin.csproj", "{471C51E5-30FC-4395-AD40-9FE4D50D6B3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

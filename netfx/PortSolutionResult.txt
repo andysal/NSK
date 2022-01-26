@@ -1,0 +1,362 @@
+==========
+References
+==========
+<global namespace>
+Nsk
+Nsk.OnlineStore
+System
+System.Collections
+Nsk.OnlineStore.Data
+System.Threading
+Nsk.OnlineStore.Data.ReadModel
+System.Data
+System.Drawing
+System.Data.SqlClient
+System.IO
+System.Data.Entity
+System.Data.Entity.Infrastructure
+System.Linq
+System.Runtime
+System.Collections.Generic
+System.Web.SessionState
+System.Text
+System.Threading.Tasks
+System.Reflection
+System.Runtime.CompilerServices
+System.Runtime.InteropServices
+System.Web
+project.all
+Nsk.OnlineStore.Web
+Nsk.OnlineStore.Web.Site
+Nsk.OnlineStore.Web.Site.Models
+Nsk.OnlineStore.Web.Site.Controllers
+Nsk.OnlineStore.Web.Site.WorkerServices
+Nsk.OnlineStore.Web.Site.Models.Cart
+Nsk.OnlineStore.Web.Site.Models.Catalog
+Nsk.OnlineStore.Web.Site.Models.Home
+Nsk.OnlineStore.Web.Site.Migrations
+Nsk.OnlineStore.Web.Site.Areas
+Nsk.OnlineStore.Web.Site.Areas.My
+Nsk.OnlineStore.Web.Site.Areas.My.Controllers
+System.Web.Mvc
+System.Web.Optimization
+System.Web.Routing
+Microsoft.Owin
+Owin
+System.Security.Claims
+Microsoft.AspNet.Identity
+Microsoft.AspNet.Identity.EntityFramework
+Microsoft.AspNet.Identity.Owin
+Microsoft.Owin.Security
+Microsoft.Owin.Security.Cookies
+Microsoft.Owin.Security.Google
+Nsk.OnlineStore.Commands
+Unity
+Unity.Injection
+Unity.AspNet.Mvc
+System.Globalization
+System.Net
+MvcMate.Web.Mvc
+System.ComponentModel.DataAnnotations
+System.ServiceModel.Syndication
+System.ComponentModel
+Nsk.OnlineStore.Web.Site.Tests
+Nsk.OnlineStore.Web.Site.Tests.Controllers
+SharpTestsEx
+Nsk.OnlineStore.Web.Site.Tests.WorkerServices
+Microsoft.VisualStudio.TestTools.UnitTesting
+Moq
+Nsk.OnlineStore.Web.Services
+Nsk.OnlineStore.Web.Services.Models
+Nsk.OnlineStore.Web.Services.Providers
+Nsk.OnlineStore.Web.Services.Controllers
+Nsk.OnlineStore.Web.Services.Results
+Nsk.OnlineStore.Web.Services.Areas
+Nsk.OnlineStore.Web.Services.Areas.HelpPage
+Nsk.OnlineStore.Web.Services.Areas.HelpPage.ModelDescriptions
+Nsk.OnlineStore.Web.Services.Areas.HelpPage.Models
+Nsk.OnlineStore.Web.Services.Areas.HelpPage.Controllers
+System.Web.Http
+Microsoft.Owin.Security.OAuth
+Unity.AspNet.WebApi
+System.Net.Http
+Newtonsoft.Json.Serialization
+System.Security.Cryptography
+System.Web.Http.ModelBinding
+System.Drawing.Imaging
+System.Net.Http.Headers
+Newtonsoft.Json
+System.Web.Http.Description
+System.Collections.ObjectModel
+System.Diagnostics
+System.Diagnostics.CodeAnalysis
+System.Web.Http.Controllers
+System.Xml.XPath
+System.Collections.Specialized
+System.Runtime.Serialization
+System.Xml.Serialization
+System.Net.Http.Formatting
+System.Xml.Linq
+Nsk.OnlineStore.Commands.Tests
+Nsk.OnlineStore.Web.Services.Tests
+Nsk.OnlineStore.Web.Services.Tests.Controllers
+Nsk.OnlineStore.Data.Tests
+
+===============
+DownloadedFiles
+===============
+system.web.http.json
+system.collections.specialized.json
+microsoft.owin.security.json
+system.web.mvc.json
+microsoft.aspnet.identity.owin.json
+system.web.json
+project.all.json
+microsoft.owin.json
+system.data.entity.json
+owin.json
+system.data.sqlclient.json
+
+==============
+ProjectResults
+==============
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Commands\Nsk.OnlineStore.Commands.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Commands.Tests\Nsk.OnlineStore.Commands.Tests.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Web.Services.Tests\Nsk.OnlineStore.Web.Services.Tests.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Data.Tests\Nsk.OnlineStore.Data.Tests.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Web.Site.Tests\Nsk.OnlineStore.Web.Site.Tests.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Data\Nsk.OnlineStore.Data.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+Microsoft.Data.SqlClient,*
+Microsoft.EntityFrameworkCore,5.0.12
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Web.Site\Nsk.OnlineStore.Web.Site.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+Microsoft.AspNetCore.Owin,5.0.12
+Microsoft.EntityFrameworkCore,5.0.12
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Web.Services\Nsk.OnlineStore.Web.Services.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+Microsoft.AspNetCore.Owin,5.0.12
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Web.Services.Tests\Nsk.OnlineStore.Web.Services.Tests.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Commands\Nsk.OnlineStore.Commands.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Commands.Tests\Nsk.OnlineStore.Commands.Tests.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Data.Tests\Nsk.OnlineStore.Data.Tests.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Web.Site.Tests\Nsk.OnlineStore.Web.Site.Tests.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Data\Nsk.OnlineStore.Data.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+Microsoft.Data.SqlClient,*
+Microsoft.EntityFrameworkCore,5.0.12
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Web.Services\Nsk.OnlineStore.Web.Services.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+Microsoft.AspNetCore.Owin,5.0.12
+
+----------------------
+Showing results for: D:\andys\Dev\NSK\netfx\src\Nsk.OnlineStore.Web.Site\Nsk.OnlineStore.Web.Site.csproj
+----------------------
+---------------------------
+Target Versions:
+---------------------------
+net5.0
+---------------------------
+Upgrade packages:
+---------------------------
+---------------------------
+Action packages:
+---------------------------
+Microsoft.AspNetCore.Owin,5.0.12
+Microsoft.EntityFrameworkCore,5.0.12
+
+
+===========
+BuildErrors
+===========
+
+

@@ -1,4 +1,4 @@
-﻿using Nsk.OnlineStore.Data.ReadModel;
+using Nsk.OnlineStore.Data.ReadModel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,29 +20,26 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
         {
             if (database == null)
                 throw new ArgumentNullException("database");
-
             this.Database = database;
         }
 
         [HttpGet]
         public HttpResponseMessage Category(int id)
         {
-            
             var image = Database.GetCategoryThumbnail(id);
             var result = BuildHttpResponse(image);
-
             return result;
         }
 
         [HttpGet]
         public HttpResponseMessage Product(int id)
         {
-            var categoryId = (from p in Database.Products
-                              where p.Id == id
-                              select p.CategoryID.Value).First();
+            var categoryId = (
+                from p in Database.Products
+                where p.Id == id
+                select p.CategoryID.Value).First();
             var image = Database.GetCategoryThumbnail(categoryId);
             var result = BuildHttpResponse(image);
-
             return result;
         }
 
@@ -55,7 +52,5 @@ namespace Nsk.OnlineStore.Web.Services.Controllers
             result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
             return result;
         }
-
-
     }
 }

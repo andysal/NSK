@@ -1,6 +1,9 @@
 ﻿using System;
 using System.IO;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Nsk.Web.Services.Data;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -14,6 +17,12 @@ namespace Nsk.Web.Services.Controllers
         public ImageController(IDatabase database)
         {
             this.Database = database ?? throw new ArgumentNullException(nameof(database));
+        }
+
+        [HttpGet]
+        public string Environment([FromServices] IWebHostEnvironment environment)
+        {
+            return environment.EnvironmentName;
         }
 
         [HttpGet]
@@ -50,7 +59,7 @@ namespace Nsk.Web.Services.Controllers
 
         }
 
-        private static MemoryStream BuildHttpResponse(Image<Rgba32> image)
+        private static MemoryStream BuildHttpResponse(Image image)
         {
             var memoryStream = new MemoryStream();
             image.SaveAsJpeg(memoryStream);
