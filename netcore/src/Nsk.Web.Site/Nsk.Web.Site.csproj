@@ -1,36 +1,50 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AssemblyName>Nsk.Web.Site</AssemblyName>
-    <PackageId>Nsk.Web.Site</PackageId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<AssemblyName>Nsk.Web.Site</AssemblyName>
+		<PackageId>Nsk.Web.Site</PackageId>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MvcCoreMate\MvcCoreMate.csproj" />
-    <ProjectReference Include="..\Nsk.Data\Nsk.Data.csproj" />
-    <ProjectReference Include="..\Nsk.Commands\Nsk.Commands.csproj" />
-    <ProjectReference Include="..\Nsk.Web.Site.Areas.Admin\Nsk.Web.Site.Areas.Admin.csproj" />
-    <ProjectReference Include="..\Nsk.Web.Site.Areas.My\Nsk.Web.Site.Areas.My.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+	  <Content Remove="libman.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />    
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup>
+	  <None Include="libman.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\lib\jqueri-ui\.bower.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\MvcCoreMate\MvcCoreMate.csproj" />
+		<ProjectReference Include="..\Nsk.Data\Nsk.Data.csproj" />
+		<ProjectReference Include="..\Nsk.Commands\Nsk.Commands.csproj" />
+		<ProjectReference Include="..\Nsk.Web.Site.Areas.Admin\Nsk.Web.Site.Areas.Admin.csproj" />
+		<ProjectReference Include="..\Nsk.Web.Site.Areas.My\Nsk.Web.Site.Areas.My.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="bundleconfig.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 </Project>

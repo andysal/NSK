@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace Nsk.Web.Site
 {
@@ -12,7 +13,6 @@ namespace Nsk.Web.Site
         {
             Configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             baseUrl = Configuration.GetValue<string>("ImageBaseUrl");
-
         }
 
         public string BuildProductsByCategoryPageUrl(int categoryId, string categoryName)
